@@ -1,0 +1,144 @@
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Container from "@/components/ui/Container";
+import AnimatedEntry from "@/components/ui/AnimatedEntry";
+import { getSiteConfig } from "@/lib/content";
+
+export const metadata = {
+  title: "הצהרת נגישות | yahav's",
+  description: "הצהרת נגישות לאתר yahav's בהתאם לתקן הישראלי SI 5568 ו-WCAG 2.1 AA.",
+};
+
+export default async function AccessibilityPage() {
+  const siteConfig = await getSiteConfig();
+  const today = new Date().toLocaleDateString("he-IL", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  return (
+    <>
+      <Header navItems={siteConfig.navItems} />
+
+      <main id="main-content" className="flex-1 pt-32 pb-20">
+        <Container>
+          <div className="mx-auto max-w-2xl">
+            <AnimatedEntry>
+              <h1 className="text-[clamp(1.8rem,3.5vw,3rem)] font-bold leading-tight tracking-tight text-[var(--color-text-primary)]">
+                הצהרת נגישות
+              </h1>
+              <p className="mt-2 text-sm text-[var(--color-text-tertiary)]">
+                עודכן לאחרונה: {today}
+              </p>
+            </AnimatedEntry>
+
+            <AnimatedEntry delay={0.1}>
+              <div className="mt-10 space-y-8 text-base leading-relaxed text-[var(--color-text-secondary)]">
+
+                <section aria-labelledby="general">
+                  <h2 id="general" className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+                    כללי
+                  </h2>
+                  <p>
+                    אתר <strong>yahav&apos;s</strong> (להלן &ldquo;האתר&rdquo;) מחויב להנגיש את שירותיו לאנשים עם מוגבלויות בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ&rdquo;ח-1998, ולתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע&rdquo;ג-2013.
+                  </p>
+                  <p className="mt-3">
+                    האתר נבנה בהתאם לתקן הישראלי <strong>SI 5568</strong> ברמה AA, המבוסס על הנחיות <strong>WCAG 2.1</strong> של ארגון W3C.
+                  </p>
+                </section>
+
+                <section aria-labelledby="features">
+                  <h2 id="features" className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+                    אמצעי הנגישות באתר
+                  </h2>
+                  <ul className="list-disc space-y-2 ps-6">
+                    <li>תמיכה מלאה בניווט מקלדת ללא עכבר</li>
+                    <li>תגיות ARIA ו-semantic HTML לתאימות עם קוראי מסך</li>
+                    <li>היררכיית כותרות ברורה (H1–H6)</li>
+                    <li>טקסט חלופי לכל התמונות</li>
+                    <li>ניגודיות צבע עומדת בדרישות WCAG 2.1 AA (4.5:1 לפחות)</li>
+                    <li>כפתור דילוג לתוכן הראשי</li>
+                    <li>שפת האתר מוגדרת כראוי (lang=&ldquo;he&rdquo; + dir=&ldquo;rtl&rdquo;)</li>
+                    <li>תמיכה בהגדלת טקסט עד 200% ללא אובדן תוכן</li>
+                    <li>אנימציות ניתנות לעצירה</li>
+                    <li>כלי נגישות מובנה (כפתור כחול בפינה השמאלית התחתונה)</li>
+                  </ul>
+                </section>
+
+                <section aria-labelledby="a11y-tools">
+                  <h2 id="a11y-tools" className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+                    כלי הנגישות באתר
+                  </h2>
+                  <p>
+                    בפינה השמאלית התחתונה של האתר מופיע כפתור נגישות כחול. לחיצה עליו תפתח תפריט נגישות הכולל:
+                  </p>
+                  <ul className="mt-2 list-disc space-y-1 ps-6">
+                    <li>הגדלה/הקטנה של גודל הטקסט</li>
+                    <li>מצב ניגודיות גבוהה</li>
+                    <li>היפוך צבעים</li>
+                    <li>גווני אפור</li>
+                    <li>הדגשת קישורים בקו תחתי</li>
+                    <li>פונט קריא מוגבר</li>
+                    <li>עצירת אנימציות</li>
+                    <li>סמן מוגדל</li>
+                    <li>ריווח מרווח בין שורות ואותיות</li>
+                  </ul>
+                </section>
+
+                <section aria-labelledby="limits">
+                  <h2 id="limits" className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+                    מגבלות ידועות
+                  </h2>
+                  <ul className="list-disc space-y-2 ps-6">
+                    <li>תוכן מוטמע מ-YouTube ו-TikTok עשוי שלא להיות נגיש במלואו - ניתן לצפות בו ישירות בפלטפורמות אלה.</li>
+                    <li>חדשות מתורגמות אוטומטית - התרגום עשוי שלא להיות מושלם.</li>
+                  </ul>
+                </section>
+
+                <section aria-labelledby="contact-a11y">
+                  <h2 id="contact-a11y" className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+                    פנייה בנושאי נגישות
+                  </h2>
+                  <p>
+                    נתקלתם בבעיית נגישות? אנחנו כאן לעזור. ניתן לפנות דרך אחד מהערוצים הבאים:
+                  </p>
+                  <ul className="mt-3 list-disc space-y-2 ps-6">
+                    <li>
+                      <a href="https://www.instagram.com/yahavguetta/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] underline">
+                        Instagram
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://discord.gg/ptgHvwt7" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] underline">
+                        Discord
+                      </a>
+                    </li>
+                  </ul>
+                  <p className="mt-3">
+                    אנו מתחייבים לטפל בפנייה תוך 5 ימי עסקים.
+                  </p>
+                </section>
+
+                <section aria-labelledby="standards">
+                  <h2 id="standards" className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+                    תקנים ורגולציה
+                  </h2>
+                  <ul className="list-disc space-y-2 ps-6">
+                    <li>תקן ישראלי <strong>SI 5568</strong> (נגישות אתרי אינטרנט)</li>
+                    <li><strong>WCAG 2.1</strong> ברמה AA</li>
+                    <li>חוק שוויון זכויות לאנשים עם מוגבלות, התשנ&rdquo;ח-1998</li>
+                    <li>תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע&rdquo;ג-2013</li>
+                  </ul>
+                </section>
+
+              </div>
+            </AnimatedEntry>
+          </div>
+        </Container>
+      </main>
+
+      <Footer socialLinks={siteConfig.socialLinks} siteName={siteConfig.title} />
+    </>
+  );
+}

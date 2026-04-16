@@ -7,7 +7,26 @@
       "Read(//Users/yahavguetta/.nvm/versions/**)",
       "Read(//Users/yahavguetta/.fnm/**)",
       "Bash(export PATH=\"/opt/homebrew/bin:/usr/local/bin:$HOME/.nvm/versions/node/*/bin:$PATH\")",
-      "Bash(source ~/.zshrc)"
+      "Bash(source ~/.zshrc)",
+      "Bash(export PATH=\"$HOME/.local/node/bin:$PATH\")",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:ruthy2021.barilan.lowchost.info)",
+      "WebFetch(domain:9to5mac.com)",
+      "Bash(npx next:*)",
+      "WebFetch(domain:sapph.xyz)",
+      "Bash(curl -s \"https://www.tiktok.com/oembed?url=https://www.tiktok.com/@yahavguetta/video/7550356194985020679\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(find src:*)",
+      "Bash(xargs -I{} sed -i '' 's/—/-/g' {})",
+      "WebSearch",
+      "WebFetch(domain:buildui.com)",
+      "WebFetch(domain:www.puruvj.dev)",
+      "WebFetch(domain:www.niklasalbinsson.dev)",
+      "WebFetch(domain:www.frontend.fyi)",
+      "WebFetch(domain:manishtamang.com)",
+      "WebFetch(domain:www.reactbits.dev)",
+      "Bash(python3 -c \" import sys, re emoji_pattern = re.compile\\('[\\\\U0001F000-\\\\U0001FFFF\\\\U00002600-\\\\U000027BF\\\\U0001F300-\\\\U0001F9FF\\\\u2600-\\\\u27BF]'\\) for line in sys.stdin: if emoji_pattern.search\\(line\\): print\\(line, end=''\\) \")"
     ]
   }
 }
