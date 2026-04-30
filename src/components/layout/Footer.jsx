@@ -1,9 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import { useState } from "react";
+
+const PLATFORM_COLORS = {
+  youtube:   "#FF0000",
+  tiktok:    "#69C9D0",
+  instagram: "#E1306C",
+  spotify:   "#1DB954",
+  discord:   "#5865F2",
+  facebook:  "#1877F2",
+};
 
 export default function Footer({ socialLinks = [], siteName = "yahav's" }) {
   return (
-    <footer className="bg-[#0A0A0A] text-white">
+    <footer className="bg-[#0A0A0A] text-white pb-28 md:pb-0">
       <Container className="py-10">
         <div className="flex flex-col items-center gap-6 text-center">
           <Link href="/" className="text-lg font-bold tracking-tight text-white transition-opacity hover:opacity-70">
@@ -13,12 +25,7 @@ export default function Footer({ socialLinks = [], siteName = "yahav's" }) {
           {/* Social links */}
           <div className="flex flex-wrap items-center justify-center gap-3">
             {socialLinks.map((link) => (
-              <a key={link.platform} href={link.url} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 text-xs font-medium text-white/70 transition-all hover:border-white/40 hover:text-white"
-                aria-label={link.label}>
-                <SocialIcon platform={link.platform} />
-                <span>{link.label}</span>
-              </a>
+              <SocialLink key={link.platform} link={link} />
             ))}
           </div>
 
@@ -37,6 +44,30 @@ export default function Footer({ socialLinks = [], siteName = "yahav's" }) {
         </div>
       </Container>
     </footer>
+  );
+}
+
+function SocialLink({ link }) {
+  const [hovered, setHovered] = useState(false);
+  const color = PLATFORM_COLORS[link.platform];
+
+  return (
+    <a
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={link.label}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-200"
+      style={{
+        borderColor: hovered && color ? color : "rgba(255,255,255,0.20)",
+        color:       hovered && color ? color : "rgba(255,255,255,0.70)",
+      }}
+    >
+      <SocialIcon platform={link.platform} />
+      <span>{link.label}</span>
+    </a>
   );
 }
 

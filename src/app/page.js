@@ -4,12 +4,10 @@ import HeroSection from "@/components/sections/HeroSection";
 import SocialSection from "@/components/sections/SocialSection";
 import PodcastSection from "@/components/sections/PodcastSection";
 import CommunitySection from "@/components/sections/CommunitySection";
-import NewsPreview from "@/components/sections/NewsPreview";
 import AboutSection from "@/components/sections/AboutSection";
-import { getSiteConfig, getHeroContent, getAboutContent } from "@/lib/content";
+import { getSiteConfig } from "@/lib/content";
 import { getLatestVideos } from "@/lib/youtube";
 import { getLatestTikToks } from "@/lib/tiktok";
-import { getNews } from "@/lib/news";
 import fs from "fs/promises";
 import path from "path";
 
@@ -22,9 +20,9 @@ async function getInstagramPosts() {
 }
 
 export default async function Home() {
-  const [siteConfig, hero, about, youtubeVideos, tiktokVideos, newsArticles, instagramPosts] = await Promise.all([
-    getSiteConfig(), getHeroContent(), getAboutContent(),
-    getLatestVideos(), getLatestTikToks(), getNews(7), getInstagramPosts(),
+  const [siteConfig, youtubeVideos, tiktokVideos, instagramPosts] = await Promise.all([
+    getSiteConfig(),
+    getLatestVideos(), getLatestTikToks(), getInstagramPosts(),
   ]);
 
   // Index social links once — avoids repeated .find() traversals per render
@@ -42,20 +40,15 @@ export default async function Home() {
       <main id="main-content" className="flex-1 bg-[var(--color-bg)]">
         <HeroSection />
         <div className="space-y-3 p-3 sm:space-y-4 sm:p-4">
-          <div className={card}>
-            <AboutSection shortBio={about?.shortBio} />
-          </div>
+          <AboutSection />
           <div className={card}>
             <SocialSection youtubeVideos={youtubeVideos} tiktokVideos={tiktokVideos} instagramPosts={instagramPosts} socialLinks={siteConfig.socialLinks} />
-          </div>
-          <div className={card}>
-            <PodcastSection spotifyUrl={spotifyLink} />
           </div>
           <div className={card}>
             <CommunitySection discordUrl={discordLink} />
           </div>
           <div className={card}>
-            <NewsPreview articles={newsArticles} />
+            <PodcastSection spotifyUrl={spotifyLink} />
           </div>
         </div>
       </main>

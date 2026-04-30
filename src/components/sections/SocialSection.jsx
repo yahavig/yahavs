@@ -5,14 +5,76 @@ import Carousel from "@/components/ui/Carousel";
 import VideoCard from "@/components/cards/VideoCard";
 import TikTokCard from "@/components/cards/TikTokCard";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
+import { ChevronLeft } from "lucide-react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/yahavguetta/";
 
+const GLASS_LINK = {
+  backdropFilter:       "blur(20px)",
+  WebkitBackdropFilter: "blur(20px)",
+  background:           "rgba(0, 113, 227, 0.88)",
+  border:               "1px solid rgba(255, 255, 255, 0.28)",
+  boxShadow:
+    "inset 1.5px 1.5px 1px rgba(255,255,255,0.40), inset -1px -1px 1px rgba(255,255,255,0.15), 0 4px 20px rgba(0,113,227,0.35)",
+};
+
+const APPLE_MUSIC_URL = "https://music.apple.com/profile/yahavguetta";
+
+// Liquid-glass style for the active tab — brand tint + blur + highlights
+const GLASS_BASE = {
+  backdropFilter:       "blur(18px)",
+  WebkitBackdropFilter: "blur(18px)",
+  transition:           "all 0.3s cubic-bezier(0.16,1,0.3,1)",
+};
+const HIGHLIGHT =
+  "inset 1.5px 1.5px 1px rgba(255,255,255,0.55), inset -1px -1px 1px rgba(255,255,255,0.22)";
+
 const PLATFORMS = [
-  { id: "youtube",   label: "YouTube",   bgClass: "bg-[#FF0000]" },
-  { id: "tiktok",    label: "TikTok",    bgClass: "bg-[#010101]" },
-  { id: "instagram", label: "Instagram", bgClass: "bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#bc1888]" },
-  { id: "facebook",  label: "Facebook",  bgClass: "bg-[#1877F2]" },
+  {
+    id: "youtube", label: "YouTube",
+    glass: {
+      ...GLASS_BASE,
+      background:  "rgba(220, 0, 0, 0.78)",
+      border:      "1px solid rgba(255,80,80,0.50)",
+      boxShadow:   `${HIGHLIGHT}, 0 4px 22px rgba(220,0,0,0.38)`,
+    },
+  },
+  {
+    id: "tiktok", label: "TikTok",
+    glass: {
+      ...GLASS_BASE,
+      background:  "rgba(18, 18, 18, 0.88)",
+      border:      "1px solid rgba(105,201,208,0.45)",
+      boxShadow:   `${HIGHLIGHT}, 0 4px 22px rgba(0,0,0,0.45)`,
+    },
+  },
+  {
+    id: "instagram", label: "Instagram",
+    glass: {
+      ...GLASS_BASE,
+      background:  "linear-gradient(135deg, rgba(240,148,51,0.82), rgba(228,64,30,0.78), rgba(188,24,136,0.80))",
+      border:      "1px solid rgba(240,100,100,0.50)",
+      boxShadow:   `${HIGHLIGHT}, 0 4px 22px rgba(188,24,136,0.40)`,
+    },
+  },
+  {
+    id: "applemusic", label: "Music",
+    glass: {
+      ...GLASS_BASE,
+      background:  "linear-gradient(135deg, rgba(252,60,68,0.82), rgba(255,45,85,0.78))",
+      border:      "1px solid rgba(252,60,68,0.50)",
+      boxShadow:   `${HIGHLIGHT}, 0 4px 22px rgba(252,60,68,0.40)`,
+    },
+  },
+  {
+    id: "facebook", label: "Facebook",
+    glass: {
+      ...GLASS_BASE,
+      background:  "rgba(18, 100, 230, 0.82)",
+      border:      "1px solid rgba(24,119,242,0.50)",
+      boxShadow:   `${HIGHLIGHT}, 0 4px 22px rgba(18,100,230,0.38)`,
+    },
+  },
 ];
 const VALID_TABS = new Set(PLATFORMS.map(p => p.id));
 
@@ -42,11 +104,10 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
   return (
     <section id="social" className="py-16 sm:py-24">
       <Container>
-        <AnimatedEntry>
-          <p className="mb-2 text-[11px] font-medium tracking-[0.25em] text-[var(--color-text-tertiary)] uppercase">רשתות חברתיות</p>
+        <AnimatedEntry className="text-center">
           <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">בואו נהיה חברים!</h2>
-          <p className="mt-3 max-w-lg text-[var(--color-text-secondary)]">
-            באינסטגרם הכי כיף - יש שם סטורי כמעט כל יום עם חדשות, טיפים, וכל מה שקורה. גם ביוטיוב ובטיקטוק תמצאו תוכן שאני שמח לשתף.
+          <p className="mt-6 max-w-2xl mx-auto text-lg leading-loose text-[var(--color-text-secondary)]">
+            בכל רשת יש תוכן קצת אחר. באינסטגרם הכי כיף ותמיד יש סטורי מצחיק או הזוי או מצחיק והזוי. ביוטיוב אני יותר מדבר לעומק על אפל ומשתף מדריכים. ובטיקטוק אני בלי מעצורים במה שאני מעלה. נתראה.
           </p>
         </AnimatedEntry>
 
@@ -58,9 +119,10 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               onClick={() => setActive(p.id)}
               className={`rounded-full px-6 py-3 text-base font-semibold transition-all duration-300 ${
                 active === p.id
-                  ? `${p.bgClass} text-white scale-[1.06] shadow-lg`
+                  ? "text-white scale-[1.06]"
                   : "glass text-[var(--color-text-secondary)] hover:scale-[1.03] hover:text-[var(--color-text-primary)]"
               }`}
+              style={active === p.id ? p.glass : undefined}
             >
               {p.label}
             </button>
@@ -94,8 +156,13 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
                 <span className="shrink-0 rounded-xl bg-gradient-to-r from-[#f09433] to-[#bc1888] px-4 py-2 text-sm font-semibold text-white">עקוב</span>
               </a>
             )}
-            <div className="mt-4 text-start">
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[var(--color-accent)] hover:underline">לפרופיל המלא ←</a>
+            <div className="mt-4 flex justify-center">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
+                style={GLASS_LINK}>
+                <span>לפרופיל המלא</span>
+                <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
+              </a>
             </div>
           </div>
         )}
@@ -115,8 +182,13 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               <p className="text-[var(--color-text-secondary)]">אין סרטונים להצגה כרגע.</p>
             )}
             {youtubeUrl && (
-              <div className="mt-4">
-                <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[var(--color-accent)] hover:underline">לערוץ המלא ←</a>
+              <div className="mt-4 flex justify-center">
+                <a href={youtubeUrl} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
+                  style={GLASS_LINK}>
+                  <span>לערוץ המלא</span>
+                  <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
+                </a>
               </div>
             )}
           </div>
@@ -137,10 +209,36 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               <p className="text-[var(--color-text-secondary)]">אין סרטונים להצגה כרגע.</p>
             )}
             {tiktokUrl && (
-              <div className="mt-4">
-                <a href={tiktokUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[var(--color-accent)] hover:underline">לפרופיל TikTok ←</a>
+              <div className="mt-4 flex justify-center">
+                <a href={tiktokUrl} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
+                  style={GLASS_LINK}>
+                  <span>לפרופיל TikTok</span>
+                  <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
+                </a>
               </div>
             )}
+          </div>
+        )}
+
+        {/* Music */}
+        {active === "applemusic" && (
+          <div className="flex flex-col items-center justify-center gap-5 py-10 text-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/icons/music.svg" alt="Music" width={72} height={72} className="rounded-2xl shadow-lg" />
+            <p className="max-w-sm text-[var(--color-text-secondary)] leading-relaxed">
+              האמת שאני מוזיקאי בעצמי. אשחרר בהמשך שירים. אבל עד אז - תהנו קצת מהטעם הממש טוב ורחב שלי!
+            </p>
+            <a
+              href={APPLE_MUSIC_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
+              style={GLASS_LINK}
+            >
+              <span>לפרופיל Music</span>
+              <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
+            </a>
           </div>
         )}
 
@@ -151,9 +249,19 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               href="https://www.facebook.com/yahavguetta/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl font-bold text-[var(--color-text-primary)] underline decoration-[#1877F2] decoration-2 underline-offset-4 transition-opacity hover:opacity-70"
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-transform duration-300 hover:scale-105"
+              style={{
+                backdropFilter:       "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                background:           "rgba(255, 255, 255, 0.92)",
+                border:               "1px solid rgba(255, 255, 255, 0.6)",
+                boxShadow:
+                  "inset 1.5px 1.5px 1px rgba(255,255,255,0.9), inset -1px -1px 1px rgba(255,255,255,0.5), 0 4px 20px rgba(24,119,242,0.25)",
+                color: "#1877F2",
+              }}
             >
-              שיטפוסטר מקצועי מאז 2012
+              <span>שיטפוסטר מקצועי מאז 2012</span>
+              <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
             </a>
           </div>
         )}

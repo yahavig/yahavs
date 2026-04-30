@@ -8,7 +8,6 @@
     { "label": "עליי", "href": "/about" },
     { "label": "תוכן", "href": "/content" },
     { "label": "קהילה", "href": "/community" },
-    { "label": "חדשות", "href": "/news" },
     { "label": "פודקאסט", "href": "/podcast" }
   ],
   "socialLinks": [

@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
  * Horizontal scroll carousel with edge-fade and arrow navigation.
  * RTL-aware: left arrow = forward (shows more), right arrow = back.
  */
-export default function Carousel({ children, className = "" }) {
+export default function Carousel({ children, className = "", stripClassName = "" }) {
   const ref = useRef(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
@@ -49,34 +49,35 @@ export default function Carousel({ children, className = "" }) {
 
   return (
     <div className={`relative ${className}`}>
-      {/* Left edge fade + button - "next" in RTL */}
+      {/* Right edge fade + button — "prev" in RTL (go back to start) */}
       <div className="pointer-events-none absolute start-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-e from-[var(--color-bg)] to-transparent" />
       <button
-        onClick={() => go(-1)}
-        aria-label="הבא"
-        disabled={!canNext}
-        className={`${btnBase} start-2 ${canNext ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        onClick={() => go(1)}
+        aria-label="הקודם"
+        disabled={!canPrev}
+        className={`${btnBase} start-2 ${canPrev ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        <ChevronLeft size={18} className="text-[var(--color-text-primary)]" />
+        <ChevronRight size={18} className="text-[var(--color-text-primary)]" />
       </button>
 
       {/* Scrollable strip */}
       <div
         ref={ref}
-        className="flex gap-4 overflow-x-auto pb-2 no-scrollbar scroll-smooth"
+        className={`flex gap-4 overflow-x-auto overflow-y-hidden pb-2 no-scrollbar scroll-smooth ${stripClassName}`}
+        style={{ touchAction: "pan-x", overscrollBehaviorX: "contain" }}
       >
         {children}
       </div>
 
-      {/* Right edge fade + button - "prev" in RTL */}
+      {/* Left edge fade + button — "next" in RTL (scroll forward / left) */}
       <div className="pointer-events-none absolute end-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-s from-[var(--color-bg)] to-transparent" />
       <button
-        onClick={() => go(1)}
-        aria-label="הקודם"
-        disabled={!canPrev}
-        className={`${btnBase} end-2 ${canPrev ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        onClick={() => go(-1)}
+        aria-label="הבא"
+        disabled={!canNext}
+        className={`${btnBase} end-2 ${canNext ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        <ChevronRight size={18} className="text-[var(--color-text-primary)]" />
+        <ChevronLeft size={18} className="text-[var(--color-text-primary)]" />
       </button>
     </div>
   );

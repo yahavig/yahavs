@@ -15,18 +15,18 @@ export default function MobileNav({ navItems = [], lightMode = false }) {
 
   return (
     <>
-      {/* 3-dots button - liquid glass circle */}
+      {/* 3-dots button */}
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "סגור תפריט" : "פתח תפריט"}
         aria-expanded={open}
         className="relative flex h-10 w-10 items-center justify-center rounded-full transition-transform duration-200 hover:scale-110 focus-visible:outline-none"
         style={{
-          background: "rgba(255,255,255,0.28)",
-          backdropFilter: "blur(12px)",
+          background:           "rgba(255,255,255,0.28)",
+          backdropFilter:       "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          boxShadow: "inset 1.5px 1.5px 1px rgba(255,255,255,0.7), inset -1px -1px 1px rgba(255,255,255,0.4), 0 4px 12px rgba(0,0,0,0.12)",
-          border: "1px solid rgba(255,255,255,0.45)",
+          boxShadow:            "inset 1.5px 1.5px 1px rgba(255,255,255,0.7), inset -1px -1px 1px rgba(255,255,255,0.4), 0 4px 12px rgba(0,0,0,0.12)",
+          border:               "1px solid rgba(255,255,255,0.45)",
           color: lightMode ? "white" : "var(--color-text-primary)",
         }}
       >
@@ -52,60 +52,80 @@ export default function MobileNav({ navItems = [], lightMode = false }) {
       <AnimatePresence>
         {open && (
           <>
-            {/* Invisible backdrop to close on outside tap */}
+            {/* Backdrop to close on outside tap */}
             <motion.div
               key="backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{   opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.22 }}
               className="fixed inset-0 z-40"
               onClick={() => setOpen(false)}
             />
 
-            {/* Floating liquid glass panel */}
+            {/*
+              Panel: spring handles position/scale.
+              Opacity is kept at 1 so the panel "exists" in the layout —
+              the glass layers below handle their own fade-in separately,
+              which prevents the hard-cut from backdrop-filter snapping in.
+            */}
             <motion.div
               key="panel"
-              initial={{ opacity: 0, scale: 0.9, y: -10 }}
-              animate={{ opacity: 1, scale: 1,   y: 0   }}
-              exit={{   opacity: 0, scale: 0.9,  y: -10 }}
-              transition={{ type: "spring", mass: 0.2, stiffness: 300, damping: 24 }}
+              initial={{ scale: 0.90, y: -10 }}
+              animate={{ scale: 1,    y: 0   }}
+              exit={{   scale: 0.90,  y: -10 }}
+              transition={{ type: "spring", mass: 0.22, stiffness: 280, damping: 22 }}
               style={{ transformOrigin: "top right", overflow: "hidden" }}
               className="fixed top-[60px] right-4 z-50 w-72 rounded-3xl"
             >
               <GlassFilter />
 
-              {/* Blur + distortion */}
-              <div
+              {/*
+                Glass background layers animate their opacity independently.
+                Starting at 0 and easing to 1 means the blur/distortion fades
+                in smoothly instead of snapping — this is the fix for the cut.
+              */}
+              <motion.div
                 className="absolute inset-0"
-                style={{
-                  backdropFilter: "blur(40px)",
-                  filter: "url(#glass-distortion)",
-                  isolation: "isolate",
-                }}
-              />
-              {/* Tint */}
-              <div
-                className="absolute inset-0"
-                style={{ background: "rgba(255,255,255,0.58)" }}
-              />
-              {/* Glass border highlight */}
-              <div
-                className="absolute inset-0 rounded-3xl"
-                style={{
-                  boxShadow:
-                    "inset 2px 2px 1px rgba(255,255,255,0.85), inset -1px -1px 1px rgba(255,255,255,0.5), 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.1)",
-                }}
-              />
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.15, ease: "easeIn", delay: 0.09 } }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                {/* Blur + liquid distortion */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backdropFilter:       "blur(40px)",
+                    WebkitBackdropFilter: "blur(40px)",
+                    filter:               "url(#glass-distortion)",
+                    isolation:            "isolate",
+                  }}
+                />
+                {/* Tint */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "rgba(255,255,255,0.58)" }}
+                />
+                {/* Highlight border */}
+                <div
+                  className="absolute inset-0 rounded-3xl pointer-events-none"
+                  style={{
+                    boxShadow:
+                      "inset 2px 2px 1px rgba(255,255,255,0.85), inset -1px -1px 1px rgba(255,255,255,0.5), 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.1)",
+                  }}
+                />
+              </motion.div>
 
-              {/* Links */}
+              {/* Links — stagger in after glass is visible */}
               <nav className="relative z-10 flex flex-col gap-1 p-4">
                 {navItems.map((item, i) => (
                   <motion.div
                     key={item.href}
-                    initial={{ opacity: 0, x: 12 }}
+                    initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0  }}
-                    transition={{ delay: 0.05 + i * 0.05, type: "spring", stiffness: 320, damping: 28 }}
+                    transition={{ delay: 0.033 + i * 0.028, duration: 0.2, ease: "easeOut" }}
+                    exit={{ opacity: 0, x: 6, transition: { duration: 0.08, ease: "easeIn" } }}
                   >
                     <Link
                       href={item.href}

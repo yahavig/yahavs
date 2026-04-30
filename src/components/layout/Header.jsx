@@ -28,13 +28,13 @@ export default function Header({ navItems = [] }) {
       <header
         className={`fixed top-0 z-50 w-full transition-all duration-300 hidden md:block ${
           scrolled
-            ? "glass-strong border-b border-white/30"
+            ? "bg-white/80 dark:bg-[#1c1c1e]/80 backdrop-blur-2xl border-b border-black/5"
             : "bg-transparent"
         }`}
       >
         <Container>
           {/* RTL: justify-start = visually right */}
-          <nav className="flex h-14 items-center justify-start">
+          <nav className="flex h-14 items-center justify-center">
             <div className="flex items-center gap-1">
               {navItems.map((item) => (
                 <Link key={item.href} href={item.href} className={linkClass}>

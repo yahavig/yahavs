@@ -26,7 +26,12 @@
       "WebFetch(domain:www.frontend.fyi)",
       "WebFetch(domain:manishtamang.com)",
       "WebFetch(domain:www.reactbits.dev)",
-      "Bash(python3 -c \" import sys, re emoji_pattern = re.compile\\('[\\\\U0001F000-\\\\U0001FFFF\\\\U00002600-\\\\U000027BF\\\\U0001F300-\\\\U0001F9FF\\\\u2600-\\\\u27BF]'\\) for line in sys.stdin: if emoji_pattern.search\\(line\\): print\\(line, end=''\\) \")"
+      "Bash(python3 -c \" import sys, re emoji_pattern = re.compile\\('[\\\\U0001F000-\\\\U0001FFFF\\\\U00002600-\\\\U000027BF\\\\U0001F300-\\\\U0001F9FF\\\\u2600-\\\\u27BF]'\\) for line in sys.stdin: if emoji_pattern.search\\(line\\): print\\(line, end=''\\) \")",
+      "Bash(/usr/local/bin/npm --version)",
+      "Bash(/opt/homebrew/bin/npm --version)",
+      "Read(//Users/yahavguetta/**)",
+      "Bash(node -e ' *)",
+      "Bash(git add *)"
     ]
   }
 }

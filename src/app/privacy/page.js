@@ -12,7 +12,6 @@ export default async function PrivacyPage() {
       <main id="main-content" className="flex-1 pt-24 pb-16">
         <Container>
           <div className="mx-auto max-w-2xl">
-            <p className="mb-2 text-[11px] font-medium tracking-[0.25em] text-[var(--color-text-tertiary)] uppercase">מדיניות</p>
             <h1 className="mb-8 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">פרטיות</h1>
             <div className="prose prose-sm max-w-none text-[var(--color-text-secondary)] leading-loose">
               <p>האתר yahavs.com אינו אוסף מידע אישי מזהה על המשתמשים שלו.</p>

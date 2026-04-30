@@ -13,13 +13,13 @@ const SPRING       = { mass: 0.1, stiffness: 150, damping: 12 };
 
 /* ─── Dock items ─────────────────────────────────────────────── */
 const DOCK_ITEMS = [
-  { id: "youtube",   label: "YouTube",   section: "social",        tab: "youtube"   },
-  { id: "tiktok",    label: "TikTok",    section: "social",        tab: "tiktok"    },
-  { id: "instagram", label: "Instagram", section: "social",        tab: "instagram" },
-  { id: "podcast",   label: "Podcast",   section: "podcast",       tab: null        },
-  { id: "discord",   label: "Discord",   section: "community",     tab: null        },
+  { id: "tiktok",    label: "TikTok",    section: "social",    tab: "tiktok"    },
+  { id: "instagram", label: "Instagram", section: "social",    tab: "instagram" },
+  { id: "youtube",   label: "YouTube",   section: "social",    tab: "youtube"   },
+  { id: "discord",   label: "Discord",   section: "community", tab: null        },
+  { id: "podcast",   label: "Podcast",   section: "podcast",   tab: null        },
   { id: "divider" },
-  { id: "finder",    label: "עליי",      section: "about-preview", tab: null        },
+  { id: "finder",    label: "עליי",      section: "about",     tab: null        },
 ];
 
 /* ─── Main Dock ──────────────────────────────────────────────── */
@@ -168,96 +168,19 @@ function DockItem({ item, mouseX, onClick }) {
   );
 }
 
-/* ─── SVG App Icons ──────────────────────────────────────────── */
+/* ─── Icon images ────────────────────────────────────────────── */
+const ICON_SRCS = {
+  finder:    "/images/icons/finder.png",
+  instagram: "/images/icons/instegram.png",
+  tiktok:    "/images/icons/tiktok.png",
+  discord:   "/images/icons/discord.png",
+  podcast:   "/images/icons/podcust.png",
+  youtube:   "/images/icons/youtube.png",
+};
+
 function AppIcon({ id }) {
-  const R = 22; // corner radius out of 100
-
-  if (id === "finder") return (
-    <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-      <defs>
-        <linearGradient id="finder-bg" x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#5AC8FA" />
-          <stop offset="100%" stopColor="#007AFF" />
-        </linearGradient>
-      </defs>
-      <rect width="100" height="100" rx={R} fill="url(#finder-bg)" />
-      <rect x="10" y="22" width="40" height="58" rx="10" fill="#A8D8F8" />
-      <rect x="50" y="22" width="40" height="58" rx="10" fill="white" />
-      <circle cx="30" cy="44" r="7" fill="#007AFF" />
-      <path d="M18 62 Q30 72 42 62" stroke="#007AFF" strokeWidth="4" fill="none" strokeLinecap="round" />
-      <circle cx="70" cy="44" r="7" fill="#1C1C1E" />
-      <path d="M58 62 Q70 72 82 62" stroke="#1C1C1E" strokeWidth="4" fill="none" strokeLinecap="round" />
-    </svg>
-  );
-
-  if (id === "youtube") return (
-    <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-      <rect width="100" height="100" rx={R} fill="#FF0000" />
-      <path d="M82 35.5a8 8 0 0 0-5.6-5.65C70.8 28 50 28 50 28s-20.8 0-26.4.85A8 8 0 0 0 18 34.5C17 40.1 17 50 17 50s0 9.9 1 15.5a8 8 0 0 0 5.6 5.65C29.2 72 50 72 50 72s20.8 0 26.4-.85A8 8 0 0 0 82 65.5C83 59.9 83 50 83 50s0-9.9-1-14.5z" fill="white" />
-      <path d="M42 62 L64 50 L42 38 Z" fill="#FF0000" />
-    </svg>
-  );
-
-  if (id === "tiktok") return (
-    <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-      <rect width="100" height="100" rx={R} fill="#010101" />
-      {/* Red layer */}
-      <path d="M70 18h-12v46a13 13 0 1 1-13-13c1.2 0 2.3.15 3.4.4V39a27 27 0 1 0 23.3 26.7V38.2A36.5 36.5 0 0 0 86 42V30a22 22 0 0 1-16-12z" fill="#EE1D52" opacity="0.9" transform="translate(2,0)" />
-      {/* Cyan layer */}
-      <path d="M70 18h-12v46a13 13 0 1 1-13-13c1.2 0 2.3.15 3.4.4V39a27 27 0 1 0 23.3 26.7V38.2A36.5 36.5 0 0 0 86 42V30a22 22 0 0 1-16-12z" fill="#69C9D0" opacity="0.9" transform="translate(-2,0)" />
-      {/* White on top */}
-      <path d="M70 18h-12v46a13 13 0 1 1-13-13c1.2 0 2.3.15 3.4.4V39a27 27 0 1 0 23.3 26.7V38.2A36.5 36.5 0 0 0 86 42V30a22 22 0 0 1-16-12z" fill="white" />
-    </svg>
-  );
-
-  if (id === "instagram") return (
-    <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-      <defs>
-        <linearGradient id="ig-bg" x1="0" y1="100" x2="100" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stopColor="#F9C240" />
-          <stop offset="30%"  stopColor="#E8622A" />
-          <stop offset="65%"  stopColor="#D42F7B" />
-          <stop offset="100%" stopColor="#9B3FBE" />
-        </linearGradient>
-      </defs>
-      <rect width="100" height="100" rx={R} fill="url(#ig-bg)" />
-      <rect x="22" y="22" width="56" height="56" rx="17" stroke="white" strokeWidth="6" fill="none" />
-      <circle cx="50" cy="50" r="15" stroke="white" strokeWidth="6" fill="none" />
-      <circle cx="70" cy="30" r="5" fill="white" />
-    </svg>
-  );
-
-  if (id === "podcast") return (
-    <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-      <defs>
-        <linearGradient id="pod-bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stopColor="#BF5AF2" />
-          <stop offset="100%" stopColor="#7B2FBE" />
-        </linearGradient>
-      </defs>
-      <rect width="100" height="100" rx={R} fill="url(#pod-bg)" />
-      <rect x="38" y="15" width="24" height="42" rx="12" fill="white" />
-      <path d="M25 52 Q25 78 50 78 Q75 78 75 52" stroke="white" strokeWidth="6" fill="none" strokeLinecap="round" />
-      <line x1="50" y1="78" x2="50" y2="90" stroke="white" strokeWidth="6" strokeLinecap="round" />
-      <line x1="34" y1="90" x2="66" y2="90" stroke="white" strokeWidth="6" strokeLinecap="round" />
-    </svg>
-  );
-
-  if (id === "discord") return (
-    <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-      <defs>
-        <linearGradient id="dc-bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stopColor="#7289DA" />
-          <stop offset="100%" stopColor="#5865F2" />
-        </linearGradient>
-      </defs>
-      <rect width="100" height="100" rx={R} fill="url(#dc-bg)" />
-      <path
-        d="M74 27a58 58 0 0 0-14.5-4.5.2.2 0 0 0-.22.1 40 40 0 0 0-1.8 3.7 53.5 53.5 0 0 0-16.1 0 31 31 0 0 0-1.83-3.7.22.22 0 0 0-.22-.1A58.7 58.7 0 0 0 25.3 27a.2.2 0 0 0-.1.08C17.3 39.3 15.1 51.2 16.2 62.9c0 .06.04.12.09.16a59.2 59.2 0 0 0 17.8 9 .22.22 0 0 0 .24-.08 42 42 0 0 0 3.6-5.9.22.22 0 0 0-.12-.3 39 39 0 0 1-5.57-2.66.22.22 0 0 1-.02-.37c.37-.28.75-.57 1.1-.87a.21.21 0 0 1 .22-.03c11.7 5.35 24.36 5.35 35.9 0a.21.21 0 0 1 .23.03c.36.3.73.6 1.1.87a.22.22 0 0 1-.02.37 36.6 36.6 0 0 1-5.57 2.65.22.22 0 0 0-.12.31 47 47 0 0 0 3.6 5.9.21.21 0 0 0 .24.08 59 59 0 0 0 17.82-9 .22.22 0 0 0 .09-.15c1.34-13.87-2.24-25.9-9.49-36.6a.17.17 0 0 0-.1-.08zM36.7 56.3c-3.54 0-6.46-3.25-6.46-7.25s2.86-7.25 6.46-7.25c3.63 0 6.52 3.27 6.46 7.25 0 4-2.86 7.25-6.46 7.25zm23.9 0c-3.54 0-6.46-3.25-6.46-7.25s2.86-7.25 6.46-7.25c3.63 0 6.52 3.27 6.46 7.25 0 4-2.83 7.25-6.46 7.25z"
-        fill="white"
-      />
-    </svg>
-  );
-
-  return null;
+  const src = ICON_SRCS[id];
+  if (!src) return null;
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={src} alt={id} className="w-full h-full object-contain" draggable={false} />;
 }
