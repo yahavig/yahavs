@@ -133,7 +133,7 @@ function resumeAutoplayVideos() {
 }
 
 /* ─── Component ─────────────────────────────────────────────────────────── */
-export default function AccessibilityWidget({ isOpen, onClose }) {
+export default function AccessibilityWidget({ isOpen, onClose, isMobile = true }) {
   const [active,   setActive]   = useState({});
   const [darkMode, setDarkMode] = useState(null); // null | 'light' | 'dark'
 
@@ -239,7 +239,11 @@ export default function AccessibilityWidget({ isOpen, onClose }) {
       role="dialog"
       aria-modal="true"
       aria-label="תפריט נגישות"
-      className="fixed top-[62px] left-4 z-[200] w-72 overflow-hidden rounded-2xl shadow-2xl md:top-auto md:bottom-[76px] md:left-6"
+      className={`fixed z-[200] w-72 overflow-hidden rounded-2xl shadow-2xl ${
+        isMobile
+          ? "top-[62px] left-4"
+          : "bottom-[76px] left-6"
+      }`}
       style={{
         background: "var(--color-surface)",
         border:     "1px solid var(--color-border-light)",

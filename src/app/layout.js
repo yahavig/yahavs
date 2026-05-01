@@ -56,10 +56,8 @@ export default function RootLayout({ children }) {
         {/* Global floating buttons - accessibility + AI */}
         <FloatingButtons />
 
-        {/* Floating macOS-style dock — mobile only */}
-        <div className="md:hidden">
-          <FloatingDock />
-        </div>
+        {/* Floating macOS-style dock */}
+        <FloatingDock />
       </body>
     </html>
   );
