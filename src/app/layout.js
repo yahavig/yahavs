@@ -10,11 +10,16 @@ const arimo = Arimo({
 });
 
 export const metadata = {
-  title: "yahav's | טכנולוגיה, מוצרים וחוויות",
+  title: "Yahav's World",
   description:
     "הבית הרשמי של yahav's - סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
-    title: "yahav's | טכנולוגיה, מוצרים וחוויות",
+    title: "Yahav's World",
     description:
       "סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
     locale: "he_IL",

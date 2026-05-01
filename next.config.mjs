@@ -2,23 +2,39 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*.ytimg.com",
-      },
-      {
-        protocol: "https",
-        hostname: "img.youtube.com",
-      },
-      {
-        protocol: "https",
-        hostname: "*.tiktokcdn.com",
-      },
-      {
-        protocol: "https",
-        hostname: "*.tiktokcdn-us.com",
-      },
+      { protocol: "https", hostname: "*.ytimg.com" },
+      { protocol: "https", hostname: "img.youtube.com" },
+      { protocol: "https", hostname: "*.tiktokcdn.com" },
+      { protocol: "https", hostname: "*.tiktokcdn-us.com" },
     ],
+  },
+
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          // Prevent clickjacking
+          { key: "X-Frame-Options",        value: "SAMEORIGIN" },
+          // Prevent MIME-type sniffing
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          // Limit referrer info sent to external sites
+          { key: "Referrer-Policy",        value: "strict-origin-when-cross-origin" },
+          // Disable browser XSS filter (modern CSP is better, but belt+braces)
+          { key: "X-XSS-Protection",       value: "1; mode=block" },
+          // Restrict powerful browser features
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), payment=()",
+          },
+          // HSTS — only served over HTTPS in production
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+        ],
+      },
+    ];
   },
 };
 

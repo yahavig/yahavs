@@ -1,19 +1,23 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { X } from "lucide-react";
+import {
+  X, Sun, Moon, SunMoon,
+  Contrast, FlipHorizontal2, Palette,
+  Underline, Pause, MousePointer2, MoveHorizontal,
+} from "lucide-react";
 
 const FEATURES = [
-  { id: "bigger-text",      label: "הגדל טקסט",       icon: "A+", htmlClass: "a11y-bigger-text"      },
-  { id: "smaller-text",     label: "הקטן טקסט",        icon: "A-", htmlClass: "a11y-smaller-text"     },
-  { id: "high-contrast",    label: "ניגודיות גבוהה",  icon: "◑",  htmlClass: "a11y-high-contrast"    },
-  { id: "invert-colors",    label: "היפוך צבעים",     icon: "⊡",  htmlClass: "a11y-invert"           },
-  { id: "grayscale",        label: "גווני אפור",      icon: "◻",  htmlClass: "a11y-grayscale"        },
-  { id: "underline-links",  label: "קו תחת קישורים",  icon: "U̲",  htmlClass: "a11y-underline-links"  },
-  { id: "readable-font",    label: "פונט קריא",       icon: "Aa", htmlClass: "a11y-readable-font"    },
-  { id: "pause-animations", label: "עצור אנימציות",   icon: "⏸", htmlClass: "a11y-pause-animations" },
-  { id: "big-cursor",       label: "סמן גדול",        icon: "⊕",  htmlClass: "a11y-big-cursor"       },
-  { id: "text-spacing",     label: "ריווח מרווח",     icon: "↔",  htmlClass: "a11y-text-spacing"     },
+  { id: "bigger-text",      label: "הגדל טקסט",      Icon: null, text: "A+", htmlClass: "a11y-bigger-text"      },
+  { id: "smaller-text",     label: "הקטן טקסט",      Icon: null, text: "A-", htmlClass: "a11y-smaller-text"     },
+  { id: "high-contrast",    label: "ניגודיות גבוהה", Icon: Contrast,        htmlClass: "a11y-high-contrast"    },
+  { id: "invert-colors",    label: "היפוך צבעים",    Icon: FlipHorizontal2, htmlClass: "a11y-invert"           },
+  { id: "grayscale",        label: "גווני אפור",     Icon: Palette,         htmlClass: "a11y-grayscale"        },
+  { id: "underline-links",  label: "קו תחת קישורים", Icon: Underline,       htmlClass: "a11y-underline-links"  },
+  { id: "readable-font",    label: "פונט קריא",      Icon: null, text: "Aa", htmlClass: "a11y-readable-font"   },
+  { id: "pause-animations", label: "עצור אנימציות",  Icon: Pause,           htmlClass: "a11y-pause-animations" },
+  { id: "big-cursor",       label: "סמן גדול",       Icon: MousePointer2,   htmlClass: "a11y-big-cursor"       },
+  { id: "text-spacing",     label: "ריווח מרווח",    Icon: MoveHorizontal,  htmlClass: "a11y-text-spacing"     },
 ];
 
 /* Groups where turning one ON turns the others OFF */
@@ -264,10 +268,10 @@ export default function AccessibilityWidget({ isOpen, onClose }) {
         </p>
         <div className="flex gap-1.5">
           {[
-            { mode: "light", label: "בהיר", icon: "☀" },
-            { mode: null,    label: "אוטו", icon: "⟳" },
-            { mode: "dark",  label: "כהה",  icon: "☾" },
-          ].map(({ mode, label, icon }) => (
+            { mode: "light", label: "בהיר", Icon: Sun     },
+            { mode: null,    label: "אוטו", Icon: SunMoon },
+            { mode: "dark",  label: "כהה",  Icon: Moon    },
+          ].map(({ mode, label, Icon }) => (
             <button
               key={String(mode)}
               onClick={() => toggleDarkMode(mode)}
@@ -278,7 +282,7 @@ export default function AccessibilityWidget({ isOpen, onClose }) {
                   : "bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] border-[var(--color-border-light)] hover:border-[#0057B8]"
               }`}
             >
-              <span className="text-base leading-none">{icon}</span>
+              <Icon size={16} aria-hidden="true" />
               {label}
             </button>
           ))}
@@ -300,8 +304,11 @@ export default function AccessibilityWidget({ isOpen, onClose }) {
                 : "bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] border-[var(--color-border-light)] hover:border-[#0057B8]"
             }`}
           >
-            <span className="text-base font-bold leading-none" aria-hidden="true">
-              {feature.icon}
+            <span className="flex items-center justify-center" aria-hidden="true">
+              {feature.Icon
+                ? <feature.Icon size={16} />
+                : <span className="text-base font-bold leading-none">{feature.text}</span>
+              }
             </span>
             {feature.label}
           </button>
