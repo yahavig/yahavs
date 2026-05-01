@@ -102,10 +102,10 @@ export default function AboutSection() {
         <AnimatedEntry>
           <div className="flex flex-col items-center gap-4 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
-              בואו נהיה חברים (על אמת)
+              נעים מאוד, יהב.
             </h2>
             <p className="max-w-2xl mx-auto text-lg leading-loose text-[var(--color-text-secondary)]">
-              אני ממש שמח שאתם כאן, באמת. אם אתם כבר בקטע של סטוקינג; אפשר לקרוא את הסיפור המלא שלי כאן (השקעתי) ואפשר גם לעקוב אחריי בעוד פלטפורמות. עונה רק באינסטגרם
+              אני ממש שמח שאתם כאן, באמת. אם כבר נכנסתם לבדוק מי אני, מה אני עושה ולמה יש לי אתר כאילו אני מינימום מוסד תרבות עם תקציב - אפשר לעשות את זה כמו שצריך. כתבתי כאן את הסיפור המלא שלי, בהשקעה לא סבירה. או שתמשיכו לגלול כי אם כבר סטוקינג, לפחות שיהיה רב-ערוצי ומגובה במקורות.
             </p>
           </div>
         </AnimatedEntry>

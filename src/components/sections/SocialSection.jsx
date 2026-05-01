@@ -107,7 +107,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
         <AnimatedEntry className="text-center">
           <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">בואו נהיה חברים!</h2>
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-loose text-[var(--color-text-secondary)]">
-            בכל רשת יש תוכן קצת אחר. באינסטגרם הכי כיף ותמיד יש סטורי מצחיק או הזוי או מצחיק והזוי. ביוטיוב אני יותר מדבר לעומק על אפל ומשתף מדריכים. ובטיקטוק אני בלי מעצורים במה שאני מעלה. נתראה.
+            בכל פלטפורמה קורה משהו קצת אחר, כי כנראה אישיות אחת לא הספיקה. לדוגמה באינסטגרם תמצאו את הצד היותר יומיומי, עם סטוריז מצחיקים, הזויים ושם גם אני עונה להודעות... ביוטיוב אני נכנס יותר לעומק לעולם של אפל, מדריכים, הסברים ודעות שלא ביקשתם אבל כנראה הייתם צריכים. בטיקטוק אין באמת מבוגר אחראי. נתראה שם, או בכל מקום אחר שבו האלגוריתם יחליט להפגיש בינינו.
           </p>
         </AnimatedEntry>
 

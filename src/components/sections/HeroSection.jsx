@@ -110,7 +110,7 @@ export default function HeroSection() {
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 2.0, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: 3.0, ease: "easeOut" }}
             >
               לדעת.
             </motion.span>
@@ -125,11 +125,11 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 2.8 }}
+            transition={{ duration: 0.7, delay: 4.0 }}
             className="flex flex-col items-center gap-2"
           >
             <span className="text-[9px] font-medium tracking-[0.3em] text-white/50 uppercase">
-              scroll
+              גלול למטה
             </span>
             <motion.span
               animate={{ y: [0, 6, 0] }}

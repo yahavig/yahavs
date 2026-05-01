@@ -1,10 +1,10 @@
-import { Arimo } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import FloatingButtons from "@/components/ui/FloatingButtons";
 import FloatingDock from "@/components/ui/FloatingDock";
 
-const arimo = Arimo({
-  variable: "--font-arimo",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["hebrew", "latin"],
   display: "swap",
 });
@@ -29,7 +29,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="he" dir="rtl" className={`${arimo.variable} h-full`}>
+    <html lang="he" dir="rtl" className={`${openSans.variable} h-full`}>
       <head>
         {/* Prevent dark/light flash before hydration */}
         <script dangerouslySetInnerHTML={{ __html: `

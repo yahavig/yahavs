@@ -12,7 +12,7 @@
   --color-accent-hover: var(--color-accent-hover);
   --color-border: var(--color-border);
   --color-border-light: var(--color-border-light);
-  --font-sans: var(--font-arimo);
+  --font-sans: var(--font-open-sans);
 }
 
 html {
@@ -22,7 +22,7 @@ html {
 body {
   background: var(--color-bg);
   color: var(--color-text-primary);
-  font-family: var(--font-arimo), Arial, Helvetica, sans-serif;
+  font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background 0.3s ease, color 0.3s ease;
