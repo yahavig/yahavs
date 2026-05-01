@@ -103,7 +103,7 @@ export default function HeroSection() {
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1.0, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: 2.0, ease: "easeOut" }}
             >
               כל מה שצריך.{" "}
             </motion.span>
