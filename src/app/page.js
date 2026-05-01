@@ -40,10 +40,10 @@ export default async function Home() {
       <main id="main-content" className="flex-1 bg-[var(--color-bg)]">
         <HeroSection />
         <div className="space-y-3 p-3 sm:space-y-4 sm:p-4">
-          <AboutSection />
           <div className={card}>
             <SocialSection youtubeVideos={youtubeVideos} tiktokVideos={tiktokVideos} instagramPosts={instagramPosts} socialLinks={siteConfig.socialLinks} />
           </div>
+          <AboutSection />
           <div className={card}>
             <CommunitySection discordUrl={discordLink} />
           </div>
