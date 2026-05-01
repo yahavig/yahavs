@@ -35,11 +35,12 @@ export default async function PodcastPage() {
       <Header navItems={siteConfig.navItems} />
       <main id="main-content" className="flex-1 pt-24 pb-20">
         <Container>
+          <div className="rounded-3xl overflow-hidden bg-[var(--color-surface)] shadow-[0_2px_24px_rgba(0,0,0,0.07)] p-8 sm:p-12">
 
           {/* Title */}
           <AnimatedEntry>
             <h1 className="mb-6 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
-              פודקאסט - עדכון תוכנה
+              עדכון תוכנה, פודקאסט.
             </h1>
           </AnimatedEntry>
 
@@ -47,16 +48,13 @@ export default async function PodcastPage() {
           <AnimatedEntry delay={0.1}>
             <div className="mb-8 mx-auto max-w-2xl space-y-5 text-lg leading-loose text-[var(--color-text-secondary)]">
               <p>
-                ובכן - חדשות על אפל, כל שבוע (טוב, כמעט). זה הפודקאסט שלי ושל ירין אזואלי, מנהל לשעבר בקבוצת האפליסטים, וגם חבר טוב שלי מהחיים האמיתיים.
+                עדכון תוכנה הוא הפודקאסט שלי ושל ירין אזואלי, חבר טוב ומנהל לשעבר בקבוצת האפליסטים, שבו אנחנו מדברים על כל מה שקרה השבוע בעולם של אפל - חדשות, שמועות, דעות, דרמות מיותרות ושטויות הכרחיות.
               </p>
               <p>
-                כל השבוע אנחנו אוספים חדשות, שמועות, הכרזות, דעות ושטויות - ומביאים את כולן בפרק אחד, מפוצץ בצחוקים. אין כאן סקריפט, אין כאן עריכה יותר מדי מהודקת, ואין כאן ניסיון להישמע רציניים מדי. זאת תכל׳ס שיחה מוקלטת של שני אפליסטים שטותניקים שסתם חושבים שמישהו רוצה לשמוע אותם.
+                זה יוצא כל שבוע, טוב, כמעט, ומרגיש פחות כמו מהדורת חדשות ויותר כמו שיחה מוקלטת של שני אפליסטים שלא קיבלו השגחת מבוגר. אין סקריפט, אין תסריט, ואין שום ניסיון להישמע רציניים יותר ממה שאנחנו. רק שני בנאדם שאוהבים אפל, יושבים ביחד, ומדברים על מה שמעניין אותם - וכנראה גם אתכם.
               </p>
               <p>
-                אנחנו מדברים על כל מה שקורה בעולם של אפל - מהכרזות רשמיות, דרך שמועות מ-Bloomberg ומ-MacRumors, ועד לשינויים הקטנים בגרסאות בטא שרק אנחנו שמים לב אליהם. לפעמים אנחנו גולשים לנושאים רחבים יותר - בינה מלאכותית, טכנולוגיה ישראלית, או סתם התלבטויות על איזה מוצר לקנות.
-              </p>
-              <p>
-                וכן, חד משמעית ניסיתי לחקות את הפורמט של Genius Bar - אבל הגרסה שלנו קצת יותר כאוטית. אפשר להאזין בספוטיפיי, ב-Apple Podcasts, או בכל אפליקציית פודקאסטים אחרת שיש לכם. פרק חדש מחכה לכם כמעט כל שבוע.
+                מפוצץ בצחוקים, מלא באהבה לאפל, וכן - חד משמעית ניסיתי לחקות את Genius Bar.
               </p>
             </div>
           </AnimatedEntry>
@@ -105,6 +103,7 @@ export default async function PodcastPage() {
             </div>
           </AnimatedEntry>
 
+          </div>
         </Container>
       </main>
       <Footer socialLinks={siteConfig.socialLinks} siteName={siteConfig.title} />

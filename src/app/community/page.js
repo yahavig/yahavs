@@ -13,6 +13,7 @@ export default async function CommunityPage() {
       <Header navItems={siteConfig.navItems} />
       <main id="main-content" className="flex-1 pt-24 pb-16">
         <Container>
+          <div className="rounded-3xl overflow-hidden bg-[var(--color-surface)] shadow-[0_2px_24px_rgba(0,0,0,0.07)] p-8 sm:p-12">
           <div className="mx-auto max-w-2xl">
             <AnimatedEntry>
               <h1 className="mb-4 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">שרת הדיסקורד</h1>
@@ -26,9 +27,10 @@ export default async function CommunityPage() {
                 וחוץ מזה - זה גם מקום מעולה פשוט להכיר חברים חדשים. אני מרגיש הרבה פעמים שפשוט אין לי עם מי לדבר. לא כי אין סביבי אנשים, אלא כי לא תמיד יש את האנשים שמתעניינים בדיוק באותם דברים, שחושבים על העולם באותה צורה, שיכולים לשבת איתי שעה על ענייני אפל, טכנולוגיה, בינה מלאכותית או תקשורת בינאישית בלי להתעייף. אני מניח שיש עוד לא מעט אנשים שמרגישים ככה - אז בואו, השרת הוא בדיוק בשביל זה.
               </p>
             </AnimatedEntry>
-            {discordUrl && (
-              <AnimatedEntry delay={0.15}>
-                <div className="mt-8 flex justify-center">
+            {/* Discord widget */}
+            <AnimatedEntry delay={0.15}>
+              <div className="mt-10 flex flex-col items-center gap-6">
+                {discordUrl && (
                   <a
                     href={discordUrl}
                     target="_blank"
@@ -37,18 +39,29 @@ export default async function CommunityPage() {
                     style={{
                       backdropFilter:       "blur(20px)",
                       WebkitBackdropFilter: "blur(20px)",
-                      background:           "rgba(0, 113, 227, 0.88)",
-                      border:               "1px solid rgba(255, 255, 255, 0.28)",
+                      background:           "rgba(100, 115, 240, 0.72)",
+                      border:               "1px solid rgba(180, 188, 255, 0.45)",
                       boxShadow:
-                        "inset 1.5px 1.5px 1px rgba(255,255,255,0.40), inset -1px -1px 1px rgba(255,255,255,0.15), 0 4px 20px rgba(0,113,227,0.35)",
+                        "inset 1.5px 1.5px 1px rgba(255,255,255,0.50), inset -1px -1px 1px rgba(255,255,255,0.20), 0 4px 20px rgba(100,115,240,0.30)",
                     }}
                   >
                     <DiscordIcon />
                     <span>דיסקורדיישן</span>
                   </a>
-                </div>
-              </AnimatedEntry>
-            )}
+                )}
+                <iframe
+                  src="https://discord.com/widget?id=1219714545443012689&theme=dark"
+                  width="350"
+                  height="500"
+                  allowTransparency
+                  frameBorder="0"
+                  sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                  className="rounded-2xl shadow-2xl max-w-full"
+                  title="שרת הדיסקורד של יהב"
+                />
+              </div>
+            </AnimatedEntry>
+          </div>
           </div>
         </Container>
       </main>

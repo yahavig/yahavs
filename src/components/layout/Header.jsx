@@ -41,7 +41,7 @@ export default function Header({ navItems = [] }) {
   return (
     <AnimatePresence mode="wait" initial={false}>
       {/* ── Desktop nav ── */}
-      {(isDesktop === null || isDesktop) && (
+      {isDesktop === true && (
         <motion.header
           key="desktop"
           initial={{ opacity: 0, y: -6 }}

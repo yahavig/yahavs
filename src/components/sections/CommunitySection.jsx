@@ -20,7 +20,7 @@ export default function CommunitySection({ discordUrl = DISCORD_URL }) {
         <div className="mx-auto max-w-2xl text-center">
           <AnimatedEntry>
             <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
-              בואו נהיה חברים על אמת
+              בואו נהיה חברים. על אמת.
             </h2>
           </AnimatedEntry>
           <AnimatedEntry delay={0.15}>

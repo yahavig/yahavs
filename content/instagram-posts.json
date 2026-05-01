@@ -1,9 +1,12 @@
 {
   "posts": [
-    { "url": "https://www.instagram.com/p/DS25IWbDeOw/", "topic": "autism" },
-    { "url": "https://www.instagram.com/p/DPrAUHwjEVB/", "topic": "autism" },
-    { "url": "https://www.instagram.com/p/DRHSRUTjeYw/", "topic": "autism" },
-    { "url": "https://www.instagram.com/p/DQMGl73jdgk/", "topic": "autism" },
-    { "url": "https://www.instagram.com/p/DP8ThW4jMSy/", "topic": "autism" }
+    { "url": "https://www.instagram.com/reel/DPrAUHwjEVB/", "topic": "general" },
+    { "url": "https://www.instagram.com/reel/DTFcFsogG65/", "topic": "general" },
+    { "url": "https://www.instagram.com/reel/DVeBGTdDN_1/", "topic": "general" },
+    { "url": "https://www.instagram.com/reel/DT0LoiIDBcO/", "topic": "general" },
+    { "url": "https://www.instagram.com/reel/DTqPT4fDf98/", "topic": "general" },
+    { "url": "https://www.instagram.com/reel/DOxoBL9jDmv/", "topic": "general" },
+    { "url": "https://www.instagram.com/reel/DOdb1ayjISg/", "topic": "general" },
+    { "url": "https://www.instagram.com/reel/DD95wACsfEO/", "topic": "general" }
   ]
 }

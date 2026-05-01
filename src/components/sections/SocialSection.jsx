@@ -105,7 +105,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
     <section id="social" className="py-16 sm:py-24">
       <Container>
         <AnimatedEntry className="text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">בואו נהיה חברים!</h2>
+          <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">בואו נהיה חברים.</h2>
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-loose text-[var(--color-text-secondary)]">
             בכל פלטפורמה קורה משהו קצת אחר, כי כנראה אישיות אחת לא הספיקה. באינסטגרם תמצאו סטוריז, יומיום וגם מענה להודעות. ביוטיוב יש אפל, מדריכים ודעות שלא ביקשתם. בטיקטוק אין באמת מבוגר אחראי. נתראה שם, או איפה שהאלגוריתם יחליט.
           </p>
