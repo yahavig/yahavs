@@ -44,7 +44,7 @@ export default function FloatingDock() {
     <>
       <GlassFilter />
 
-      <div className="fixed bottom-2 left-1/2 z-[200] -translate-x-1/2">
+      <div className="fixed bottom-6 left-1/2 z-[200] -translate-x-1/2">
         {/* Wrapper - overflow visible so icons can grow above the tray */}
         <div className="relative" style={{ overflow: "visible" }}>
 
