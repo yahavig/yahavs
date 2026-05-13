@@ -23,7 +23,7 @@ export default function AboutSection() {
       <div aria-hidden="true" className="pointer-events-none absolute z-10 inset-y-0 left-0 w-6" style={{ background: "linear-gradient(to top, rgba(234,179,8,0.82) 0%, rgba(59,130,246,0.88) 100%)", maskImage: "linear-gradient(to right, black 0%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, black 0%, transparent 100%)" }} />
 
       {/* Header */}
-      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 pt-16 pb-8 sm:pt-24">
+      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 pt-16 pb-20 sm:pt-24 sm:pb-28">
         <AnimatedEntry>
           <div className="flex flex-col items-center gap-4 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
