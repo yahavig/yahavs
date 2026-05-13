@@ -23,7 +23,7 @@ export default function AboutSection() {
       <div aria-hidden="true" className="pointer-events-none absolute z-10 inset-y-0 left-0 w-6" style={{ background: "linear-gradient(to top, rgba(234,179,8,0.82) 0%, rgba(59,130,246,0.88) 100%)", maskImage: "linear-gradient(to right, black 0%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, black 0%, transparent 100%)" }} />
 
       {/* Header */}
-      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 pt-20 pb-24 sm:pt-32 sm:pb-36">
+      <div className="mx-auto w-full max-w-7xl px-10 sm:px-16 lg:px-24 pt-[5vh] pb-8 sm:pb-10">
         <AnimatedEntry>
           <div className="flex flex-col items-center gap-4 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
@@ -39,8 +39,8 @@ export default function AboutSection() {
       {/* Carousel */}
       <Carousel stripClassName="ps-5 sm:ps-8 lg:ps-12 pe-5 sm:pe-8 lg:pe-12">
         {CARDS.map(({ Icon, gradient, text }, i) => (
-          <div key={i} className="w-64 shrink-0 sm:w-72 rounded-3xl overflow-hidden select-none" style={{ background: gradient, minHeight: "300px" }}>
-            <div className="flex flex-col p-7 gap-5" style={{ minHeight: "300px" }}>
+          <div key={i} className="w-64 shrink-0 sm:w-72 rounded-3xl overflow-hidden select-none" style={{ background: gradient, minHeight: "260px" }}>
+            <div className="flex flex-col p-7 gap-5" style={{ minHeight: "260px" }}>
               <Icon size={48} color="white" strokeWidth={1.25} aria-hidden="true" style={{ opacity: 0.85 }} />
               <p className="mt-10 text-white text-[0.9375rem] leading-[1.75] font-semibold">{text}</p>
             </div>
@@ -49,7 +49,7 @@ export default function AboutSection() {
       </Carousel>
 
       {/* CTA */}
-      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 mt-8 pb-16 sm:pb-24 flex justify-center">
+      <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 mt-8 pb-[4vh] flex justify-center">
         <GlassButton href="/about" size="sm" aria-label="לעמוד עליי המלא" glassColor="rgba(0, 113, 227, 0.80)" className="text-white font-semibold">
           <span>מי אתה, יהב גואטה?</span>
           <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
