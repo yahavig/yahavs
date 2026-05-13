@@ -2,29 +2,12 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
+import GlassButton from "@/components/ui/GlassButton";
 import { getSiteConfig } from "@/lib/content";
 
 const SHOW_ID = "2bzIcwU1WsEmgOugv7sKnW";
 const SPOTIFY_EMBED = `https://open.spotify.com/embed/show/${SHOW_ID}?utm_source=generator&theme=0`;
 const APPLE_PODCASTS_URL = "https://podcasts.apple.com/il/podcast/%D7%A2%D7%93%D7%9B%D7%95%D7%9F-%D7%AA%D7%95%D7%9B%D7%A0%D7%94/id1820547524?i=1000758151899";
-
-const GLASS_SPOTIFY = {
-  backdropFilter:       "blur(20px)",
-  WebkitBackdropFilter: "blur(20px)",
-  background:           "rgba(30, 215, 96, 0.88)",
-  border:               "1px solid rgba(255, 255, 255, 0.28)",
-  boxShadow:
-    "inset 1.5px 1.5px 1px rgba(255,255,255,0.40), inset -1px -1px 1px rgba(255,255,255,0.15), 0 4px 20px rgba(30,215,96,0.35)",
-};
-
-const GLASS_APPLE_PODCASTS = {
-  backdropFilter:       "blur(20px)",
-  WebkitBackdropFilter: "blur(20px)",
-  background:           "rgba(148, 58, 230, 0.88)",
-  border:               "1px solid rgba(200, 140, 255, 0.40)",
-  boxShadow:
-    "inset 1.5px 1.5px 1px rgba(255,255,255,0.40), inset -1px -1px 1px rgba(255,255,255,0.15), 0 4px 20px rgba(148,58,230,0.38)",
-};
 
 export default async function PodcastPage() {
   const siteConfig = await getSiteConfig();
@@ -35,7 +18,7 @@ export default async function PodcastPage() {
       <Header navItems={siteConfig.navItems} />
       <main id="main-content" className="flex-1 pt-24 pb-20">
         <Container>
-          <div className="rounded-3xl overflow-hidden bg-[var(--color-surface)] shadow-[0_2px_24px_rgba(0,0,0,0.07)] p-8 sm:p-12">
+          <div className="rounded-3xl overflow-hidden glass-strong p-8 sm:p-12">
 
           {/* Title */}
           <AnimatedEntry>
@@ -63,28 +46,16 @@ export default async function PodcastPage() {
           <AnimatedEntry delay={0.18}>
             <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
               {spotifyUrl && (
-                <a
-                  href={spotifyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
-                  style={GLASS_SPOTIFY}
-                >
+                <GlassButton href={spotifyUrl} external size="sm" glassColor="rgba(30,215,96,0.88)" className="text-white font-semibold">
                   <SpotifyIcon />
                   <span>Spotify</span>
-                </a>
+                </GlassButton>
               )}
-              <a
-                href={APPLE_PODCASTS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
-                style={GLASS_APPLE_PODCASTS}
-              >
+              <GlassButton href={APPLE_PODCASTS_URL} external size="sm" glassColor="rgba(148,58,230,0.88)" className="text-white font-semibold">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/icons/podcasts circle.png" alt="" width={20} height={20} className="rounded-md" aria-hidden="true" />
                 <span>Apple Podcasts</span>
-              </a>
+              </GlassButton>
             </div>
           </AnimatedEntry>
 

@@ -13,13 +13,13 @@ const SPRING       = { mass: 0.1, stiffness: 150, damping: 12 };
 
 /* ─── Dock items ─────────────────────────────────────────────── */
 const DOCK_ITEMS = [
-  { id: "tiktok",    label: "TikTok",    section: "social",    tab: "tiktok"    },
-  { id: "instagram", label: "Instagram", section: "social",    tab: "instagram" },
-  { id: "youtube",   label: "YouTube",   section: "social",    tab: "youtube"   },
-  { id: "discord",   label: "Discord",   section: "community", tab: null        },
-  { id: "podcast",   label: "Podcast",   section: "podcast",   tab: null        },
+  { id: "tiktok",    label: "TikTok",    external: "https://www.tiktok.com/@yahavguetta" },
+  { id: "instagram", label: "Instagram", external: "https://www.instagram.com/yahavguetta/" },
+  { id: "youtube",   label: "YouTube",   external: "https://www.youtube.com/@yahavguetta" },
+  { id: "discord",   label: "Discord",   section: "community" },
+  { id: "podcast",   label: "Podcast",   section: "podcast"   },
   { id: "divider" },
-  { id: "finder",    label: "עליי",      section: "about",     tab: null        },
+  { id: "finder",    label: "עליי",      section: "about"     },
 ];
 
 /* ─── Main Dock ──────────────────────────────────────────────── */
@@ -29,14 +29,16 @@ export default function FloatingDock() {
   const router   = useRouter();
 
   const handleClick = useCallback((item) => {
-    const scrollTo = () =>
-      document.getElementById(item.section)?.scrollIntoView({ behavior: "smooth" });
-
+    // External links → open profile in new tab
+    if (item.external) {
+      window.open(item.external, "_blank", "noopener,noreferrer");
+      return;
+    }
+    // Internal: scroll on home, route otherwise
     if (pathname === "/") {
-      if (item.tab) window.dispatchEvent(new CustomEvent("switchSocialTab", { detail: item.tab }));
-      scrollTo();
+      document.getElementById(item.section)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      router.push(item.tab ? `/?tab=${item.tab}#${item.section}` : `/#${item.section}`);
+      router.push(`/#${item.section}`);
     }
   }, [pathname, router]);
 
@@ -44,7 +46,12 @@ export default function FloatingDock() {
     <>
       <GlassFilter />
 
-      <div className="fixed bottom-6 left-1/2 z-[200] -translate-x-1/2">
+      <motion.div
+        className="fixed bottom-6 left-1/2 z-[200] -translate-x-1/2"
+        initial={{ y: 120 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 320, damping: 18, mass: 0.8, delay: 0.3 }}
+      >
         {/* Wrapper - overflow visible so icons can grow above the tray */}
         <div className="relative" style={{ overflow: "visible" }}>
 
@@ -100,7 +107,7 @@ export default function FloatingDock() {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

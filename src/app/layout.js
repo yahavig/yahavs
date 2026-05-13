@@ -1,25 +1,26 @@
-import { Open_Sans } from "next/font/google";
+import { Arimo } from "next/font/google";
 import "./globals.css";
+import Background from "@/components/ui/Background";
 import FloatingButtons from "@/components/ui/FloatingButtons";
 import FloatingDock from "@/components/ui/FloatingDock";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const arimo = Arimo({
+  variable: "--font-arimo",
   subsets: ["hebrew", "latin"],
   display: "swap",
 });
 
 export const metadata = {
-  title: "Yahav's World",
+  title: "yahavguetta.com",
   description:
-    "הבית הרשמי של yahav's - סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
+    "הבית הרשמי של yahavguetta.com - סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "Yahav's World",
+    title: "yahavguetta.com",
     description:
       "סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
     locale: "he_IL",
@@ -29,7 +30,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="he" dir="rtl" className={`${openSans.variable} h-full`}>
+    <html lang="he" dir="rtl" className={`${arimo.variable} h-full`}>
       <head>
         {/* Prevent dark/light flash before hydration */}
         <script dangerouslySetInnerHTML={{ __html: `
@@ -43,6 +44,9 @@ export default function RootLayout({ children }) {
         `}} />
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
+        {/* Animated global background — Apple Intelligence palette */}
+        <Background />
+
         {/* Skip to main content - accessibility requirement */}
         <a
           href="#main-content"

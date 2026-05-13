@@ -9,22 +9,11 @@ import Carousel from "@/components/ui/Carousel";
 import VideoCard from "@/components/cards/VideoCard";
 import TikTokCard from "@/components/cards/TikTokCard";
 import { ChevronLeft } from "lucide-react";
+import GlassButton from "@/components/ui/GlassButton";
 import fs from "fs/promises";
 import path from "path";
 
 export const revalidate = 3600;
-
-const GLASS_BTN = {
-  backdropFilter:       "blur(20px)",
-  WebkitBackdropFilter: "blur(20px)",
-  background:           "rgba(0, 113, 227, 0.88)",
-  border:               "1px solid rgba(255, 255, 255, 0.28)",
-  boxShadow:
-    "inset 1.5px 1.5px 1px rgba(255,255,255,0.40), inset -1px -1px 1px rgba(255,255,255,0.15), 0 4px 20px rgba(0,113,227,0.35)",
-};
-
-const blueBtnClass =
-  "inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105";
 
 async function getInstagramPosts() {
   try {
@@ -49,21 +38,18 @@ export default async function ContentPage() {
       <main id="main-content" className="flex-1 pt-24 pb-16">
         <Container>
           <AnimatedEntry>
-            <h1 className="mb-6 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">הסרטונים שלי</h1>
-            <p className="mb-10 max-w-2xl text-lg leading-loose text-[var(--color-text-secondary)]">
+            <h1 className="mb-6 text-3xl font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)] sm:text-4xl">הסרטונים שלי</h1>
+            <p className="mb-10 max-w-2xl text-lg leading-loose text-white/75">
               בכל רשת התוכן שלי נראה קצת אחר - כי בכל אחת יש פורמט שונה, קהל שונה וקצב שונה. ריכזתי כאן את הכל במקום אחד, עם הסבר קצר על כל פלטפורמה.
             </p>
           </AnimatedEntry>
 
           {youtubeVideos.length > 0 && (
             <AnimatedEntry>
-              <div
-                className="mb-4 rounded-3xl py-8 shadow-[0_2px_24px_rgba(0,0,0,0.07)] overflow-hidden"
-                style={{ background: "linear-gradient(145deg, #FF0000 0%, #B20000 100%)" }}
-              >
+              <div className="mb-4 rounded-3xl py-8 overflow-hidden glass-strong">
                 <div className="px-8 sm:px-10">
-                  <h2 className="mb-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">YouTube</h2>
-                  <p className="mb-6 max-w-2xl text-lg leading-loose text-white/90">
+                  <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">YouTube</h2>
+                  <p className="mb-6 max-w-2xl text-lg leading-loose text-[var(--color-text-secondary)]">
                     ביוטיוב אני בפורמט הכי רציני. סרטונים ארוכים, מדריכים מעמיקים, סקירות של מוצרים ופיצ׳רים חדשים, ופרשנות מלאה על הכרזות של אפל. זה המקום אליו אני חוזר כשיש לי מה לומר לעומק, כולל תחקיר, עריכה וסבלנות. מי שמחפש תשובה מסודרת - כדאי להתחיל כאן.
                   </p>
                 </div>
@@ -72,10 +58,10 @@ export default async function ContentPage() {
                 </Carousel>
                 {linksByPlatform.youtube && (
                   <div className="px-8 sm:px-10 mt-6">
-                    <a href={linksByPlatform.youtube} target="_blank" rel="noopener noreferrer" className={blueBtnClass} style={GLASS_BTN}>
+                    <GlassButton href={linksByPlatform.youtube} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
                       <span>לערוץ היוטיוב המלא</span>
                       <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
-                    </a>
+                    </GlassButton>
                   </div>
                 )}
               </div>
@@ -84,13 +70,10 @@ export default async function ContentPage() {
 
           {tiktokVideos.length > 0 && (
             <AnimatedEntry>
-              <div
-                className="mb-4 rounded-3xl py-8 shadow-[0_2px_24px_rgba(0,0,0,0.07)] overflow-hidden"
-                style={{ background: "linear-gradient(145deg, #000000 0%, #25F4EE 100%)" }}
-              >
+              <div className="mb-4 rounded-3xl py-8 overflow-hidden glass-strong">
                 <div className="px-8 sm:px-10">
-                  <h2 className="mb-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">TikTok</h2>
-                  <p className="mb-6 max-w-2xl text-lg leading-loose text-white/90">
+                  <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">TikTok</h2>
+                  <p className="mb-6 max-w-2xl text-lg leading-loose text-[var(--color-text-secondary)]">
                     בטיקטוק אני בלי מעצורים. קליפים קצרים, ישירים, לפעמים מצחיקים, לפעמים חדים, ותמיד מהירים. זה המקום שבו אני מגיב לשמועות ברגע שהן יוצאות, קופץ על טרנדים, ומעלה דברים שפחות היו מתאימים ליוטיוב המסודר. בקיצור, יוטיוב זה אני אחרי תחקיר, טיקטוק זה אני באמצע המחשבה.
                   </p>
                 </div>
@@ -99,10 +82,10 @@ export default async function ContentPage() {
                 </Carousel>
                 {linksByPlatform.tiktok && (
                   <div className="px-8 sm:px-10 mt-6">
-                    <a href={linksByPlatform.tiktok} target="_blank" rel="noopener noreferrer" className={blueBtnClass} style={GLASS_BTN}>
+                    <GlassButton href={linksByPlatform.tiktok} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
                       <span>לפרופיל TikTok המלא</span>
                       <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
-                    </a>
+                    </GlassButton>
                   </div>
                 )}
               </div>
@@ -111,13 +94,10 @@ export default async function ContentPage() {
 
           {instagramPosts.length > 0 && (
             <AnimatedEntry>
-              <div
-                className="rounded-3xl py-8 shadow-[0_2px_24px_rgba(0,0,0,0.07)] overflow-hidden"
-                style={{ background: "linear-gradient(145deg, #f09433 0%, #e6683c 35%, #dc2743 65%, #bc1888 100%)" }}
-              >
+              <div className="rounded-3xl py-8 overflow-hidden glass-strong">
                 <div className="px-8 sm:px-10">
-                  <h2 className="mb-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">Instagram</h2>
-                  <p className="mb-6 max-w-2xl text-lg leading-loose text-white/90">
+                  <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">Instagram</h2>
+                  <p className="mb-6 max-w-2xl text-lg leading-loose text-[var(--color-text-secondary)]">
                     באינסטגרם אני הכי משוחרר. זה המקום לסטוריז מהיום יום, תמונות, הצצות מאחורי הקלעים, בדיחות פנימיות, ותגובות בזמן אמת לכל מה שאפל מכריזה או שוקדת עליו. זה הכי קרוב שיש לתוכן ״לא ערוך״ - כמו לעקוב אחרי חבר, לא אחרי יוצר.
                   </p>
                 </div>
@@ -149,10 +129,10 @@ export default async function ContentPage() {
                 </Carousel>
                 {linksByPlatform.instagram && (
                   <div className="px-8 sm:px-10 mt-6">
-                    <a href={linksByPlatform.instagram} target="_blank" rel="noopener noreferrer" className={blueBtnClass} style={GLASS_BTN}>
+                    <GlassButton href={linksByPlatform.instagram} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
                       <span>לפרופיל Instagram המלא</span>
                       <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
-                    </a>
+                    </GlassButton>
                   </div>
                 )}
               </div>

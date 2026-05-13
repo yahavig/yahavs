@@ -1,4 +1,4 @@
-import Link from "next/link";
+import GlassButton from "@/components/ui/GlassButton";
 import Carousel from "@/components/ui/Carousel";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import { Sparkles, BookOpen, Brain, MessageCircle, Wifi, Smile, ChevronLeft } from "lucide-react";
@@ -37,70 +37,21 @@ const CARDS = [
   },
 ];
 
-/* Liquid-glass blue pill */
-const GLASS_BTN = {
-  backdropFilter:       "blur(20px)",
-  WebkitBackdropFilter: "blur(20px)",
-  background:           "rgba(0, 113, 227, 0.88)",
-  border:               "1px solid rgba(255, 255, 255, 0.28)",
-  boxShadow:
-    "inset 1.5px 1.5px 1px rgba(255,255,255,0.40), inset -1px -1px 1px rgba(255,255,255,0.15), 0 4px 20px rgba(0,113,227,0.35)",
-};
 
 export default function AboutSection() {
   return (
     <section id="about" className="relative py-16 sm:py-24 rounded-3xl overflow-hidden">
 
-      {/* ── Aurora ring — each colour appears once, clockwise from top-left ── */}
-      {/* Top: blue → indigo → purple → pink */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute z-10 inset-x-0 top-0 h-6"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(59,130,246,0.88) 0%, rgba(99,102,241,0.85) 33%, rgba(168,85,247,0.82) 66%, rgba(236,72,153,0.80) 100%)",
-          maskImage:        "linear-gradient(to bottom, black 0%, transparent 100%)",
-          WebkitMaskImage:  "linear-gradient(to bottom, black 0%, transparent 100%)",
-        }}
-      />
-      {/* Right: pink → red → orange */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute z-10 inset-y-0 right-0 w-6"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(236,72,153,0.80) 0%, rgba(239,68,68,0.82) 50%, rgba(249,115,22,0.85) 100%)",
-          maskImage:        "linear-gradient(to left, black 0%, transparent 100%)",
-          WebkitMaskImage:  "linear-gradient(to left, black 0%, transparent 100%)",
-        }}
-      />
-      {/* Bottom: orange → yellow (RTL visually: orange right → yellow left) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute z-10 inset-x-0 bottom-0 h-6"
-        style={{
-          background:
-            "linear-gradient(to left, rgba(249,115,22,0.85) 0%, rgba(234,179,8,0.82) 100%)",
-          maskImage:        "linear-gradient(to top, black 0%, transparent 100%)",
-          WebkitMaskImage:  "linear-gradient(to top, black 0%, transparent 100%)",
-        }}
-      />
-      {/* Left: yellow → blue (closes the ring) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute z-10 inset-y-0 left-0 w-6"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(234,179,8,0.82) 0%, rgba(59,130,246,0.88) 100%)",
-          maskImage:        "linear-gradient(to right, black 0%, transparent 100%)",
-          WebkitMaskImage:  "linear-gradient(to right, black 0%, transparent 100%)",
-        }}
-      />
+      {/* ── Apple Intelligence aurora border ─────────────────────── */}
+      <div aria-hidden="true" className="pointer-events-none absolute z-10 inset-x-0 top-0 h-6" style={{ background: "linear-gradient(to right, rgba(59,130,246,0.88) 0%, rgba(99,102,241,0.85) 33%, rgba(168,85,247,0.82) 66%, rgba(236,72,153,0.80) 100%)", maskImage: "linear-gradient(to bottom, black 0%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 0%, transparent 100%)" }} />
+      <div aria-hidden="true" className="pointer-events-none absolute z-10 inset-y-0 right-0 w-6" style={{ background: "linear-gradient(to bottom, rgba(236,72,153,0.80) 0%, rgba(239,68,68,0.82) 50%, rgba(249,115,22,0.85) 100%)", maskImage: "linear-gradient(to left, black 0%, transparent 100%)", WebkitMaskImage: "linear-gradient(to left, black 0%, transparent 100%)" }} />
+      <div aria-hidden="true" className="pointer-events-none absolute z-10 inset-x-0 bottom-0 h-6" style={{ background: "linear-gradient(to left, rgba(249,115,22,0.85) 0%, rgba(234,179,8,0.82) 100%)", maskImage: "linear-gradient(to top, black 0%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, black 0%, transparent 100%)" }} />
+      <div aria-hidden="true" className="pointer-events-none absolute z-10 inset-y-0 left-0 w-6" style={{ background: "linear-gradient(to top, rgba(234,179,8,0.82) 0%, rgba(59,130,246,0.88) 100%)", maskImage: "linear-gradient(to right, black 0%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, black 0%, transparent 100%)" }} />
 
-      {/* ── Header ───────────────────────────────────────────────── */}
+      {/* ── Header — glass-strong only on the text area ───────────── */}
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 mb-8">
         <AnimatedEntry>
-          <div className="flex flex-col items-center gap-4 text-center">
+          <div className="glass-strong rounded-2xl px-8 py-8 flex flex-col items-center gap-4 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
               נעים מאוד, יהב.
             </h2>
@@ -142,15 +93,16 @@ export default function AboutSection() {
 
       {/* ── Button below carousel ─────────────────────────────────── */}
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 mt-8 flex justify-center">
-        <Link
+        <GlassButton
           href="/about"
+          size="sm"
           aria-label="לעמוד עליי המלא"
-          className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-          style={GLASS_BTN}
+          glassColor="rgba(0, 113, 227, 0.80)"
+          className="text-white font-semibold"
         >
           <span>מי אתה, יהב גואטה?</span>
           <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
-        </Link>
+        </GlassButton>
       </div>
 
     </section>

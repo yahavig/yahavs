@@ -13,9 +13,9 @@ const PLATFORM_COLORS = {
   facebook:  "#1877F2",
 };
 
-export default function Footer({ socialLinks = [], siteName = "yahav's" }) {
+export default function Footer({ socialLinks = [], siteName = "yahavguetta.com" }) {
   return (
-    <footer className="bg-[#0A0A0A] text-white pb-28 md:pb-0">
+    <footer className="bg-[#0A0A0A] text-white pb-28 md:pb-0 rounded-t-3xl">
       <Container className="py-10">
         <div className="flex flex-col items-center gap-6 text-center">
           <Link href="/" className="text-lg font-bold tracking-tight text-white transition-opacity hover:opacity-70">
@@ -39,7 +39,7 @@ export default function Footer({ socialLinks = [], siteName = "yahav's" }) {
           </div>
 
           <p className="text-xs text-white/35">
-            © 2026 yahavs.com Team. All rights reserved
+            © 2026 yahavguetta.com. All rights reserved
           </p>
         </div>
       </Container>

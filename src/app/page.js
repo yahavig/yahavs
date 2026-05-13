@@ -32,12 +32,12 @@ export default async function Home() {
   const discordLink = linksByPlatform.discord;
   const spotifyLink = linksByPlatform.spotify;
 
-  const card = "rounded-3xl overflow-hidden bg-[var(--color-surface)] shadow-[0_2px_24px_rgba(0,0,0,0.07)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.008]";
+  const card = "rounded-3xl overflow-hidden glass-strong transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.008]";
 
   return (
     <>
       <Header navItems={siteConfig.navItems} />
-      <main id="main-content" className="flex-1 bg-[var(--color-bg)]">
+      <main id="main-content" className="flex-1">
         <HeroSection />
         <div className="space-y-3 p-3 sm:space-y-4 sm:p-4">
           <AboutSection />

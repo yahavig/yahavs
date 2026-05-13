@@ -5,18 +5,10 @@ import Carousel from "@/components/ui/Carousel";
 import VideoCard from "@/components/cards/VideoCard";
 import TikTokCard from "@/components/cards/TikTokCard";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
+import GlassButton from "@/components/ui/GlassButton";
 import { ChevronLeft } from "lucide-react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/yahavguetta/";
-
-const GLASS_LINK = {
-  backdropFilter:       "blur(20px)",
-  WebkitBackdropFilter: "blur(20px)",
-  background:           "rgba(0, 113, 227, 0.88)",
-  border:               "1px solid rgba(255, 255, 255, 0.28)",
-  boxShadow:
-    "inset 1.5px 1.5px 1px rgba(255,255,255,0.40), inset -1px -1px 1px rgba(255,255,255,0.15), 0 4px 20px rgba(0,113,227,0.35)",
-};
 
 const APPLE_MUSIC_URL = "https://music.apple.com/profile/yahavguetta";
 
@@ -168,12 +160,10 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               </a>
             )}
             <div className="mt-4 flex justify-center">
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
-                style={GLASS_LINK}>
+              <GlassButton href={INSTAGRAM_URL} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
                 <span>לפרופיל המלא</span>
                 <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
-              </a>
+              </GlassButton>
             </div>
           </div>
         )}
@@ -194,12 +184,10 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
             )}
             {youtubeUrl && (
               <div className="mt-4 flex justify-center">
-                <a href={youtubeUrl} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
-                  style={GLASS_LINK}>
+                <GlassButton href={youtubeUrl} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
                   <span>לערוץ המלא</span>
                   <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
-                </a>
+                </GlassButton>
               </div>
             )}
           </div>
@@ -221,12 +209,10 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
             )}
             {tiktokUrl && (
               <div className="mt-4 flex justify-center">
-                <a href={tiktokUrl} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
-                  style={GLASS_LINK}>
+                <GlassButton href={tiktokUrl} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
                   <span>לפרופיל TikTok</span>
                   <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
-                </a>
+                </GlassButton>
               </div>
             )}
           </div>
@@ -240,40 +226,20 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
             <p className="max-w-sm text-[var(--color-text-secondary)] leading-relaxed">
               האמת שאני מוזיקאי בעצמי. אשחרר בהמשך שירים. אבל עד אז - תהנו קצת מהטעם הממש טוב ורחב שלי!
             </p>
-            <a
-              href={APPLE_MUSIC_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
-              style={GLASS_LINK}
-            >
+            <GlassButton href={APPLE_MUSIC_URL} external size="sm" glassColor="rgba(252,60,68,0.82)" className="text-white font-semibold">
               <span>לפרופיל Music</span>
               <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
-            </a>
+            </GlassButton>
           </div>
         )}
 
         {/* Facebook */}
         {active === "facebook" && (
           <div className="flex items-center justify-center py-16">
-            <a
-              href="https://www.facebook.com/yahavguetta/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-transform duration-300 hover:scale-105"
-              style={{
-                backdropFilter:       "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                background:           "rgba(255, 255, 255, 0.92)",
-                border:               "1px solid rgba(255, 255, 255, 0.6)",
-                boxShadow:
-                  "inset 1.5px 1.5px 1px rgba(255,255,255,0.9), inset -1px -1px 1px rgba(255,255,255,0.5), 0 4px 20px rgba(24,119,242,0.25)",
-                color: "#1877F2",
-              }}
-            >
+            <GlassButton href="https://www.facebook.com/yahavguetta/" external size="sm" glassColor="rgba(18,100,230,0.82)" className="text-white font-semibold">
               <span>שיטפוסטר מקצועי מאז 2012</span>
               <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
-            </a>
+            </GlassButton>
           </div>
         )}
       </Container>

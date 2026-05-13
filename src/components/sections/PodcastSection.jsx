@@ -1,26 +1,9 @@
 import Container from "@/components/ui/Container";
+import GlassButton from "@/components/ui/GlassButton";
 
 const SHOW_ID = "2bzIcwU1WsEmgOugv7sKnW";
 const SPOTIFY_EMBED = `https://open.spotify.com/embed/show/${SHOW_ID}?utm_source=generator&theme=0`;
 const APPLE_PODCASTS_URL = "https://podcasts.apple.com/il/podcast/%D7%A2%D7%93%D7%9B%D7%95%D7%9F-%D7%AA%D7%95%D7%9B%D7%A0%D7%94/id1820547524?i=1000758151899";
-
-const GLASS_SPOTIFY = {
-  backdropFilter:       "blur(20px)",
-  WebkitBackdropFilter: "blur(20px)",
-  background:           "rgba(30, 215, 96, 0.88)",
-  border:               "1px solid rgba(255, 255, 255, 0.28)",
-  boxShadow:
-    "inset 1.5px 1.5px 1px rgba(255,255,255,0.40), inset -1px -1px 1px rgba(255,255,255,0.15), 0 4px 20px rgba(30,215,96,0.35)",
-};
-
-const GLASS_APPLE_PODCASTS = {
-  backdropFilter:       "blur(20px)",
-  WebkitBackdropFilter: "blur(20px)",
-  background:           "rgba(148, 58, 230, 0.88)",
-  border:               "1px solid rgba(200, 140, 255, 0.40)",
-  boxShadow:
-    "inset 1.5px 1.5px 1px rgba(255,255,255,0.40), inset -1px -1px 1px rgba(255,255,255,0.15), 0 4px 20px rgba(148,58,230,0.38)",
-};
 
 export default function PodcastSection({ spotifyUrl }) {
   return (
@@ -41,28 +24,28 @@ export default function PodcastSection({ spotifyUrl }) {
         {/* Listen buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
           {spotifyUrl && (
-            <a
+            <GlassButton
               href={spotifyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
-              style={GLASS_SPOTIFY}
+              external
+              size="sm"
+              glassColor="rgba(30, 215, 96, 0.88)"
+              className="text-white font-semibold"
             >
               <SpotifyIcon />
               <span>Spotify</span>
-            </a>
+            </GlassButton>
           )}
-          <a
+          <GlassButton
             href={APPLE_PODCASTS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
-            style={GLASS_APPLE_PODCASTS}
+            external
+            size="sm"
+            glassColor="rgba(148, 58, 230, 0.88)"
+            className="text-white font-semibold"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/icons/podcasts circle.png" alt="" width={20} height={20} className="rounded-md" aria-hidden="true" />
             <span>Apple Podcasts</span>
-          </a>
+          </GlassButton>
         </div>
 
         {/* Spotify embed */}

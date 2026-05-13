@@ -13,7 +13,18 @@
       "Bash(git push *)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "WebFetch(domain:21st.dev)",
+      "WebFetch(domain:ui.aceternity.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npx shadcn@latest add @aceternity/background-gradient-animation --overwrite)",
+      "Bash(node_modules/.bin/shadcn add *)",
+      "Bash(/usr/local/bin/npx shadcn@latest add @aceternity/background-gradient-animation --overwrite)",
+      "Bash(node -e \"require\\('child_process'\\).execSync\\('npx shadcn@latest add @aceternity/background-gradient-animation', {stdio: 'inherit', cwd: '/Users/yahavguetta/Desktop/Apps/yahavs.com2'}\\)\")",
+      "Bash(ls /opt/homebrew/bin/node /usr/bin/node 2>/dev/null; ls /Users/yahavguetta/Desktop/Apps/yahavs.com2/node_modules/.bin/next 2>/dev/null)",
+      "Bash(node -e \"require\\('./src/components/ui/GlassButton.jsx'\\)\")",
+      "Bash(/usr/local/bin/node node_modules/.bin/next build)",
+      "Bash(command -v node)"
     ]
   }
 }

@@ -5,8 +5,8 @@ import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import { getSiteConfig } from "@/lib/content";
 
 export const metadata = {
-  title: "הצהרת נגישות | yahav's",
-  description: "הצהרת נגישות לאתר yahav's בהתאם לתקן הישראלי SI 5568 ו-WCAG 2.1 AA.",
+  title: "הצהרת נגישות | yahavguetta.com",
+  description: "הצהרת נגישות לאתר yahavguetta.com בהתאם לתקן הישראלי SI 5568 ו-WCAG 2.1 AA.",
 };
 
 export default async function AccessibilityPage() {
@@ -23,7 +23,7 @@ export default async function AccessibilityPage() {
 
       <main id="main-content" className="flex-1 pt-32 pb-20">
         <Container>
-          <div className="mx-auto max-w-2xl">
+          <div className="rounded-3xl overflow-hidden glass-strong p-8 sm:p-12 mx-auto max-w-2xl">
             <AnimatedEntry>
               <h1 className="text-[clamp(1.8rem,3.5vw,3rem)] font-bold leading-tight tracking-tight text-[var(--color-text-primary)]">
                 הצהרת נגישות
@@ -41,7 +41,7 @@ export default async function AccessibilityPage() {
                     כללי
                   </h2>
                   <p>
-                    אתר <strong>yahav&apos;s</strong> (להלן &ldquo;האתר&rdquo;) מחויב להנגיש את שירותיו לאנשים עם מוגבלויות בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ&rdquo;ח-1998, ולתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע&rdquo;ג-2013.
+                    אתר <strong>yahavguetta.com</strong> (להלן &ldquo;האתר&rdquo;) מחויב להנגיש את שירותיו לאנשים עם מוגבלויות בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ&rdquo;ח-1998, ולתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע&rdquo;ג-2013.
                   </p>
                   <p className="mt-3">
                     האתר נבנה בהתאם לתקן הישראלי <strong>SI 5568</strong> ברמה AA, המבוסס על הנחיות <strong>WCAG 2.1</strong> של ארגון W3C.

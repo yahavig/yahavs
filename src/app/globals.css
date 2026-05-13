@@ -12,7 +12,7 @@
   --color-accent-hover: var(--color-accent-hover);
   --color-border: var(--color-border);
   --color-border-light: var(--color-border-light);
-  --font-sans: var(--font-open-sans);
+  --font-sans: var(--font-arimo);
 }
 
 html {
@@ -20,42 +20,11 @@ html {
 }
 
 body {
-  background: var(--color-bg);
+  background: transparent;
   color: var(--color-text-primary);
-  font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-arimo), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse 70% 50% at 85% 5%, rgba(0,113,227,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 60% at 5% 90%, rgba(180,157,112,0.08) 0%, transparent 60%),
-    var(--color-bg);
-  pointer-events: none;
-  transition: background 0.3s ease;
-}
-
-/* Dark mode body gradient - system */
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) body::before {
-    background:
-      radial-gradient(ellipse 70% 50% at 85% 5%, rgba(10,132,255,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 60% at 5% 90%, rgba(44,44,46,0.8) 0%, transparent 60%),
-      #000000;
-  }
-}
-
-/* Dark mode body gradient - manual */
-html.dark body::before {
-  background:
-    radial-gradient(ellipse 70% 50% at 85% 5%, rgba(10,132,255,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 60% at 5% 90%, rgba(44,44,46,0.8) 0%, transparent 60%),
-    #000000;
 }
 
 /* Selection color */
@@ -123,6 +92,115 @@ html.dark body::before {
   to {
     background-position: 0% -1000%;
   }
+}
+
+/* ── Background Gradient Animation ──────────────────────────────────────── */
+@keyframes moveInCircle {
+  0%   { transform: rotate(0deg);   }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes moveVertical {
+  0%   { transform: translateY(-50%); }
+  50%  { transform: translateY(50%);  }
+  100% { transform: translateY(-50%); }
+}
+@keyframes moveHorizontal {
+  0%   { transform: translateX(-50%) translateY(-10%); }
+  50%  { transform: translateX(50%)  translateY(10%);  }
+  100% { transform: translateX(-50%) translateY(-10%); }
+}
+
+.gradient-bg {
+  overflow: hidden;
+  background: linear-gradient(
+    40deg,
+    var(--gradient-background-start, rgb(0,0,0)),
+    var(--gradient-background-end,   rgb(10,10,20))
+  );
+}
+
+.gradients-container {
+  filter: url(#blurry) blur(40px);
+  width: 100%;
+  height: 100%;
+}
+
+.g1 {
+  position: absolute;
+  background: radial-gradient(circle at center,
+    rgba(var(--first-color), 0.8) 0%,
+    rgba(var(--first-color), 0)   50%) no-repeat;
+  width: var(--size, 80%);
+  height: var(--size, 80%);
+  top: calc(50% - var(--size, 80%) / 2);
+  left: calc(50% - var(--size, 80%) / 2);
+  mix-blend-mode: var(--blending-value, hard-light);
+  animation: moveVertical 10s ease infinite;
+  opacity: 1;
+}
+.g2 {
+  position: absolute;
+  background: radial-gradient(circle at center,
+    rgba(var(--second-color), 0.8) 0%,
+    rgba(var(--second-color), 0)   50%) no-repeat;
+  width: var(--size, 80%);
+  height: var(--size, 80%);
+  top: calc(50% - var(--size, 80%) / 2);
+  left: calc(50% - var(--size, 80%) / 2);
+  mix-blend-mode: var(--blending-value, hard-light);
+  animation: moveInCircle 7s reverse infinite;
+  opacity: 1;
+}
+.g3 {
+  position: absolute;
+  background: radial-gradient(circle at center,
+    rgba(var(--third-color), 0.8) 0%,
+    rgba(var(--third-color), 0)   50%) no-repeat;
+  width: var(--size, 80%);
+  height: var(--size, 80%);
+  top: calc(50% - var(--size, 80%) / 2 + 200px);
+  left: calc(50% - var(--size, 80%) / 2 - 500px);
+  mix-blend-mode: var(--blending-value, hard-light);
+  animation: moveInCircle 14s linear infinite;
+  opacity: 1;
+}
+.g4 {
+  position: absolute;
+  background: radial-gradient(circle at center,
+    rgba(var(--fourth-color), 0.8) 0%,
+    rgba(var(--fourth-color), 0)   50%) no-repeat;
+  width: var(--size, 80%);
+  height: var(--size, 80%);
+  top: calc(50% - var(--size, 80%) / 2);
+  left: calc(50% - var(--size, 80%) / 2);
+  mix-blend-mode: var(--blending-value, hard-light);
+  animation: moveHorizontal 14s ease infinite;
+  opacity: 0.7;
+}
+.g5 {
+  position: absolute;
+  background: radial-gradient(circle at center,
+    rgba(var(--fifth-color), 0.8) 0%,
+    rgba(var(--fifth-color), 0)   50%) no-repeat;
+  width: calc(var(--size, 80%) * 2);
+  height: calc(var(--size, 80%) * 2);
+  top: calc(50% - var(--size, 80%));
+  left: calc(50% - var(--size, 80%));
+  mix-blend-mode: var(--blending-value, hard-light);
+  animation: moveInCircle 7s ease infinite;
+  opacity: 1;
+}
+.interactive {
+  position: absolute;
+  background: radial-gradient(circle at center,
+    rgba(var(--pointer-color), 0.8) 0%,
+    rgba(var(--pointer-color), 0)   50%) no-repeat;
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  mix-blend-mode: var(--blending-value, hard-light);
 }
 
 /* Reduced motion */

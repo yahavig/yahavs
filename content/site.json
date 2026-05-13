@@ -1,8 +1,8 @@
 {
-  "title": "yahav's",
-  "titleHebrew": "yahav's",
+  "title": "yahavguetta.com",
+  "titleHebrew": "yahavguetta.com",
   "description": "טכנולוגיה, מוצרים וחוויות",
-  "fullDescription": "הבית הרשמי של yahav's - סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
+  "fullDescription": "הבית הרשמי של yahavguetta.com - סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
   "navItems": [
     { "label": "ראשי", "href": "/" },
     { "label": "עליי", "href": "/about" },

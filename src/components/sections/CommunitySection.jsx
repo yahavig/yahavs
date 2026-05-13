@@ -1,17 +1,8 @@
 import Container from "@/components/ui/Container";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
+import GlassButton from "@/components/ui/GlassButton";
 
 const DISCORD_URL = "https://discord.gg/ptgHvwt7";
-
-/* Liquid-glass pill - Discord purple tint */
-const GLASS_BTN = {
-  backdropFilter:       "blur(20px)",
-  WebkitBackdropFilter: "blur(20px)",
-  background:           "rgba(100, 115, 240, 0.72)",
-  border:               "1px solid rgba(180, 188, 255, 0.45)",
-  boxShadow:
-    "inset 1.5px 1.5px 1px rgba(255,255,255,0.50), inset -1px -1px 1px rgba(255,255,255,0.20), 0 4px 20px rgba(100,115,240,0.30)",
-};
 
 export default function CommunitySection({ discordUrl = DISCORD_URL }) {
   return (
@@ -33,16 +24,16 @@ export default function CommunitySection({ discordUrl = DISCORD_URL }) {
           </AnimatedEntry>
           <AnimatedEntry delay={0.25}>
             <div className="mt-8 flex justify-center">
-              <a
+              <GlassButton
                 href={discordUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
-                style={GLASS_BTN}
+                external
+                size="sm"
+                glassColor="rgba(100, 115, 240, 0.72)"
+                className="text-white font-semibold gap-2.5"
               >
                 <DiscordIcon />
                 <span>דיסקורדיישן</span>
-              </a>
+              </GlassButton>
             </div>
           </AnimatedEntry>
         </div>
