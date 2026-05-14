@@ -94,17 +94,17 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
   const tiktokUrl = linksByPlatform.tiktok;
 
   return (
-    <section id="social" className="py-16 sm:py-24">
+    <section id="social" className="py-10 sm:py-14">
       <Container>
         <AnimatedEntry className="text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">בואו נהיה חברים.</h2>
-          <p className="mt-6 max-w-2xl mx-auto text-lg leading-loose text-[var(--color-text-secondary)]">
-            בכל פלטפורמה קורה משהו קצת אחר, כי כנראה אישיות אחת לא הספיקה. באינסטגרם תמצאו סטוריז, יומיום וגם מענה להודעות. ביוטיוב יש אפל, מדריכים ודעות שלא ביקשתם. בטיקטוק אין באמת מבוגר אחראי. נתראה שם, או איפה שהאלגוריתם יחליט.
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">בואו נהיה חברים.</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg leading-relaxed text-[var(--color-text-secondary)]">
+            בכל פלטפורמה קורה משהו אחר: באינסטגרם יש סטוריז ומענה להודעות. ביוטיוב תמצאו אפּל, מדריכים ודעות שלא ביקשתם. בטיקטוק אין באמת מבוגר אחראי. נתראה שם, או איפה שהאלגוריתם יחליט.
           </p>
         </AnimatedEntry>
 
         {/* Platform tabs */}
-        <div className="mt-8 mb-6 flex gap-3 flex-wrap justify-center">
+        <div className="mt-5 mb-4 flex gap-3 flex-wrap justify-center">
           {PLATFORMS.map(p => (
             <button
               key={p.id}

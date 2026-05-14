@@ -37,7 +37,6 @@ html.light {
   /* Liquid Glass */
   --glass-bg: rgba(255, 255, 255, 0.55);
   --glass-bg-strong: rgba(255, 255, 255, 0.78);
-  --glass-bg-subtle: rgba(255, 255, 255, 0.35);
   --glass-border: rgba(255, 255, 255, 0.55);
   --glass-border-strong: rgba(255, 255, 255, 0.8);
   --glass-shadow: 0 8px 32px rgba(0,0,0,0.07), 0 1px 0 rgba(255,255,255,0.7) inset, 0 0 0 1px rgba(255,255,255,0.25) inset;
@@ -85,8 +84,7 @@ html.light {
     --color-gradient-end: #2C2C2E;
     --glass-bg: rgba(44, 44, 46, 0.65);
     --glass-bg-strong: rgba(58, 58, 60, 0.82);
-    --glass-bg-subtle: rgba(28, 28, 30, 0.45);
-    --glass-border: rgba(255, 255, 255, 0.10);
+      --glass-border: rgba(255, 255, 255, 0.10);
     --glass-border-strong: rgba(255, 255, 255, 0.16);
     --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.08) inset;
     --glass-shadow-lg: 0 16px 48px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.10) inset;
@@ -109,7 +107,6 @@ html.dark {
   --color-gradient-end: #2C2C2E;
   --glass-bg: rgba(44, 44, 46, 0.65);
   --glass-bg-strong: rgba(58, 58, 60, 0.82);
-  --glass-bg-subtle: rgba(28, 28, 30, 0.45);
   --glass-border: rgba(255, 255, 255, 0.10);
   --glass-border-strong: rgba(255, 255, 255, 0.16);
   --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.08) inset;

@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: #080808;
 }
 
 body {
@@ -44,6 +45,9 @@ body {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Footer social link hover — driven by --hover-color from inline style */
+.social-link:hover { color: var(--hover-color); border-color: var(--hover-color); }
+
 /* Liquid Glass utilities */
 .glass {
   background: var(--glass-bg);
@@ -58,40 +62,6 @@ body {
   -webkit-backdrop-filter: blur(32px) saturate(200%);
   border: 1px solid var(--glass-border-strong);
   box-shadow: var(--glass-shadow-lg);
-}
-.glass-subtle {
-  background: var(--glass-bg-subtle);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-}
-
-/* Ambient background for glass to work against */
-.ambient-bg {
-  position: relative;
-}
-.ambient-bg::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse 60% 50% at 80% 10%, rgba(0,113,227,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(245,239,230,0.8) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(249,249,247,1) 0%, transparent 100%);
-  background-color: #F9F9F7;
-  pointer-events: none;
-}
-
-/* Liquid Glass background animation */
-@keyframes moveBackground {
-  from {
-    background-position: 0% 0%;
-  }
-  to {
-    background-position: 0% -1000%;
-  }
 }
 
 /* ── Background Gradient Animation ──────────────────────────────────────── */
@@ -191,18 +161,6 @@ body {
   animation: moveInCircle 7s ease infinite;
   opacity: 1;
 }
-.interactive {
-  position: absolute;
-  background: radial-gradient(circle at center,
-    rgba(var(--pointer-color), 0.8) 0%,
-    rgba(var(--pointer-color), 0)   50%) no-repeat;
-  width: 100%;
-  height: 100%;
-  top: -50%;
-  left: -50%;
-  mix-blend-mode: var(--blending-value, hard-light);
-}
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

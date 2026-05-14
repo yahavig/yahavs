@@ -13,7 +13,7 @@ export default async function PrivacyPage() {
         <Container>
           <div className="rounded-3xl overflow-hidden glass-strong p-8 sm:p-12 mx-auto max-w-2xl">
             <h1 className="mb-8 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">פרטיות</h1>
-            <div className="prose prose-sm max-w-none text-[var(--color-text-secondary)] leading-loose">
+            <div className="prose prose-sm max-w-none text-[var(--color-text-secondary)] leading-relaxed">
               <p>האתר yahavguetta.com אינו אוסף מידע אישי מזהה על המשתמשים שלו.</p>
               <h2 className="mt-6 mb-2 text-base font-semibold text-[var(--color-text-primary)]">שירותי צד שלישי</h2>
               <p>האתר משתמש בשירותים חיצוניים כגון YouTube, Spotify ו-9to5Mac לצורך הצגת תוכן. שירותים אלו כפופים למדיניות הפרטיות שלהם.</p>

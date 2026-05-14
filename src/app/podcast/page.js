@@ -16,9 +16,9 @@ export default async function PodcastPage() {
   return (
     <>
       <Header navItems={siteConfig.navItems} />
-      <main id="main-content" className="flex-1 pt-24 pb-20">
+      <main id="main-content" className="flex-1 pt-20 pb-12">
         <Container>
-          <div className="rounded-3xl overflow-hidden glass-strong p-8 sm:p-12">
+          <div className="rounded-3xl overflow-hidden glass-strong p-6 sm:p-8">
 
           {/* Title */}
           <AnimatedEntry>
@@ -29,7 +29,7 @@ export default async function PodcastPage() {
 
           {/* Description */}
           <AnimatedEntry delay={0.1}>
-            <div className="mb-8 mx-auto max-w-2xl space-y-5 text-lg leading-loose text-[var(--color-text-secondary)]">
+            <div className="mb-8 mx-auto max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-text-secondary)]">
               <p>
                 עדכון תוכנה הוא הפודקאסט שלי ושל ירין אזואלי, חבר טוב ומנהל לשעבר בקבוצת האפליסטים, שבו אנחנו מדברים על כל מה שקרה השבוע בעולם של אפל - חדשות, שמועות, דעות, דרמות מיותרות ושטויות הכרחיות.
               </p>

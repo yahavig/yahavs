@@ -12,19 +12,19 @@ export default async function CommunityPage() {
   return (
     <>
       <Header navItems={siteConfig.navItems} />
-      <main id="main-content" className="flex-1 pt-24 pb-16">
+      <main id="main-content" className="flex-1 pt-20 pb-12">
         <Container>
-          <div className="rounded-3xl overflow-hidden glass-strong p-8 sm:p-12">
+          <div className="rounded-3xl overflow-hidden glass-strong p-6 sm:p-8">
           <div className="mx-auto max-w-2xl">
             <AnimatedEntry>
               <h1 className="mb-4 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">שרת הדיסקורד</h1>
-              <p className="text-lg leading-loose text-[var(--color-text-secondary)]">
+              <p className="text-lg leading-relaxed text-[var(--color-text-secondary)]">
                 שרת הדיסקורד הוא המקום שבו התוכן ממשיך לשיחה, ואני גם שם בעצמי לאורך היום - בין אם אני לומד, עובד או פשוט קופץ לענות ולהיות חלק מהקהילה.
               </p>
-              <p className="mt-5 text-lg leading-loose text-[var(--color-text-secondary)]">
+              <p className="mt-5 text-lg leading-relaxed text-[var(--color-text-secondary)]">
                 אפשר פשוט לדבר איתי שם. לשאול שאלה על אפל, על תוכן, על הלימודים - או סתם על החיים. אני קורא כמעט הכל, ועונה ברוב המקרים. ואם לא עניתי - אל תיקחו את זה אישית, אני פשוט כנראה באמצע עריכה.
               </p>
-              <p className="mt-5 text-lg leading-loose text-[var(--color-text-secondary)]">
+              <p className="mt-5 text-lg leading-relaxed text-[var(--color-text-secondary)]">
                 וחוץ מזה - זה גם מקום מעולה פשוט להכיר חברים חדשים. אני מרגיש הרבה פעמים שפשוט אין לי עם מי לדבר. לא כי אין סביבי אנשים, אלא כי לא תמיד יש את האנשים שמתעניינים בדיוק באותם דברים, שחושבים על העולם באותה צורה, שיכולים לשבת איתי שעה על ענייני אפל, טכנולוגיה, בינה מלאכותית או תקשורת בינאישית בלי להתעייף. אני מניח שיש עוד לא מעט אנשים שמרגישים ככה - אז בואו, השרת הוא בדיוק בשביל זה.
               </p>
             </AnimatedEntry>

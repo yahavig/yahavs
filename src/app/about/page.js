@@ -15,7 +15,7 @@ export async function generateMetadata() {
 }
 
 const card  = "rounded-3xl overflow-hidden glass-strong";
-const prose = "text-lg leading-loose text-white/80";
+const prose = "text-lg leading-relaxed text-white/80";
 const h2cls = "font-bold tracking-tight text-white";
 
 /* Glass colour presets — CSS variable overrides applied via style prop */
@@ -73,7 +73,7 @@ export default async function AboutPage() {
       <main id="main-content" className="flex-1">
 
         {/* Page header */}
-        <div className="pt-28 pb-8 px-8 sm:px-14">
+        <div className="pt-24 pb-6 px-6 sm:px-10">
           <AnimatedEntry>
             <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">
               עליי
@@ -81,7 +81,7 @@ export default async function AboutPage() {
           </AnimatedEntry>
         </div>
 
-        <div className="space-y-3 p-3 sm:space-y-4 sm:p-4">
+        <div className="space-y-4 p-3 sm:space-y-4 sm:p-4">
 
           {/* 1. Intro — hero card, dark glass (matches Sparkles carousel card) */}
           <AnimatedEntry>
@@ -97,12 +97,12 @@ export default async function AboutPage() {
                     priority
                   />
                 </div>
-                <div className="flex flex-col justify-center px-8 py-12 sm:px-14 gap-5">
+                <div className="flex flex-col justify-center px-6 py-8 sm:px-10 gap-5">
                   <CardIcon icon={Sparkles} />
                   <h2 className="text-4xl leading-[1.1] sm:text-5xl font-bold tracking-tight text-white">
                     נעים מאוד,<br />יהב.
                   </h2>
-                  <div className="space-y-4 text-lg leading-loose text-white/80">
+                  <div className="space-y-4 text-lg leading-relaxed text-white/80">
                     <p>
                       וואלה יש מצב שנתקלתם בתוכן שלי, או באיזה פרסומת של iDigital שבה אני מופיע. ולי זה ממש מוזר - לא חשבתי שאי פעם בכלל יקשיבו לי.
                     </p>
@@ -117,7 +117,7 @@ export default async function AboutPage() {
 
           {/* 2. Childhood & tech — Wifi / blue */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-8 py-12 sm:px-14`} style={blueGlass}>
+            <div className={`${card} px-6 py-8 sm:px-10`} style={blueGlass}>
               <div className="flex flex-col gap-5">
                 <CardIcon icon={Wifi} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
@@ -142,7 +142,7 @@ export default async function AboutPage() {
           <AnimatedEntry delay={0.05}>
             <div className={card} style={orangeGlass}>
               <div className="grid md:grid-cols-2">
-                <div className="flex flex-col justify-center px-8 py-12 sm:px-14 gap-5">
+                <div className="flex flex-col justify-center px-6 py-8 sm:px-10 gap-5">
                   <CardIcon icon={BookOpen} />
                   <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                     iDigital, ניהול, ואז מול מצלמה.
@@ -174,7 +174,7 @@ export default async function AboutPage() {
 
           {/* 4. Content creation — Smile / red-orange */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-8 py-12 sm:px-14`} style={redGlass}>
+            <div className={`${card} px-6 py-8 sm:px-10`} style={redGlass}>
               <div className="flex flex-col gap-5">
                 <CardIcon icon={Smile} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
@@ -197,7 +197,7 @@ export default async function AboutPage() {
 
           {/* 5. Bar-Ilan — MessageCircle / green */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-8 py-12 sm:px-14`} style={greenGlass}>
+            <div className={`${card} px-6 py-8 sm:px-10`} style={greenGlass}>
               <div className="flex flex-col gap-5">
                 <CardIcon icon={MessageCircle} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
@@ -231,7 +231,7 @@ export default async function AboutPage() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
-                <div className="flex flex-col justify-center px-8 py-12 sm:px-14 gap-5">
+                <div className="flex flex-col justify-center px-6 py-8 sm:px-10 gap-5">
                   <CardIcon icon={Brain} />
                   <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                     אני אוטיסט. ובמשך רוב החיים ניסיתי להסתיר את זה.
@@ -254,7 +254,7 @@ export default async function AboutPage() {
 
           {/* 7. Impact — Sparkles / dark */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-8 py-12 sm:px-14`} style={darkGlass}>
+            <div className={`${card} px-6 py-8 sm:px-10`} style={darkGlass}>
               <div className="flex flex-col gap-5">
                 <CardIcon icon={Sparkles} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
@@ -274,7 +274,7 @@ export default async function AboutPage() {
 
           {/* 8. Today — Wifi / blue */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-8 py-12 sm:px-14`} style={blueGlass}>
+            <div className={`${card} px-6 py-8 sm:px-10`} style={blueGlass}>
               <div className="flex flex-col gap-5">
                 <CardIcon icon={Wifi} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>

@@ -12,9 +12,9 @@ export default function Background() {
         "--gradient-background-start": "rgb(0, 0, 0)",
         "--gradient-background-end":   "rgb(0, 0, 0)",
         "--first-color":   "10, 132, 255",   // Apple blue
-        "--second-color":  "84, 199, 250",   // sky / light blue
+        "--second-color":  "149, 76, 233",   // purple
         "--third-color":   "88, 86, 214",    // indigo
-        "--fourth-color":  "50, 173, 230",   // cyan
+        "--fourth-color":  "191, 90, 242",   // violet
         "--fifth-color":   "30, 92, 220",    // deep indigo-blue
         "--size":          "80%",
         "--blending-value":"hard-light",

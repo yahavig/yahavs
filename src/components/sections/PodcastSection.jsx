@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import GlassButton from "@/components/ui/GlassButton";
+import AnimatedEntry from "@/components/ui/AnimatedEntry";
 
 const SHOW_ID = "2bzIcwU1WsEmgOugv7sKnW";
 const SPOTIFY_EMBED = `https://open.spotify.com/embed/show/${SHOW_ID}?utm_source=generator&theme=0`;
@@ -7,22 +8,27 @@ const APPLE_PODCASTS_URL = "https://podcasts.apple.com/il/podcast/%D7%A2%D7%93%D
 
 export default function PodcastSection({ spotifyUrl }) {
   return (
-    <section id="podcast" className="py-14 sm:py-20">
+    <section id="podcast" className="py-8 sm:py-12">
       <Container>
         {/* Header */}
-        <div className="mb-6 text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
-            עדכון תוכנה, פודקאסט.
-          </h2>
-        </div>
+        <AnimatedEntry>
+          <div className="mb-5 text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
+              עדכון תוכנה, פודקאסט.
+            </h2>
+          </div>
+        </AnimatedEntry>
 
         {/* Description */}
-        <p className="mb-8 mx-auto max-w-2xl text-center text-lg leading-loose text-[var(--color-text-secondary)]">
-          עדכון תוכנה הוא הפודקאסט שלי ושל ירין אזואלי, חבר טוב ומנהל לשעבר בקבוצת האפליסטים, שבו אנחנו מדברים על כל מה שקרה השבוע בעולם של אפל - חדשות, שמועות, דעות, דרמות מיותרות ושטויות הכרחיות. זה יוצא כל שבוע, טוב, כמעט, ומרגיש פחות כמו מהדורת חדשות ויותר כמו שיחה מוקלטת של שני אפליסטים שלא קיבלו השגחת מבוגר. מפוצץ בצחוקים, מלא באהבה לאפל, וכן - חד משמעית ניסיתי לחקות את Genius Bar.
-        </p>
+        <AnimatedEntry delay={0.08}>
+          <p className="mb-6 mx-auto max-w-2xl text-center text-lg leading-relaxed text-[var(--color-text-secondary)]">
+            הפודקאסט שלי ושל ירין אזואלי על כל מה שקורה בעולם של אפל - חדשות, שמועות ודעות. לייב ביוטיוב כל ראשון בערב, פרק חדש בכל שני בבוקר. מלא בצחוקים, אהבה לאפל, וכן - גם קצת ניסיון לחקות את Genius Bar.
+          </p>
+        </AnimatedEntry>
 
         {/* Listen buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+        <AnimatedEntry delay={0.14}>
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
           {spotifyUrl && (
             <GlassButton
               href={spotifyUrl}
@@ -47,8 +53,10 @@ export default function PodcastSection({ spotifyUrl }) {
             <span>Apple Podcasts</span>
           </GlassButton>
         </div>
+        </AnimatedEntry>
 
         {/* Spotify embed */}
+        <AnimatedEntry delay={0.2}>
         <div className="mx-auto max-w-2xl">
           <iframe
             src={SPOTIFY_EMBED}
@@ -60,6 +68,7 @@ export default function PodcastSection({ spotifyUrl }) {
             title="עדכון תוכנה - פודקאסט ב-Spotify"
           />
         </div>
+        </AnimatedEntry>
       </Container>
     </section>
   );

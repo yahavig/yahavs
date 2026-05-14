@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import Container from "@/components/ui/Container";
-import { useState } from "react";
 
 const PLATFORM_COLORS = {
   youtube:   "#FF0000",
@@ -48,22 +45,15 @@ export default function Footer({ socialLinks = [], siteName = "yahavguetta.com" 
 }
 
 function SocialLink({ link }) {
-  const [hovered, setHovered] = useState(false);
-  const color = PLATFORM_COLORS[link.platform];
-
+  const color = PLATFORM_COLORS[link.platform] || "rgba(255,255,255,0.7)";
   return (
     <a
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={link.label}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-200"
-      style={{
-        borderColor: hovered && color ? color : "rgba(255,255,255,0.20)",
-        color:       hovered && color ? color : "rgba(255,255,255,0.70)",
-      }}
+      className="social-link flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 text-xs font-medium text-white/70 transition-colors duration-200"
+      style={{ "--hover-color": color }}
     >
       <SocialIcon platform={link.platform} />
       <span>{link.label}</span>

@@ -6,24 +6,21 @@ const DISCORD_URL = "https://discord.gg/ptgHvwt7";
 
 export default function CommunitySection({ discordUrl = DISCORD_URL }) {
   return (
-    <section id="community" className="py-16 sm:py-24">
+    <section id="community" className="py-10 sm:py-14">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <AnimatedEntry>
-            <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
               בואו נהיה חברים. על אמת.
             </h2>
           </AnimatedEntry>
           <AnimatedEntry delay={0.15}>
-            <p className="mt-6 text-lg leading-loose text-[var(--color-text-secondary)]">
-              כשאני עובד, לומד, מתכנת או עורך, כמעט תמיד יש אצלי שיחה פתוחה בדיס. סתם שיחה, כל שיחה, עם אנשים שנמצאים בדיוק באותו מצב. חברים שלי מפעם היו קוראים לזה &ldquo;גמור בדיס&rdquo; - כי אתה יושב בלילה, גמור, עושה מה שאתה עושה, עם עוד חברים שעושים את זה בדיוק - גם הם.
-            </p>
-            <p className="mt-4 text-lg leading-loose text-[var(--color-text-secondary)]">
-              השרת הוא שרת צ׳יל. הכל מותר חוץ מדברים לא חוקיים.
+            <p className="mt-4 text-lg leading-relaxed text-[var(--color-text-secondary)]">
+              כמעט תמיד פתוחה אצלי שיחה בדיס בזמן עבודה, לימודים או עריכה. עם אנשים שנמצאים בדיוק באותו מצב. חברים שלי קראו לזה &ldquo;גמור בדיס&rdquo;. השרת הוא שרת צ׳יל, הכל מותר חוץ מדברים לא חוקיים.
             </p>
           </AnimatedEntry>
           <AnimatedEntry delay={0.25}>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-6 flex justify-center">
               <GlassButton
                 href={discordUrl}
                 external

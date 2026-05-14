@@ -30,7 +30,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="he" dir="rtl" className={`${arimo.variable} h-full`}>
+    <html lang="he" dir="rtl" className={`${arimo.variable} h-full`} suppressHydrationWarning>
       <head>
         {/* Prevent dark/light flash before hydration */}
         <script dangerouslySetInnerHTML={{ __html: `

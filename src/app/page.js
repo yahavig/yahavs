@@ -5,6 +5,7 @@ import SocialSection from "@/components/sections/SocialSection";
 import PodcastSection from "@/components/sections/PodcastSection";
 import CommunitySection from "@/components/sections/CommunitySection";
 import AboutSection from "@/components/sections/AboutSection";
+import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import { getSiteConfig } from "@/lib/content";
 import { getLatestVideos } from "@/lib/youtube";
 import { getLatestTikToks } from "@/lib/tiktok";
@@ -39,21 +40,29 @@ export default async function Home() {
       <Header navItems={siteConfig.navItems} />
       <main id="main-content" className="flex-1">
         <HeroSection />
-        <div className="space-y-3 p-3 sm:space-y-4 sm:p-4">
-          <AboutSection />
-          <div className={card}>
-            <SocialSection youtubeVideos={youtubeVideos} tiktokVideos={tiktokVideos} instagramPosts={instagramPosts} socialLinks={siteConfig.socialLinks} />
-          </div>
-          <div className={card}>
-            <PodcastSection spotifyUrl={spotifyLink} />
-          </div>
-          <div className={card}>
-            <CommunitySection discordUrl={discordLink} />
-          </div>
+        <div className="space-y-4 p-3 sm:space-y-4 sm:p-4">
+          <AnimatedEntry>
+            <AboutSection />
+          </AnimatedEntry>
+          <AnimatedEntry delay={0.05}>
+            <div className={card}>
+              <SocialSection youtubeVideos={youtubeVideos} tiktokVideos={tiktokVideos} instagramPosts={instagramPosts} socialLinks={siteConfig.socialLinks} />
+            </div>
+          </AnimatedEntry>
+          <AnimatedEntry delay={0.05}>
+            <div className={card}>
+              <PodcastSection spotifyUrl={spotifyLink} />
+            </div>
+          </AnimatedEntry>
+          <AnimatedEntry delay={0.05}>
+            <div className={card}>
+              <CommunitySection discordUrl={discordLink} />
+            </div>
+          </AnimatedEntry>
         </div>
       </main>
       {/* Spacer so the floating dock doesn't overlap the footer */}
-      <div className="h-20" aria-hidden="true" />
+      <div className="h-10" aria-hidden="true" />
       <Footer socialLinks={siteConfig.socialLinks} siteName={siteConfig.title} />
     </>
   );
