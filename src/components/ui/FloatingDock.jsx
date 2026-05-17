@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import { GlassFilter } from "@/components/ui/liquid-glass";
@@ -23,10 +23,21 @@ const DOCK_ITEMS = [
 ];
 
 /* ─── Main Dock ──────────────────────────────────────────────── */
+const SM = 640; // Tailwind sm breakpoint
+
 export default function FloatingDock() {
   const mouseX   = useMotionValue(Infinity);
   const pathname = usePathname();
   const router   = useRouter();
+
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(min-width: ${SM}px)`);
+    setIsDesktop(mq.matches);
+    const handler = (e) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   const handleClick = useCallback((item) => {
     // External links → open profile in new tab
@@ -47,10 +58,13 @@ export default function FloatingDock() {
       <GlassFilter />
 
       <motion.div
-        className="fixed bottom-6 left-1/2 z-[200] -translate-x-1/2"
+        className="fixed left-1/2 z-[200]"
+        style={{ x: "-50%", bottom: isDesktop ? 24 : "calc(env(safe-area-inset-bottom, 8px) + 12px)" }}
         initial={{ y: 120 }}
         animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 320, damping: 18, mass: 0.8, delay: 0.3 }}
+        transition={{
+          y: { type: "spring", stiffness: 320, damping: 18, mass: 0.8, delay: 0.3 },
+        }}
       >
         {/* Wrapper - overflow visible so icons can grow above the tray */}
         <div className="relative" style={{ overflow: "visible" }}>
@@ -58,7 +72,7 @@ export default function FloatingDock() {
           {/* Icons row - sits above the tray, anchored to its bottom */}
           <motion.div
             className="relative z-[10] flex items-end gap-2 px-3"
-            style={{ paddingBottom: 8, paddingTop: 8, overflow: "visible" }}
+            style={{ paddingBottom: 6, paddingTop: 6, overflow: "visible" }}
             onMouseMove={(e) => mouseX.set(e.pageX)}
             onMouseLeave={() => mouseX.set(Infinity)}
           >
@@ -85,7 +99,7 @@ export default function FloatingDock() {
           <div
             className="absolute bottom-0 left-0 right-0 z-0"
             style={{
-              height: BASE_SIZE + 16, // icon size + vertical padding
+              height: BASE_SIZE + 12, // icon size + vertical padding
               borderRadius: 22,
               boxShadow: "0 6px 6px rgba(0,0,0,0.18), 0 0 24px rgba(0,0,0,0.1), inset 2px 2px 1px rgba(255,255,255,0.55), inset -1px -1px 1px 1px rgba(255,255,255,0.45)",
             }}
