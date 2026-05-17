@@ -19,12 +19,6 @@ const CARD_BORDER = "1px solid rgba(255,255,255,0.28)";
 export default function AboutSection() {
   return (
     <section id="about" className="py-6 sm:py-9">
-      <AnimatedEntry>
-        <h2 className="text-3xl font-bold tracking-tight text-center text-white sm:text-4xl mb-5">
-          נעים מאוד, יהב.
-        </h2>
-      </AnimatedEntry>
-
       <AnimatedEntry delay={0.1}>
         <Carousel className="-mx-3 sm:-mx-5" stripClassName="ps-3 sm:ps-5 pe-3 sm:pe-5">
           {CARDS.map(({ Icon, gradient, text }, i) => (

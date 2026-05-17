@@ -41,9 +41,6 @@ export default async function Home() {
       <main id="main-content" className="flex-1">
         <HeroSection />
         <div className="space-y-4 p-3 sm:space-y-4 sm:p-4">
-          <AnimatedEntry>
-            <AboutSection />
-          </AnimatedEntry>
           <AnimatedEntry delay={0.05}>
             <div className={card}>
               <SocialSection youtubeVideos={youtubeVideos} tiktokVideos={tiktokVideos} instagramPosts={instagramPosts} socialLinks={siteConfig.socialLinks} />
@@ -54,10 +51,14 @@ export default async function Home() {
               <PodcastSection spotifyUrl={spotifyLink} />
             </div>
           </AnimatedEntry>
-          <AnimatedEntry delay={0.05}>
+          {/* CommunitySection hidden — Discord temporarily disabled */}
+          {/* <AnimatedEntry delay={0.05}>
             <div className={card}>
               <CommunitySection discordUrl={discordLink} />
             </div>
+          </AnimatedEntry> */}
+          <AnimatedEntry>
+            <AboutSection />
           </AnimatedEntry>
         </div>
       </main>

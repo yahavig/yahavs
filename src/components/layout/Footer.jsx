@@ -11,6 +11,8 @@ const PLATFORM_COLORS = {
 };
 
 export default function Footer({ socialLinks = [], siteName = "yahavguetta.com" }) {
+  // Discord hidden temporarily — filter until re-enabled
+  const visibleLinks = socialLinks.filter(l => l.platform !== "discord");
   return (
     <footer className="bg-[#0A0A0A] text-white pb-28 md:pb-0 rounded-t-3xl">
       <Container className="py-10">
@@ -21,7 +23,7 @@ export default function Footer({ socialLinks = [], siteName = "yahavguetta.com" 
 
           {/* Social links */}
           <div className="flex flex-wrap items-center justify-center gap-3">
-            {socialLinks.map((link) => (
+            {visibleLinks.map((link) => (
               <SocialLink key={link.platform} link={link} />
             ))}
           </div>

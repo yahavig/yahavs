@@ -24,7 +24,7 @@ export default function HeroSection() {
       <motion.div style={{ opacity }}>
         <AppleHelloEnglishEffect
           speed={0.5}
-          className="h-24 sm:h-32 text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.4)]"
+          className="h-[4.8rem] sm:h-[6.4rem] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.4)]"
         />
       </motion.div>
     </section>

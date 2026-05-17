@@ -7,7 +7,6 @@
     { "label": "ראשי", "href": "/" },
     { "label": "עליי", "href": "/about" },
     { "label": "תוכן", "href": "/content" },
-    { "label": "קהילה", "href": "/community" },
     { "label": "פודקאסט", "href": "/podcast" }
   ],
   "socialLinks": [

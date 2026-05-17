@@ -16,8 +16,8 @@ const DOCK_ITEMS = [
   { id: "tiktok",    label: "TikTok",    external: "https://www.tiktok.com/@yahavguetta" },
   { id: "instagram", label: "Instagram", external: "https://www.instagram.com/yahavguetta/" },
   { id: "youtube",   label: "YouTube",   external: "https://www.youtube.com/@yahavguetta" },
-  { id: "discord",   label: "Discord",   section: "community" },
-  { id: "podcast",   label: "Podcast",   section: "podcast"   },
+  // { id: "discord",   label: "Discord",   section: "community" }, // hidden — re-enable when Discord is back
+  { id: "podcast",   label: "Podcast",   section: "podcast",   mobileHidden: true },
   { id: "divider" },
   { id: "finder",    label: "עליי",      section: "about"     },
 ];
@@ -70,12 +70,13 @@ export default function FloatingDock() {
                   style={{ width: 1, height: BASE_SIZE * 0.6, background: "rgba(0,0,0,0.15)" }}
                 />
               ) : (
-                <DockItem
-                  key={item.id}
-                  item={item}
-                  mouseX={mouseX}
-                  onClick={handleClick}
-                />
+                <div key={item.id} className={item.mobileHidden ? "hidden sm:block" : undefined}>
+                  <DockItem
+                    item={item}
+                    mouseX={mouseX}
+                    onClick={handleClick}
+                  />
+                </div>
               )
             )}
           </motion.div>
