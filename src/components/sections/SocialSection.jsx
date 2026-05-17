@@ -177,7 +177,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
                   const vids = youtubeVideos.slice(0, 8);
                   if (vids.length >= 4) vids.splice(3, 0, vids.pop());
                   return vids.map((video, i) => (
-                    <div key={video.id} className="w-72 shrink-0 sm:w-80">
+                    <div key={video.id} className="w-56 shrink-0 sm:w-64">
                       <VideoCard video={video} index={i} />
                     </div>
                   ));
