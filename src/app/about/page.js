@@ -15,7 +15,7 @@ export async function generateMetadata() {
 }
 
 const card  = "rounded-3xl overflow-hidden glass-strong";
-const prose = "text-lg leading-relaxed text-white/80";
+const prose = "text-sm leading-relaxed text-white/80";
 const h2cls = "font-bold tracking-tight text-white";
 
 /* Glass colour presets — CSS variable overrides applied via style prop */
@@ -102,7 +102,7 @@ export default async function AboutPage() {
                   <h2 className="text-4xl leading-[1.1] sm:text-5xl font-bold tracking-tight text-white">
                     נעים מאוד,<br />יהב.
                   </h2>
-                  <div className="space-y-4 text-lg leading-relaxed text-white/80">
+                  <div className="space-y-4 text-sm leading-relaxed text-white/80">
                     <p>
                       וואלה יש מצב שנתקלתם בתוכן שלי, או באיזה פרסומת של iDigital שבה אני מופיע. ולי זה ממש מוזר - לא חשבתי שאי פעם בכלל יקשיבו לי.
                     </p>

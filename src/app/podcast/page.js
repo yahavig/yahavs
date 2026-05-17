@@ -22,14 +22,14 @@ export default async function PodcastPage() {
 
           {/* Title */}
           <AnimatedEntry>
-            <h1 className="mb-6 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
+            <h1 className="mb-6 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
               עדכון תוכנה, פודקאסט.
             </h1>
           </AnimatedEntry>
 
           {/* Description */}
           <AnimatedEntry delay={0.1}>
-            <div className="mb-8 mx-auto max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-text-secondary)]">
+            <div className="mb-8 mx-auto max-w-2xl space-y-5 text-sm leading-relaxed text-[var(--color-text-secondary)]">
               <p>
                 עדכון תוכנה הוא הפודקאסט שלי ושל ירין אזואלי, חבר טוב ומנהל לשעבר בקבוצת האפליסטים, שבו אנחנו מדברים על כל מה שקרה השבוע בעולם של אפל - חדשות, שמועות, דעות, דרמות מיותרות ושטויות הכרחיות.
               </p>

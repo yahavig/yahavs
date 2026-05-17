@@ -19,6 +19,7 @@ const WEBP_DISPLACEMENT_MAP =
 
 /* ─── Size variants ──────────────────────────────────────────────── */
 const SIZES = {
+  xs:      "px-3.5 py-1.5 text-xs font-medium",
   sm:      "px-4 py-2 text-sm font-medium",
   default: "px-6 py-3.5 text-base font-medium",
   lg:      "px-8 py-4 text-lg font-medium",

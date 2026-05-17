@@ -4,7 +4,7 @@ import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import { Sparkles, BookOpen, Brain, MessageCircle, Wifi, Smile, ChevronLeft } from "lucide-react";
 
 const CARDS = [
-  { Icon: Sparkles,      gradient: "linear-gradient(145deg, #1C1C1E 0%, #38383A 100%)", text: "יש מצב שנתקלתם בי בתוכן, בפרסומת של iDigital או סתם באינטרנט. אז כתבתי כאן את הסיפור המלא, בהשקעה קצת מוגזמת." },
+  { Icon: Sparkles,      gradient: "linear-gradient(145deg, #1C1C1E 0%, #38383A 100%)", text: "יש מצב שנתקלתם בי בתוכן, בפרסומת של iDigital או סתם באינטרנט. אז כתבתי כאן את הסיפור המלא - בהשקעה קצת מוגזמת." },
   { Icon: BookOpen,      gradient: "linear-gradient(145deg, #FF9500 0%, #FFCC02 100%)", text: "זה התחיל בכלל מזה שנמאס לי לעזור לחברים בטלפון בתור מנהל ב-iDigital, אז התחלתי להכין מדריכים ברורים על Apple." },
   { Icon: Brain,         gradient: "linear-gradient(145deg, #AF52DE 0%, #FF2D55 100%)", text: "משם, בלי שתכננתי, אנשים התחילו לרצות לשמוע ממני גם על אוטיזם. דווקא על הדבר שניסיתי להסתיר כל החיים." },
   { Icon: MessageCircle, gradient: "linear-gradient(145deg, #34C759 0%, #00C7BE 100%)", text: "וככזה, תמיד ריתקו אותי הדרכים שבהן בני אדם מתקשרים." },
@@ -18,7 +18,7 @@ const CARD_BORDER = "1px solid rgba(255,255,255,0.28)";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-6 sm:py-9">
+    <section id="about" className="pt-6 pb-3 sm:pt-9 sm:pb-4">
       <AnimatedEntry delay={0.1}>
         <Carousel className="-mx-3 sm:-mx-5" stripClassName="ps-3 sm:ps-5 pe-3 sm:pe-5">
           {CARDS.map(({ Icon, gradient, text }, i) => (

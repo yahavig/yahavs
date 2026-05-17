@@ -6,8 +6,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { GlassFilter } from "@/components/ui/liquid-glass";
 
 /* ─── Constants ──────────────────────────────────────────────── */
-const BASE_SIZE    = 44;   // px - resting icon size
-const MAX_SIZE     = 79;   // px - peak size under cursor
+const BASE_SIZE    = 56;   // px - resting icon size
+const MAX_SIZE     = 100;  // px - peak size under cursor
 const DISTANCE     = 110;  // px - radius of influence
 const SPRING       = { mass: 0.1, stiffness: 150, damping: 12 };
 

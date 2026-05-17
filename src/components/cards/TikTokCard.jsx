@@ -38,9 +38,7 @@ export default function TikTokCard({ video, index = 0 }) {
           </div>
         )}
 
-        <div className="absolute top-2 end-2">
-          <Badge variant="tiktok">TikTok</Badge>
-        </div>
+        {/* Platform badge hidden in carousel context */}
       </div>
 
       {/* Info */}

@@ -109,7 +109,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
             <button
               key={p.id}
               onClick={() => setActive(p.id)}
-              className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-all duration-300 ${
+              className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-300 ${
                 active === p.id
                   ? "text-white scale-[1.06]"
                   : "glass text-[var(--color-text-secondary)] hover:scale-[1.03] hover:text-[var(--color-text-primary)]"
@@ -177,7 +177,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
                   const vids = youtubeVideos.slice(0, 8);
                   if (vids.length >= 4) vids.splice(3, 0, vids.pop());
                   return vids.map((video, i) => (
-                    <div key={video.id} className="w-56 shrink-0 sm:w-64">
+                    <div key={video.id} className="w-56 shrink-0 sm:w-64 h-[210px]">
                       <VideoCard video={video} index={i} />
                     </div>
                   ));

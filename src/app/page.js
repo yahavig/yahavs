@@ -63,7 +63,7 @@ export default async function Home() {
         </div>
       </main>
       {/* Spacer so the floating dock doesn't overlap the footer */}
-      <div className="h-10" aria-hidden="true" />
+      <div className="h-2" aria-hidden="true" />
       <Footer socialLinks={siteConfig.socialLinks} siteName={siteConfig.title} />
     </>
   );

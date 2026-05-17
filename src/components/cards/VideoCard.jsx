@@ -11,7 +11,7 @@ export default function VideoCard({ video, index = 0 }) {
       href={video.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col overflow-hidden rounded-2xl glass transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+      className="group h-full flex flex-col overflow-hidden rounded-2xl glass transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -22,7 +22,7 @@ export default function VideoCard({ video, index = 0 }) {
       }}
     >
       {/* Thumbnail */}
-      <div className="relative aspect-video overflow-hidden bg-[var(--color-surface-hover)]">
+      <div className="relative h-28 shrink-0 overflow-hidden bg-[var(--color-surface-hover)]">
         {video.thumbnail ? (
           <Image
             src={video.thumbnail}
@@ -46,10 +46,7 @@ export default function VideoCard({ video, index = 0 }) {
           </span>
         )}
 
-        {/* Platform badge */}
-        <div className="absolute top-2 end-2">
-          <Badge variant="youtube">YouTube</Badge>
-        </div>
+        {/* Platform badge hidden in carousel context */}
       </div>
 
       {/* Info */}

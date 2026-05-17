@@ -8,12 +8,12 @@ const APPLE_PODCASTS_URL = "https://podcasts.apple.com/il/podcast/%D7%A2%D7%93%D
 
 export default function PodcastSection({ spotifyUrl }) {
   return (
-    <section id="podcast" className="py-8 sm:py-12">
+    <section id="podcast" className="py-6 sm:py-9">
       <Container>
         {/* Header */}
         <AnimatedEntry>
           <div className="mb-5 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
               עדכון תוכנה, פודקאסט.
             </h2>
           </div>
@@ -21,7 +21,7 @@ export default function PodcastSection({ spotifyUrl }) {
 
         {/* Description */}
         <AnimatedEntry delay={0.08}>
-          <p className="mb-6 mx-auto max-w-2xl text-center text-lg leading-relaxed text-[var(--color-text-secondary)]">
+          <p className="mb-6 mx-auto max-w-2xl text-center text-sm leading-relaxed text-[var(--color-text-secondary)]">
             הפודקאסט שלי ושל ירין אזואלי על כל מה שקורה בעולם של אפל - חדשות, שמועות ודעות. לייב ביוטיוב כל ראשון בערב, פרק חדש בכל שני בבוקר. מלא בצחוקים, אהבה לאפל, וכן - גם קצת ניסיון לחקות את Genius Bar.
           </p>
         </AnimatedEntry>
