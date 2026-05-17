@@ -54,7 +54,7 @@ const purpleGlass = {
 function CardIcon({ icon: Icon }) {
   return (
     <Icon
-      size={48}
+      size={38}
       strokeWidth={1.25}
       aria-hidden="true"
       className="text-white/85"
@@ -73,9 +73,9 @@ export default async function AboutPage() {
       <main id="main-content" className="flex-1">
 
         {/* Page header */}
-        <div className="pt-24 pb-6 px-6 sm:px-10">
+        <div className="pt-16 pb-3 px-5 sm:px-10">
           <AnimatedEntry>
-            <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">
+            <h1 className="text-[clamp(1.8rem,4vw,3.5rem)] font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">
               עליי
             </h1>
           </AnimatedEntry>
@@ -86,20 +86,10 @@ export default async function AboutPage() {
           {/* 1. Intro — hero card, dark glass (matches Sparkles carousel card) */}
           <AnimatedEntry>
             <div className={card} style={darkGlass}>
-              <div className="grid md:grid-cols-2">
-                <div className="relative min-h-[380px] md:min-h-[500px] overflow-hidden">
-                  <Image
-                    src="/images/images/הירו1.jpeg"
-                    alt="יהב גואטה"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                </div>
-                <div className="flex flex-col justify-center px-6 py-8 sm:px-10 gap-5">
+              <div className="flex flex-col">
+                <div className="flex flex-col justify-center px-5 py-6 sm:px-10 gap-4">
                   <CardIcon icon={Sparkles} />
-                  <h2 className="text-4xl leading-[1.1] sm:text-5xl font-bold tracking-tight text-white">
+                  <h2 className="text-3xl leading-[1.1] sm:text-4xl font-bold tracking-tight text-white">
                     נעים מאוד,<br />יהב.
                   </h2>
                   <div className="space-y-4 text-sm leading-relaxed text-white/80">
@@ -111,14 +101,25 @@ export default async function AboutPage() {
                     </p>
                   </div>
                 </div>
+                <div className="overflow-hidden">
+                  <Image
+                    src="/images/images/הירו2.png"
+                    alt="יהב גואטה"
+                    width={1200}
+                    height={900}
+                    className="w-full h-auto"
+                    sizes="100vw"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </AnimatedEntry>
 
           {/* 2. Childhood & tech — Wifi / blue */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-6 py-8 sm:px-10`} style={blueGlass}>
-              <div className="flex flex-col gap-5">
+            <div className={`${card} px-5 py-6 sm:px-8`} style={blueGlass}>
+              <div className="flex flex-col gap-3">
                 <CardIcon icon={Wifi} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   מאז שהייתי ילד, נמשכתי לטכנולוגיה כמעט בצורה אינסטינקטיבית.
@@ -141,8 +142,8 @@ export default async function AboutPage() {
           {/* 3. iDigital — BookOpen / orange */}
           <AnimatedEntry delay={0.05}>
             <div className={card} style={orangeGlass}>
-              <div className="grid md:grid-cols-2">
-                <div className="flex flex-col justify-center px-6 py-8 sm:px-10 gap-5">
+              <div className="flex flex-col">
+                <div className="flex flex-col justify-center px-5 py-6 sm:px-8 gap-3">
                   <CardIcon icon={BookOpen} />
                   <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                     iDigital, ניהול, ואז מול מצלמה.
@@ -159,13 +160,14 @@ export default async function AboutPage() {
                     </p>
                   </div>
                 </div>
-                <div className="relative min-h-[340px] overflow-hidden">
+                <div className="overflow-hidden">
                   <Image
                     src="/images/images/IMG_4377-בר אילן.jpeg"
                     alt="יהב בסטודיו"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    width={1200}
+                    height={900}
+                    className="w-full h-auto"
+                    sizes="100vw"
                   />
                 </div>
               </div>
@@ -174,8 +176,8 @@ export default async function AboutPage() {
 
           {/* 4. Content creation — Smile / red-orange */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-6 py-8 sm:px-10`} style={redGlass}>
-              <div className="flex flex-col gap-5">
+            <div className={`${card} px-5 py-6 sm:px-8`} style={redGlass}>
+              <div className="flex flex-col gap-3">
                 <CardIcon icon={Smile} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   נמאס לי לשבת חצי שעה על שיחת טלפון.
@@ -197,8 +199,8 @@ export default async function AboutPage() {
 
           {/* 5. Bar-Ilan — MessageCircle / green */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-6 py-8 sm:px-10`} style={greenGlass}>
-              <div className="flex flex-col gap-5">
+            <div className={`${card} px-5 py-6 sm:px-8`} style={greenGlass}>
+              <div className="flex flex-col gap-3">
                 <CardIcon icon={MessageCircle} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   אנחנו חיים בתקופה הראשונה בהיסטוריה שבה כמעט כל בני האדם מחוברים לאותו מרחב, בזמן אמת.
@@ -221,17 +223,8 @@ export default async function AboutPage() {
           {/* 6. Autism — Brain / purple-pink */}
           <AnimatedEntry delay={0.05}>
             <div className={card} style={purpleGlass}>
-              <div className="grid md:grid-cols-2">
-                <div className="relative min-h-[380px] overflow-hidden">
-                  <Image
-                    src="/images/images/פריז-019-scaled.jpg"
-                    alt="יהב ילד ליד מגדל אייפל"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="flex flex-col justify-center px-6 py-8 sm:px-10 gap-5">
+              <div className="flex flex-col">
+                <div className="flex flex-col justify-center px-5 py-6 sm:px-8 gap-3">
                   <CardIcon icon={Brain} />
                   <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                     אני אוטיסט. ובמשך רוב החיים ניסיתי להסתיר את זה.
@@ -248,14 +241,24 @@ export default async function AboutPage() {
                     </p>
                   </div>
                 </div>
+                <div className="overflow-hidden">
+                  <Image
+                    src="/images/images/פריז-019-scaled.jpg"
+                    alt="יהב ילד ליד מגדל אייפל"
+                    width={1200}
+                    height={900}
+                    className="w-full h-auto"
+                    sizes="100vw"
+                  />
+                </div>
               </div>
             </div>
           </AnimatedEntry>
 
           {/* 7. Impact — Sparkles / dark */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-6 py-8 sm:px-10`} style={darkGlass}>
-              <div className="flex flex-col gap-5">
+            <div className={`${card} px-5 py-6 sm:px-8`} style={darkGlass}>
+              <div className="flex flex-col gap-3">
                 <CardIcon icon={Sparkles} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   מה שבאמת שינה את התמונה לא היה המספר - אלא התגובה האנושית.
@@ -274,8 +277,8 @@ export default async function AboutPage() {
 
           {/* 8. Today — Wifi / blue */}
           <AnimatedEntry delay={0.05}>
-            <div className={`${card} px-6 py-8 sm:px-10`} style={blueGlass}>
-              <div className="flex flex-col gap-5">
+            <div className={`${card} px-5 py-6 sm:px-8`} style={blueGlass}>
+              <div className="flex flex-col gap-3">
                 <CardIcon icon={Wifi} />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   Apple, טכנולוגיה, אוטיזם - חלק מאותה שאלה.
