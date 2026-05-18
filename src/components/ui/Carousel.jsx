@@ -48,7 +48,7 @@ export default function Carousel({ children, className = "", stripClassName = ""
     "absolute top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] border border-[var(--color-border-light)] shadow-[var(--shadow-lg)] transition-all duration-200 hover:bg-[var(--color-surface-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]";
 
   return (
-    <div className={`relative ${className}`} style={{ touchAction: "pan-y" }}>
+    <div className={`relative ${className}`}>
       {/* Right edge fade + button — "prev" in RTL (go back to start) */}
       <div className="pointer-events-none absolute start-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-e from-[var(--color-bg)] to-transparent" />
       <button
@@ -64,7 +64,7 @@ export default function Carousel({ children, className = "", stripClassName = ""
       <div
         ref={ref}
         className={`flex gap-4 overflow-x-auto overflow-y-hidden pb-2 no-scrollbar scroll-smooth ${stripClassName}`}
-        style={{ touchAction: "pan-x", overscrollBehaviorX: "contain" }}
+        style={{ touchAction: "pan-x pan-y", overscrollBehaviorX: "contain" }}
       >
         {children}
       </div>

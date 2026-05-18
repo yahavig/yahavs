@@ -13,11 +13,25 @@ export default function MobileNav({ navItems = [], lightMode = false }) {
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
+  /* Close when accessibility opens */
+  useEffect(() => {
+    const handler = () => setOpen(false);
+    window.addEventListener("closeHamburger", handler);
+    return () => window.removeEventListener("closeHamburger", handler);
+  }, []);
+
+  const handleToggle = () => {
+    setOpen((v) => {
+      if (!v) window.dispatchEvent(new Event("closeA11y"));
+      return !v;
+    });
+  };
+
   return (
     <>
       {/* 3-dots button */}
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={handleToggle}
         aria-label={open ? "סגור תפריט" : "פתח תפריט"}
         aria-expanded={open}
         className="relative flex h-10 w-10 items-center justify-center rounded-full transition-transform duration-200 hover:scale-110 focus-visible:outline-none"

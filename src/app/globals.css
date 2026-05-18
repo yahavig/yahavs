@@ -27,6 +27,7 @@ body {
   font-family: var(--font-arimo), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 /* Selection color */
@@ -63,6 +64,22 @@ body {
   -webkit-backdrop-filter: blur(32px) saturate(200%);
   border: 1px solid var(--glass-border-strong);
   box-shadow: var(--glass-shadow-lg);
+}
+
+/* LiquidCard tint — light/dark aware */
+.liquid-card-tint {
+  background: rgba(240, 240, 245, 0.78);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .liquid-card-tint {
+    background: rgba(18, 18, 22, 0.82);
+  }
+}
+html.dark .liquid-card-tint {
+  background: rgba(18, 18, 22, 0.82);
+}
+html.light .liquid-card-tint {
+  background: rgba(240, 240, 245, 0.78);
 }
 
 /* ── Background Gradient Animation ──────────────────────────────────────── */

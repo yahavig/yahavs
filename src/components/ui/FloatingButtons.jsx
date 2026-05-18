@@ -17,8 +17,20 @@ export default function FloatingButtons() {
   // Only animate after an actual resize — not on initial mount
   const hasResized = useRef(false);
 
-  const toggle = useCallback(() => setA11yOpen((v) => !v), []);
-  const close  = useCallback(() => setA11yOpen(false), []);
+  const toggle = useCallback(() => {
+    setA11yOpen((v) => {
+      if (!v) window.dispatchEvent(new Event("closeHamburger"));
+      return !v;
+    });
+  }, []);
+  const close = useCallback(() => setA11yOpen(false), []);
+
+  /* Close when hamburger opens */
+  useEffect(() => {
+    const handler = () => setA11yOpen(false);
+    window.addEventListener("closeA11y", handler);
+    return () => window.removeEventListener("closeA11y", handler);
+  }, []);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");

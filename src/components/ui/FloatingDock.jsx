@@ -58,8 +58,8 @@ export default function FloatingDock() {
       <GlassFilter />
 
       <motion.div
-        className="fixed left-1/2 z-[200]"
-        style={{ x: "-50%", bottom: isDesktop ? 24 : "calc(env(safe-area-inset-bottom, 8px) + 12px)" }}
+        className="fixed left-1/2 z-[200] [transition:bottom_0.55s_cubic-bezier(0.16,1,0.3,1)]"
+        style={{ x: "-50%", bottom: isDesktop ? 24 : "calc(env(safe-area-inset-bottom, 4px) + 4px)" }}
         initial={{ y: 120 }}
         animate={{ y: 0 }}
         transition={{

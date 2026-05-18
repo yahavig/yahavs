@@ -33,7 +33,14 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(lsof -ti:3000)",
       "Bash(xargs kill -9)",
-      "Bash(xargs ls)"
+      "Bash(xargs ls)",
+      "Bash(sed -i '' \\\\ *)",
+      "Bash(file /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/*.png)",
+      "Bash(python3 -c ' *)",
+      "Bash(identify /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/*.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/*.png)",
+      "Bash(sips -z 512 512 /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/1atom.png --out /Users/yahavguetta/Desktop/Apps/yahavs.com2/src/app/icon.png)",
+      "Bash(sips -z 180 180 /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/1atom.png --out /Users/yahavguetta/Desktop/Apps/yahavs.com2/src/app/apple-icon.png)"
     ]
   }
 }

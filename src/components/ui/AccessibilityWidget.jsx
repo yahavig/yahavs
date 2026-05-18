@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   X, Sun, Moon, SunMoon,
   Contrast, FlipHorizontal2, Palette,
@@ -231,10 +232,10 @@ export default function AccessibilityWidget({ isOpen, onClose, isMobile = true }
     } catch {}
   }, []);
 
-  if (!isOpen) return null;
-
   return (
-    <div
+    <AnimatePresence>
+      {isOpen && (
+    <motion.div
       id="a11y-widget"
       role="dialog"
       aria-modal="true"
@@ -247,7 +248,12 @@ export default function AccessibilityWidget({ isOpen, onClose, isMobile = true }
       style={{
         background: "var(--color-surface)",
         border:     "1px solid var(--color-border-light)",
+        transformOrigin: isMobile ? "top left" : "bottom left",
       }}
+      initial={{ opacity: 0, scale: 0.97, y: -4 }}
+      animate={{ opacity: 1, scale: 1,    y: 0  }}
+      exit={{    opacity: 0, scale: 0.97, y: -4 }}
+      transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* ── Header ─────────────────────────────────────────── */}
       <div className="flex items-center justify-between bg-[#0057B8] px-4 py-3">
@@ -337,6 +343,8 @@ export default function AccessibilityWidget({ isOpen, onClose, isMobile = true }
           הצהרת נגישות
         </a>
       </div>
-    </div>
+    </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

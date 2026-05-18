@@ -99,7 +99,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
         <AnimatedEntry className="text-center">
           <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">בואו נהיה חברים.</h2>
           <p className="mt-2 max-w-2xl mx-auto text-sm leading-relaxed text-[var(--color-text-secondary)]">
-            בכל פלטפורמה קורה משהו אחר: באינסטגרם יש סטוריז ומענה להודעות. ביוטיוב תמצאו אפּל, מדריכים ודעות שלא ביקשתם. בטיקטוק אין באמת מבוגר אחראי. נתראה שם, או איפה שהאלגוריתם יחליט.
+            באינסטגרם יש סטוריז ומענה להודעות, ביוטיוב תמצאו מדריכים ודעות שלא ביקשתם ובטיקטוק אין באמת מבוגר אחראי. נתראה שם, או איפה שהאלגוריתם יחליט.
           </p>
         </AnimatedEntry>
 

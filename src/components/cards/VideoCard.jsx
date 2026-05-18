@@ -22,7 +22,7 @@ export default function VideoCard({ video, index = 0 }) {
       }}
     >
       {/* Thumbnail */}
-      <div className="relative h-28 shrink-0 overflow-hidden bg-[var(--color-surface-hover)]">
+      <div className="relative aspect-video w-full shrink-0 overflow-hidden bg-[var(--color-surface-hover)]">
         {video.thumbnail ? (
           <Image
             src={video.thumbnail}

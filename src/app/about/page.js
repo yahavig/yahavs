@@ -3,9 +3,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import { getSiteConfig } from "@/lib/content";
-import {
-  Sparkles, BookOpen, Brain, MessageCircle, Wifi, Smile,
-} from "lucide-react";
 
 export async function generateMetadata() {
   return {
@@ -50,16 +47,27 @@ const purpleGlass = {
   "--glass-shadow-lg":     "0 20px 60px rgba(175,82,222,0.30), 0 1px 0 rgba(255,255,255,0.22) inset",
 };
 
-/* Icon — always white on coloured/dark glass */
-function CardIcon({ icon: Icon }) {
+/* Icon — always white on coloured/dark glass, centered */
+const ICON_SIZES = {
+  "/icons/6i.png":       58,
+  "/icons/5globe.png":   52,
+  "/icons/2book.png":    52,
+  "/icons/6question.png":54,
+  "/icons/4message.png": 54,
+  "/icons/1atom.png":    66,
+};
+
+function CardIcon({ src }) {
+  const s = ICON_SIZES[src] ?? 56;
   return (
-    <Icon
-      size={38}
-      strokeWidth={1.25}
-      aria-hidden="true"
-      className="text-white/85"
-      style={{ opacity: 0.9 }}
-    />
+    <div style={{ width: s, height: s, alignSelf: "center" }} aria-hidden="true">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt=""
+        style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.9, filter: "brightness(0) invert(1)" }}
+      />
+    </div>
   );
 }
 
@@ -88,7 +96,7 @@ export default async function AboutPage() {
             <div className={card} style={darkGlass}>
               <div className="flex flex-col">
                 <div className="flex flex-col justify-center px-5 py-6 sm:px-10 gap-4">
-                  <CardIcon icon={Sparkles} />
+                  <CardIcon src="/icons/6i.png" />
                   <h2 className="text-3xl leading-[1.1] sm:text-4xl font-bold tracking-tight text-white">
                     נעים מאוד,<br />יהב.
                   </h2>
@@ -120,7 +128,7 @@ export default async function AboutPage() {
           <AnimatedEntry delay={0.05}>
             <div className={`${card} px-5 py-6 sm:px-8`} style={blueGlass}>
               <div className="flex flex-col gap-3">
-                <CardIcon icon={Wifi} />
+                <CardIcon src="/icons/5globe.png" />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   מאז שהייתי ילד, נמשכתי לטכנולוגיה כמעט בצורה אינסטינקטיבית.
                 </h2>
@@ -144,7 +152,7 @@ export default async function AboutPage() {
             <div className={card} style={orangeGlass}>
               <div className="flex flex-col">
                 <div className="flex flex-col justify-center px-5 py-6 sm:px-8 gap-3">
-                  <CardIcon icon={BookOpen} />
+                  <CardIcon src="/icons/2book.png" />
                   <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                     iDigital, ניהול, ואז מול מצלמה.
                   </h2>
@@ -178,7 +186,7 @@ export default async function AboutPage() {
           <AnimatedEntry delay={0.05}>
             <div className={`${card} px-5 py-6 sm:px-8`} style={redGlass}>
               <div className="flex flex-col gap-3">
-                <CardIcon icon={Smile} />
+                <CardIcon src="/icons/6question.png" />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   נמאס לי לשבת חצי שעה על שיחת טלפון.
                 </h2>
@@ -201,7 +209,7 @@ export default async function AboutPage() {
           <AnimatedEntry delay={0.05}>
             <div className={`${card} px-5 py-6 sm:px-8`} style={greenGlass}>
               <div className="flex flex-col gap-3">
-                <CardIcon icon={MessageCircle} />
+                <CardIcon src="/icons/4message.png" />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   אנחנו חיים בתקופה הראשונה בהיסטוריה שבה כמעט כל בני האדם מחוברים לאותו מרחב, בזמן אמת.
                 </h2>
@@ -225,7 +233,7 @@ export default async function AboutPage() {
             <div className={card} style={purpleGlass}>
               <div className="flex flex-col">
                 <div className="flex flex-col justify-center px-5 py-6 sm:px-8 gap-3">
-                  <CardIcon icon={Brain} />
+                  <CardIcon src="/icons/1atom.png" />
                   <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                     אני אוטיסט. ובמשך רוב החיים ניסיתי להסתיר את זה.
                   </h2>
@@ -259,7 +267,7 @@ export default async function AboutPage() {
           <AnimatedEntry delay={0.05}>
             <div className={`${card} px-5 py-6 sm:px-8`} style={darkGlass}>
               <div className="flex flex-col gap-3">
-                <CardIcon icon={Sparkles} />
+                <CardIcon src="/icons/6i.png" />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   מה שבאמת שינה את התמונה לא היה המספר - אלא התגובה האנושית.
                 </h2>
@@ -279,7 +287,7 @@ export default async function AboutPage() {
           <AnimatedEntry delay={0.05}>
             <div className={`${card} px-5 py-6 sm:px-8`} style={blueGlass}>
               <div className="flex flex-col gap-3">
-                <CardIcon icon={Wifi} />
+                <CardIcon src="/icons/5globe.png" />
                 <h2 className={`text-2xl sm:text-3xl ${h2cls}`}>
                   Apple, טכנולוגיה, אוטיזם - חלק מאותה שאלה.
                 </h2>
