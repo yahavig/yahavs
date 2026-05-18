@@ -161,7 +161,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
             )}
             <div className="mt-4 flex justify-center">
               <GlassButton href={INSTAGRAM_URL} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
-                <span>לפרופיל המלא</span>
+                <span>לפרופיל</span>
                 <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
               </GlassButton>
             </div>
@@ -189,7 +189,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
             {youtubeUrl && (
               <div className="mt-4 flex justify-center">
                 <GlassButton href={youtubeUrl} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
-                  <span>לערוץ המלא</span>
+                  <span>לערוץ</span>
                   <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
                 </GlassButton>
               </div>
@@ -214,7 +214,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
             {tiktokUrl && (
               <div className="mt-4 flex justify-center">
                 <GlassButton href={tiktokUrl} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
-                  <span>לפרופיל TikTok</span>
+                  <span>לפרופיל</span>
                   <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
                 </GlassButton>
               </div>
@@ -231,7 +231,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               האמת שאני מוזיקאי בעצמי. אשחרר בהמשך שירים. אבל עד אז - תהנו קצת מהטעם הממש טוב ורחב שלי!
             </p>
             <GlassButton href={APPLE_MUSIC_URL} external size="sm" glassColor="rgba(252,60,68,0.82)" className="text-white font-semibold">
-              <span>לפרופיל Music</span>
+              <span>לפרופיל</span>
               <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
             </GlassButton>
           </div>

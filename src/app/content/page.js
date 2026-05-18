@@ -59,7 +59,7 @@ export default async function ContentPage() {
                 {linksByPlatform.youtube && (
                   <div className="px-8 sm:px-10 mt-6">
                     <GlassButton href={linksByPlatform.youtube} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
-                      <span>לערוץ היוטיוב המלא</span>
+                      <span>לערוץ</span>
                       <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
                     </GlassButton>
                   </div>
@@ -83,7 +83,7 @@ export default async function ContentPage() {
                 {linksByPlatform.tiktok && (
                   <div className="px-8 sm:px-10 mt-6">
                     <GlassButton href={linksByPlatform.tiktok} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
-                      <span>לפרופיל TikTok המלא</span>
+                      <span>לפרופיל</span>
                       <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
                     </GlassButton>
                   </div>
@@ -130,7 +130,7 @@ export default async function ContentPage() {
                 {linksByPlatform.instagram && (
                   <div className="px-8 sm:px-10 mt-6">
                     <GlassButton href={linksByPlatform.instagram} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
-                      <span>לפרופיל Instagram המלא</span>
+                      <span>לפרופיל</span>
                       <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
                     </GlassButton>
                   </div>

@@ -6,7 +6,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { GlassFilter } from "@/components/ui/liquid-glass";
 
 /* ─── Constants ──────────────────────────────────────────────── */
-const BASE_SIZE    = 56;   // px - resting icon size
+const BASE_SIZE_DESKTOP = 56;
+const BASE_SIZE_MOBILE  = 68;
 const MAX_SIZE     = 100;  // px - peak size under cursor
 const DISTANCE     = 110;  // px - radius of influence
 const SPRING       = { mass: 0.1, stiffness: 150, damping: 12 };
@@ -30,7 +31,8 @@ export default function FloatingDock() {
   const pathname = usePathname();
   const router   = useRouter();
 
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(true);
+  const BASE_SIZE = isDesktop ? BASE_SIZE_DESKTOP : BASE_SIZE_MOBILE;
   useEffect(() => {
     const mq = window.matchMedia(`(min-width: ${SM}px)`);
     setIsDesktop(mq.matches);
@@ -89,6 +91,7 @@ export default function FloatingDock() {
                     item={item}
                     mouseX={mouseX}
                     onClick={handleClick}
+                    baseSize={BASE_SIZE}
                   />
                 </div>
               )
@@ -115,11 +118,8 @@ export default function FloatingDock() {
                 overflow: "hidden",
               }}
             />
-            {/* Tint */}
-            <div
-              className="absolute inset-0"
-              style={{ borderRadius: 22, background: "rgba(255,255,255,0.28)" }}
-            />
+            {/* Tint — light/dark aware */}
+            <div className="dock-tint absolute inset-0" style={{ borderRadius: 22 }} />
           </div>
         </div>
       </motion.div>
@@ -128,7 +128,7 @@ export default function FloatingDock() {
 }
 
 /* ─── Single icon with spring magnification ──────────────────── */
-function DockItem({ item, mouseX, onClick }) {
+function DockItem({ item, mouseX, onClick, baseSize }) {
   const ref          = useRef(null);
   const [tip, setTip] = useState(false);
 
@@ -140,7 +140,7 @@ function DockItem({ item, mouseX, onClick }) {
   });
 
   // Map distance → size (both width + height)
-  const sizeRaw = useTransform(distance, [-DISTANCE, 0, DISTANCE], [BASE_SIZE, MAX_SIZE, BASE_SIZE]);
+  const sizeRaw = useTransform(distance, [-DISTANCE, 0, DISTANCE], [baseSize, MAX_SIZE, baseSize]);
   const size    = useSpring(sizeRaw, SPRING);
 
   return (

@@ -50,11 +50,11 @@ export default function VideoCard({ video, index = 0 }) {
       </div>
 
       {/* Info */}
-      <div className="flex flex-1 flex-col gap-2 p-4">
+      <div className="flex flex-1 flex-col justify-center gap-2 px-5 py-4">
         <h3 className="text-sm font-semibold leading-snug text-[var(--color-text-primary)] line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
           {video.title}
         </h3>
-        <div className="mt-auto flex items-center gap-2 text-xs text-[var(--color-text-tertiary)]">
+        <div className="flex items-center gap-2 text-xs text-[var(--color-text-tertiary)]">
           {video.publishedAt && (
             <span>{formatRelativeDate(video.publishedAt)}</span>
           )}

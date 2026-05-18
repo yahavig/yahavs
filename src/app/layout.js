@@ -1,12 +1,13 @@
-import { Arimo } from "next/font/google";
+import { Google_Sans } from "next/font/google";
 import "./globals.css";
 import Background from "@/components/ui/Background";
 import FloatingButtons from "@/components/ui/FloatingButtons";
 import FloatingDock from "@/components/ui/FloatingDock";
 
-const arimo = Arimo({
-  variable: "--font-arimo",
+const googleSans = Google_Sans({
+  variable: "--font-sans",
   subsets: ["hebrew", "latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -30,7 +31,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="he" dir="rtl" className={`${arimo.variable} h-full`} suppressHydrationWarning>
+    <html lang="he" dir="rtl" className={`${googleSans.variable} h-full`} suppressHydrationWarning>
       <head>
         {/* Prevent dark/light flash before hydration */}
         <script dangerouslySetInnerHTML={{ __html: `

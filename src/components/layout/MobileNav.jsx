@@ -144,7 +144,7 @@ export default function MobileNav({ navItems = [], lightMode = false }) {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className={`block rounded-2xl px-5 py-3.5 text-[17px] font-semibold tracking-tight transition-colors ${
+                      className={`block rounded-2xl px-5 py-3.5 text-[17px] font-semibold tracking-tight transition-colors text-right ${
                         pathname === item.href
                           ? "bg-black/10 text-[var(--color-text-primary)]"
                           : "text-[var(--color-text-primary)] hover:bg-black/6 hover:text-[var(--color-text-primary)]"

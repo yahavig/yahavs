@@ -5,10 +5,10 @@ import { ChevronLeft } from "lucide-react";
 
 const CARDS = [
   { icon: "/icons/6i.png",       size: 58, gradient: "linear-gradient(145deg, #1C1C1E 0%, #38383A 100%)", text: "יש מצב שנתקלתם בי בתוכן, בפרסומת של iDigital או סתם באינטרנט. אז כתבתי כאן את הסיפור המלא - בהשקעה קצת מוגזמת." },
-  { icon: "/icons/2book.png",    size: 52, gradient: "linear-gradient(145deg, #FF9500 0%, #FFCC02 100%)", text: "זה התחיל בכלל מזה שנמאס לי לעזור לחברים בטלפון בתור מנהל ב-iDigital, אז התחלתי להכין מדריכים ברורים על Apple." },
+  { icon: "/icons/2book.png",    size: 52, gradient: "linear-gradient(145deg, #5AC8FA 0%, #0071E3 100%)", text: "זה התחיל בכלל מזה שנמאס לי לעזור לחברים בטלפון בתור מנהל ב-iDigital, אז התחלתי להכין מדריכים ברורים על Apple." },
   { icon: "/icons/1atom.png",    size: 66, gradient: "linear-gradient(145deg, #AF52DE 0%, #FF2D55 100%)", text: "משם, בלי שתכננתי, אנשים התחילו לרצות לשמוע ממני גם על אוטיזם. דווקא על הדבר שניסיתי להסתיר כל החיים." },
   { icon: "/icons/4message.png", size: 54, gradient: "linear-gradient(145deg, #34C759 0%, #00C7BE 100%)", text: "וככזה, תמיד ריתקו אותי הדרכים שבהן בני אדם מתקשרים." },
-  { icon: "/icons/5globe.png",   size: 52, gradient: "linear-gradient(145deg, #5AC8FA 0%, #0071E3 100%)", text: "וכשחושבים על זה, אנחנו חיים בתקופה הראשונה בהיסטוריה שבה כמעט כל בני האדם מחוברים לאותו מרחב, בזמן אמת." },
+  { icon: "/icons/5globe.png",   size: 52, gradient: "linear-gradient(145deg, #FF9500 0%, #FFCC02 100%)", text: "וכשחושבים על זה, אנחנו חיים בתקופה הראשונה בהיסטוריה שבה כמעט כל בני האדם מחוברים לאותו מרחב, בזמן אמת." },
   { icon: "/icons/6question.png",size: 54, gradient: "linear-gradient(145deg, #FF6B6B 0%, #FF9500 100%)", text: "אבל שנייה לפני זה, אני רוצה שתכירו אותי קצת יותר טוב." },
 ];
 
@@ -24,17 +24,17 @@ export default function AboutSection() {
           {CARDS.map(({ icon, size, gradient, text }, i) => (
             <div
               key={i}
-              className="w-56 shrink-0 sm:w-64 min-h-[210px] flex flex-col gap-4 p-5 rounded-2xl select-none"
-              style={{
-                background: `${TOP_HIGHLIGHT}, ${SHIMMER}, ${gradient}`,
-                border: CARD_BORDER,
-              }}
+              className="relative w-56 shrink-0 sm:w-64 min-h-[260px] flex flex-col gap-4 pt-7 pb-7 px-5 rounded-2xl select-none overflow-hidden"
+              style={{ border: CARD_BORDER }}
             >
-              <div style={{ width: size, height: size }} aria-hidden="true">
+              {/* Semi-transparent gradient background */}
+              <div className="absolute inset-0 rounded-2xl" style={{ background: `${TOP_HIGHLIGHT}, ${SHIMMER}, ${gradient}`, opacity: 0.72 }} />
+              {/* Content */}
+              <div className="relative z-10" style={{ width: "100%", height: 70, display: "flex", alignItems: "center", justifyContent: "center" }} aria-hidden="true">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={icon} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.9, filter: "brightness(0) invert(1)" }} />
+                <img src={icon} alt="" style={{ width: size, height: size, objectFit: "contain", opacity: 0.9, filter: "brightness(0) invert(1)" }} />
               </div>
-              <p className="text-white text-sm leading-[1.75] font-semibold" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.18)" }}>
+              <p className="relative z-10 text-white text-sm leading-[1.75] font-semibold" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.18)" }}>
                 {text}
               </p>
             </div>
