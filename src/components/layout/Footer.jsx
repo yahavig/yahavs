@@ -12,25 +12,28 @@ const PLATFORM_COLORS = {
 
 export default function Footer({ socialLinks = [], siteName = "yahavguetta.com" }) {
   // Discord hidden temporarily — filter until re-enabled
-  const visibleLinks = socialLinks.filter(l => l.platform !== "discord");
+  const HIDDEN = new Set(["discord", "youtube", "tiktok", "instagram", "spotify"]);
+  const visibleLinks = socialLinks.filter(l => !HIDDEN.has(l.platform));
   return (
-    <footer className="bg-[#0A0A0A] text-white pb-28 md:pb-0 rounded-t-3xl">
-      <Container className="py-10">
-        <div className="flex flex-col items-center gap-6 text-center">
+    <footer className="bg-[#0A0A0A] text-white pb-[96px] md:pb-0 rounded-t-3xl">
+      <Container className="py-5">
+        <div className="flex flex-col items-center gap-3 text-center">
           <Link href="/" className="text-lg font-bold tracking-tight text-white transition-opacity hover:opacity-70">
             {siteName}
           </Link>
 
           {/* Social links */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {visibleLinks.map((link) => (
-              <SocialLink key={link.platform} link={link} />
-            ))}
-          </div>
+          {visibleLinks.length > 0 && (
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {visibleLinks.map((link) => (
+                <SocialLink key={link.platform} link={link} />
+              ))}
+            </div>
+          )}
 
           {/* Page links */}
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/50">
-            <Link href="/about" className="hover:text-white transition-colors">אני</Link>
+            <Link href="/about" className="hover:text-white transition-colors">עליי</Link>
             <span>·</span>
             <Link href="/privacy" className="hover:text-white transition-colors">פרטיות</Link>
             <span>·</span>

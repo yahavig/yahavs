@@ -22,7 +22,9 @@ export default function PodcastSection({ spotifyUrl }) {
         {/* Description */}
         <AnimatedEntry delay={0.08}>
           <p className="mb-6 mx-auto max-w-2xl text-center text-sm leading-relaxed text-[var(--color-text-secondary)]">
-            הפודקאסט שלי ושל ירין אזואלי על כל מה שקורה בעולם של אפל - חדשות, שמועות ודעות. לייב ביוטיוב כל שני בערב, פרק חדש בכל שלישי בבוקר. מלא בצחוקים, אהבה לאפל, וכן - חד משמעית ניסיון לחיקוי Genius Bar.
+            הפודקאסט שלי ושל{" "}
+            <a href="https://www.tiktok.com/@azulayarin" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:opacity-70 transition-opacity">ירין אזולאי</a>
+            {" "}על כל מה שקורה בעולם של Apple - חדשות, שמועות ודעות. לייב ביוטיוב כל שני בערב, פרק חדש בכל שלישי בבוקר. מלא בצחוקים, אהבה לApple, וכן - חד משמעית ניסיון לחיקוי Genius Bar.
           </p>
         </AnimatedEntry>
 

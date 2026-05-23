@@ -1,8 +1,8 @@
 import { Google_Sans } from "next/font/google";
 import "./globals.css";
-import Background from "@/components/ui/Background";
 import FloatingButtons from "@/components/ui/FloatingButtons";
 import FloatingDock from "@/components/ui/FloatingDock";
+import RetroGridClient from "@/components/ui/RetroGridClient";
 
 const googleSans = Google_Sans({
   variable: "--font-sans",
@@ -45,8 +45,14 @@ export default function RootLayout({ children }) {
         `}} />
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
-        {/* Animated global background — Apple Intelligence palette */}
-        <Background />
+        {/* Retro grid background */}
+        <RetroGridClient
+          darkColor="#09244a"
+          lightColor="#4978ba"
+          showScanlines={false}
+          glowEffect={true}
+          className="fixed inset-0 -z-10 w-full h-full"
+        />
 
         {/* Skip to main content - accessibility requirement */}
         <a

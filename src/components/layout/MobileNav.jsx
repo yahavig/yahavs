@@ -7,9 +7,23 @@ import { MoreHorizontal, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { GlassFilter } from "@/components/ui/liquid-glass";
 
+function isDarkTheme() {
+  if (typeof document === "undefined") return false;
+  return document.documentElement.classList.contains("dark") ||
+    (!document.documentElement.classList.contains("light") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+}
+
 export default function MobileNav({ navItems = [], lightMode = false }) {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
   const pathname        = usePathname();
+
+  useEffect(() => {
+    setDark(isDarkTheme());
+    const observer = new MutationObserver(() => setDark(isDarkTheme()));
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
@@ -34,14 +48,16 @@ export default function MobileNav({ navItems = [], lightMode = false }) {
         onClick={handleToggle}
         aria-label={open ? "סגור תפריט" : "פתח תפריט"}
         aria-expanded={open}
-        className="relative flex h-10 w-10 items-center justify-center rounded-full transition-transform duration-200 hover:scale-110 focus-visible:outline-none"
+        className="relative flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-200 hover:scale-110 focus-visible:outline-none"
         style={{
-          background:           "rgba(255,255,255,0.28)",
+          background:           dark ? "rgba(20,20,22,0.75)" : "rgba(255,255,255,0.28)",
           backdropFilter:       "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          boxShadow:            "inset 1.5px 1.5px 1px rgba(255,255,255,0.7), inset -1px -1px 1px rgba(255,255,255,0.4), 0 4px 12px rgba(0,0,0,0.12)",
-          border:               "1px solid rgba(255,255,255,0.45)",
-          color: lightMode ? "white" : "var(--color-text-primary)",
+          boxShadow:            dark
+            ? "inset 1px 1px 1px rgba(255,255,255,0.12), inset -1px -1px 1px rgba(255,255,255,0.06), 0 4px 12px rgba(0,0,0,0.4)"
+            : "inset 1.5px 1.5px 1px rgba(255,255,255,0.7), inset -1px -1px 1px rgba(255,255,255,0.4), 0 4px 12px rgba(0,0,0,0.12)",
+          border:               dark ? "1px solid rgba(255,255,255,0.12)" : "1px solid rgba(255,255,255,0.45)",
+          color: (lightMode || !dark) ? "white" : "var(--color-text-primary)",
         }}
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -90,7 +106,7 @@ export default function MobileNav({ navItems = [], lightMode = false }) {
               exit={{   scale: 0.90,  y: -10 }}
               transition={{ type: "spring", mass: 0.22, stiffness: 280, damping: 22 }}
               style={{ transformOrigin: "top right", overflow: "hidden" }}
-              className="fixed top-[60px] right-4 z-50 w-72 rounded-3xl"
+              className="fixed top-[72px] right-4 z-50 w-72 rounded-3xl"
             >
               <GlassFilter />
 

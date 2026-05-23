@@ -10,7 +10,12 @@ export default function HeroSection() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      animate(window.scrollY, window.innerHeight, {
+      const ctaEl  = document.getElementById("about-cta");
+      const socialEl = document.getElementById("social");
+      const el = ctaEl ?? socialEl;
+      const headerOffset = window.innerWidth >= 768 ? 56 : 8;
+      const target = el ? el.getBoundingClientRect().top + window.scrollY - headerOffset : window.innerHeight;
+      animate(window.scrollY, target, {
         duration: 1.3,
         ease: "linear",
         onUpdate: (v) => window.scrollTo(0, v),

@@ -41,11 +41,9 @@ export async function getLatestVideos(maxResults = YOUTUBE_MAX_RESULTS) {
             title:     o.title ?? "",
             thumbnail: o.thumbnail_url ?? fallback,
             url:       watchUrl,
-            duration:  null,
-            publishedAt: null,
           };
         } catch {
-          return { id, title: "", thumbnail: fallback, url: watchUrl, duration: null, publishedAt: null };
+          return { id, title: "", thumbnail: fallback, url: watchUrl };
         }
       })
     );

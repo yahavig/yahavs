@@ -40,7 +40,12 @@
       "Bash(identify /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/*.png)",
       "Bash(sips -g pixelWidth -g pixelHeight /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/*.png)",
       "Bash(sips -z 512 512 /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/1atom.png --out /Users/yahavguetta/Desktop/Apps/yahavs.com2/src/app/icon.png)",
-      "Bash(sips -z 180 180 /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/1atom.png --out /Users/yahavguetta/Desktop/Apps/yahavs.com2/src/app/apple-icon.png)"
+      "Bash(sips -z 180 180 /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/icons/1atom.png --out /Users/yahavguetta/Desktop/Apps/yahavs.com2/src/app/apple-icon.png)",
+      "Bash(node -e \"const fs=require\\('fs'\\);let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{fs.writeFileSync\\('/Users/yahavguetta/Desktop/Apps/yahavs.com2/public/displacement-map.webp',Buffer.from\\(d.trim\\(\\),'base64'\\)\\);console.log\\('written',Buffer.from\\(d.trim\\(\\),'base64'\\).length,'bytes'\\);}\\)\")",
+      "Bash(ls /Users/yahavguetta/.nvm/versions/node/ 2>/dev/null || ls ~/.nvm/ 2>/dev/null)",
+      "Bash(export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\")",
+      "Bash(/Users/yahavguetta/.local/node/bin/node -e ' *)",
+      "Bash(identify /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/favicon.png)"
     ]
   }
 }

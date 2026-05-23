@@ -3,6 +3,11 @@ import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import GlassButton from "@/components/ui/GlassButton";
+
+export const metadata = {
+  title: "קהילה | yahavguetta.com",
+  description: "הצטרפו לקהילת Discord של יהב גואטה - שיחות על Apple, טכנולוגיה ועוד.",
+};
 import { getSiteConfig } from "@/lib/content";
 
 export default async function CommunityPage() {
@@ -17,15 +22,15 @@ export default async function CommunityPage() {
           <div className="rounded-3xl overflow-hidden glass-strong p-6 sm:p-8">
           <div className="mx-auto max-w-2xl">
             <AnimatedEntry>
-              <h1 className="mb-4 text-3xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-4xl">שרת הדיסקורד</h1>
+              <h1 className="mb-4 text-6xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-7xl">שרת הדיסקורד</h1>
               <p className="text-lg leading-relaxed text-[var(--color-text-secondary)]">
                 שרת הדיסקורד הוא המקום שבו התוכן ממשיך לשיחה, ואני גם שם בעצמי לאורך היום - בין אם אני לומד, עובד או פשוט קופץ לענות ולהיות חלק מהקהילה.
               </p>
               <p className="mt-5 text-lg leading-relaxed text-[var(--color-text-secondary)]">
-                אפשר פשוט לדבר איתי שם. לשאול שאלה על אפל, על תוכן, על הלימודים - או סתם על החיים. אני קורא כמעט הכל, ועונה ברוב המקרים. ואם לא עניתי - אל תיקחו את זה אישית, אני פשוט כנראה באמצע עריכה.
+                אפשר פשוט לדבר איתי שם. לשאול שאלה על Apple, על תוכן, על הלימודים - או סתם על החיים. אני קורא כמעט הכל, ועונה ברוב המקרים. ואם לא עניתי - אל תיקחו את זה אישית, אני פשוט כנראה באמצע עריכה.
               </p>
               <p className="mt-5 text-lg leading-relaxed text-[var(--color-text-secondary)]">
-                וחוץ מזה - זה גם מקום מעולה פשוט להכיר חברים חדשים. אני מרגיש הרבה פעמים שפשוט אין לי עם מי לדבר. לא כי אין סביבי אנשים, אלא כי לא תמיד יש את האנשים שמתעניינים בדיוק באותם דברים, שחושבים על העולם באותה צורה, שיכולים לשבת איתי שעה על ענייני אפל, טכנולוגיה, בינה מלאכותית או תקשורת בינאישית בלי להתעייף. אני מניח שיש עוד לא מעט אנשים שמרגישים ככה - אז בואו, השרת הוא בדיוק בשביל זה.
+                וחוץ מזה - זה גם מקום מעולה פשוט להכיר חברים חדשים. אני מרגיש הרבה פעמים שפשוט אין לי עם מי לדבר. לא כי אין סביבי אנשים, אלא כי לא תמיד יש את האנשים שמתעניינים בדיוק באותם דברים, שחושבים על העולם באותה צורה, שיכולים לשבת איתי שעה על ענייני Apple, טכנולוגיה, בינה מלאכותית או תקשורת בינאישית בלי להתעייף. אני מניח שיש עוד לא מעט אנשים שמרגישים ככה - אז בואו, השרת הוא בדיוק בשביל זה.
               </p>
             </AnimatedEntry>
             {/* Discord widget */}
@@ -41,7 +46,7 @@ export default async function CommunityPage() {
                   src="https://discord.com/widget?id=1219714545443012689&theme=dark"
                   width="350"
                   height="500"
-                  allowTransparency
+                  
                   frameBorder="0"
                   sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
                   className="rounded-2xl shadow-2xl max-w-full"

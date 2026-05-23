@@ -13,6 +13,11 @@ import GlassButton from "@/components/ui/GlassButton";
 import fs from "fs/promises";
 import path from "path";
 
+export const metadata = {
+  title: "התוכן שלי | yahavguetta.com",
+  description: "סרטוני YouTube וTikTok - מדריכים, סקירות ודעות על עולם Apple והטכנולוגיה.",
+};
+
 export const revalidate = 3600;
 
 async function getInstagramPosts() {
@@ -38,9 +43,9 @@ export default async function ContentPage() {
       <main id="main-content" className="flex-1 pt-24 pb-16">
         <Container>
           <AnimatedEntry>
-            <h1 className="mb-6 text-2xl font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)] sm:text-3xl">הסרטונים שלי</h1>
+            <h1 className="mb-6 text-5xl font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)] sm:text-6xl">התוכן שלי</h1>
             <p className="mb-10 max-w-2xl text-sm leading-relaxed text-white/75">
-              בכל רשת התוכן שלי נראה קצת אחר - כי בכל אחת יש פורמט שונה, קהל שונה וקצב שונה. ריכזתי כאן את הכל במקום אחד, עם הסבר קצר על כל פלטפורמה.
+              תראו, בכל רשת יש תוכן קצת אחר - הכל סביב Apple, פסיכולוגיה של האינטרנט ואוטיזם. באינסטגרם הכי כיף כי הסטורים שלי הם באמת הטובים ביותר. אני מתבכיין אבל במידה הומוריסטית כיאה לדור z בגיר. 67 am i right?
             </p>
           </AnimatedEntry>
 
@@ -50,7 +55,7 @@ export default async function ContentPage() {
                 <div className="px-8 sm:px-10">
                   <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">YouTube</h2>
                   <p className="mb-6 max-w-2xl text-sm leading-relaxed text-[var(--color-text-secondary)]">
-                    ביוטיוב אני בפורמט הכי רציני. סרטונים ארוכים, מדריכים מעמיקים, סקירות של מוצרים ופיצ׳רים חדשים, ופרשנות מלאה על הכרזות של אפל. זה המקום אליו אני חוזר כשיש לי מה לומר לעומק, כולל תחקיר, עריכה וסבלנות. מי שמחפש תשובה מסודרת - כדאי להתחיל כאן.
+                    ביוטיוב אני מעלה תוכן שפשוט עוזר לכם, כמו מדריכי רכישה וכזה. גם פרשנות מלאה על הכרזות של Apple. זה המקום אליו אני חוזר כשיש לי מה להגיד, לאט לאט תשימו לב שאני מתחיל לדבר על הפסיכולוגיה של האינטרנט שם.
                   </p>
                 </div>
                 <Carousel stripClassName="ps-8 pe-8 sm:ps-10 sm:pe-10">
@@ -74,7 +79,7 @@ export default async function ContentPage() {
                 <div className="px-8 sm:px-10">
                   <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">TikTok</h2>
                   <p className="mb-6 max-w-2xl text-sm leading-relaxed text-[var(--color-text-secondary)]">
-                    בטיקטוק אני בלי מעצורים. קליפים קצרים, ישירים, לפעמים מצחיקים, לפעמים חדים, ותמיד מהירים. זה המקום שבו אני מגיב לשמועות ברגע שהן יוצאות, קופץ על טרנדים, ומעלה דברים שפחות היו מתאימים ליוטיוב המסודר. בקיצור, יוטיוב זה אני אחרי תחקיר, טיקטוק זה אני באמצע המחשבה.
+                    בטיקטוק אני משתדל להעלות מה שיש לי על בראש. עקרונית מה שקורה זה שאני מדבר בלי להפסיק ושם אנימציות בשביל להחזיק זמן צפיה. שם יש גם מדריכים וחדשות. לפעמים אני מגיב לשמועות או ״קופץ על טרנדים״ כמו שאומרים הצעירים.
                   </p>
                 </div>
                 <Carousel stripClassName="ps-8 pe-8 sm:ps-10 sm:pe-10">
@@ -98,7 +103,8 @@ export default async function ContentPage() {
                 <div className="px-8 sm:px-10">
                   <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">Instagram</h2>
                   <p className="mb-6 max-w-2xl text-sm leading-relaxed text-[var(--color-text-secondary)]">
-                    באינסטגרם אני הכי משוחרר. זה המקום לסטוריז מהיום יום, תמונות, הצצות מאחורי הקלעים, בדיחות פנימיות, ותגובות בזמן אמת לכל מה שאפל מכריזה או שוקדת עליו. זה הכי קרוב שיש לתוכן ״לא ערוך״ - כמו לעקוב אחרי חבר, לא אחרי יוצר.
+                    באינסטגרם הכי כיף, כמו שאמרתי. סטוריז אני מעלה מ-2016 עוד מימי הסנאפצ׳אט. תיעוד ציני של החיים שלי. התחלתי עם זה בשביל לתקשר עם אנשים שאני צובר במסגרות מסוימות (נגיד נכון אתם מתחילים קורס, ואז מסיימים ואתם כזה לא חברים של האנשים שם אבל כיף לשמור איתם על קשר? אז ככה). מאז שהתחלתי להעלות תוכן אני מעלה כל יום כמעט את חדשות התפוח - שזה כמו שזה נשמע, הדלפות, שמועות וכל מה שחדש בעולם של Apple.<br />
+                    אה ושם גם אני עונה לכל ההודעות, אז אם יש לכם שאלה...
                   </p>
                 </div>
                 <Carousel stripClassName="ps-8 pe-8 sm:ps-10 sm:pe-10">
@@ -117,7 +123,7 @@ export default async function ContentPage() {
                               height="490"
                               style={{ border: 0, display: "block" }}
                               scrolling="no"
-                              allowTransparency
+                              
                               loading="lazy"
                               title={`Instagram reel ${sc}`}
                             />

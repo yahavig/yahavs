@@ -3,38 +3,68 @@ import Carousel from "@/components/ui/Carousel";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import { ChevronLeft } from "lucide-react";
 
-const CARDS = [
-  { icon: "/icons/6i.png",       size: 58, gradient: "linear-gradient(145deg, #1C1C1E 0%, #38383A 100%)", text: "יש מצב שנתקלתם בי בתוכן, בפרסומת של iDigital או סתם באינטרנט. אז כתבתי כאן את הסיפור המלא - בהשקעה קצת מוגזמת." },
-  { icon: "/icons/2book.png",    size: 52, gradient: "linear-gradient(145deg, #5AC8FA 0%, #0071E3 100%)", text: "זה התחיל בכלל מזה שנמאס לי לעזור לחברים בטלפון בתור מנהל ב-iDigital, אז התחלתי להכין מדריכים ברורים על Apple." },
-  { icon: "/icons/1atom.png",    size: 66, gradient: "linear-gradient(145deg, #AF52DE 0%, #FF2D55 100%)", text: "משם, בלי שתכננתי, אנשים התחילו לרצות לשמוע ממני גם על אוטיזם. דווקא על הדבר שניסיתי להסתיר כל החיים." },
-  { icon: "/icons/4message.png", size: 54, gradient: "linear-gradient(145deg, #34C759 0%, #00C7BE 100%)", text: "וככזה, תמיד ריתקו אותי הדרכים שבהן בני אדם מתקשרים." },
-  { icon: "/icons/5globe.png",   size: 52, gradient: "linear-gradient(145deg, #FF9500 0%, #FFCC02 100%)", text: "וכשחושבים על זה, אנחנו חיים בתקופה הראשונה בהיסטוריה שבה כמעט כל בני האדם מחוברים לאותו מרחב, בזמן אמת." },
-  { icon: "/icons/6question.png",size: 54, gradient: "linear-gradient(145deg, #FF6B6B 0%, #FF9500 100%)", text: "אבל שנייה לפני זה, אני רוצה שתכירו אותי קצת יותר טוב." },
-];
+const darkGlass = {
+  "--glass-bg-strong":     "linear-gradient(145deg, rgba(28,28,30,0.90) 0%, rgba(56,56,58,0.90) 100%)",
+  "--glass-border-strong": "rgba(255,255,255,0.12)",
+  "--glass-shadow-lg":     "0 20px 60px rgba(0,0,0,0.40), 0 1px 0 rgba(255,255,255,0.10) inset",
+};
+const blueGlass = {
+  "--glass-bg-strong":     "linear-gradient(145deg, rgba(90,200,250,0.48) 0%, rgba(0,113,227,0.54) 100%)",
+  "--glass-border-strong": "rgba(90,200,250,0.32)",
+  "--glass-shadow-lg":     "0 20px 60px rgba(0,113,227,0.30), 0 1px 0 rgba(255,255,255,0.22) inset",
+};
+const purpleGlass = {
+  "--glass-bg-strong":     "linear-gradient(145deg, rgba(175,82,222,0.54) 0%, rgba(255,45,85,0.50) 100%)",
+  "--glass-border-strong": "rgba(175,82,222,0.35)",
+  "--glass-shadow-lg":     "0 20px 60px rgba(175,82,222,0.30), 0 1px 0 rgba(255,255,255,0.22) inset",
+};
+const greenGlass = {
+  "--glass-bg-strong":     "linear-gradient(145deg, rgba(52,199,89,0.52) 0%, rgba(0,199,190,0.50) 100%)",
+  "--glass-border-strong": "rgba(52,199,89,0.32)",
+  "--glass-shadow-lg":     "0 20px 60px rgba(52,199,89,0.26), 0 1px 0 rgba(255,255,255,0.22) inset",
+};
+const orangeGlass = {
+  "--glass-bg-strong":     "linear-gradient(145deg, rgba(255,149,0,0.54) 0%, rgba(255,204,2,0.50) 100%)",
+  "--glass-border-strong": "rgba(255,200,0,0.35)",
+  "--glass-shadow-lg":     "0 20px 60px rgba(255,149,0,0.30), 0 1px 0 rgba(255,255,255,0.22) inset",
+};
+const redGlass = {
+  "--glass-bg-strong":     "linear-gradient(145deg, rgba(255,107,107,0.54) 0%, rgba(255,149,0,0.50) 100%)",
+  "--glass-border-strong": "rgba(255,120,80,0.35)",
+  "--glass-shadow-lg":     "0 20px 60px rgba(255,107,107,0.30), 0 1px 0 rgba(255,255,255,0.22) inset",
+};
 
-const SHIMMER = "linear-gradient(135deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.06) 40%, transparent 100%)";
-const TOP_HIGHLIGHT = "linear-gradient(to right, transparent, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.7) 70%, transparent) top/100% 1px no-repeat";
-const CARD_BORDER = "1px solid rgba(255,255,255,0.28)";
+const CARDS = [
+  { icon: "/icons/6i.png",       size: 58, glass: darkGlass,   text: "יש מצב שנתקלתם בי בטיקטוק, ביוטיוב, בפרסומת של iDigital או סתם באיזה בדום סקרול. אז הנה הסיפור המלא - עם השקעה קצת מוגזמת, כרגיל." },
+  { icon: "/icons/2book.png",    size: 52, glass: blueGlass,   text: "אז זה התחיל מזה שנמאס לי לפתור לחברים בעיות Apple בטלפון. אז במקום לענות שוב ושוב על אותן שאלות, התחלתי להכין מדריכים קצרים וברורים והעלתי אותם לטיקטוק." },
+  { icon: "/icons/1atom.png",    size: 66, glass: purpleGlass, text: "ואז, התחלתי לדבר על אוטיזם - כי מישהו עיצבן אותי ואנשים התחילו לרצות לשמוע ממני על זה. שזה מצחיק, כי זה בערך הדבר שניסיתי להסתיר כל החיים." },
+  { icon: "/icons/4message.png", size: 54, glass: greenGlass,  text: "ככה, איכשהו, שני העולמות שלי התחברו לעמוד הזה: Apple מצד אחד, והתמודדות עם אוטיזם, ז״א הסברה על זה מצד שני." },
+  { icon: "/icons/5globe.png",   size: 52, glass: orangeGlass, text: "עכשיו שמעו, אנחנו חיים בתקופה הכי מרגשת אי פעם ולא בגלל ה-AI: כמעט כל בני האדם בעולם מחוברים, בזמן אמת, ומעמידים פנים שזה נורמלי. זה לא." },
+  { icon: "/icons/6question.png",size: 54, glass: redGlass,    text: "בדיוק על התואר הראשון והשני שלי, אבל לפני שאני נכנס לאינטרנט, אלגוריתמים, אוטיזם וכל שאר הדברים - בואו נתחיל רגע מהסיפור המלא… (ואת הכל אני כתבתי, לא ה-AI)" },
+];
 
 export default function AboutSection() {
   return (
     <section id="about" className="pt-6 pb-3 sm:pt-9 sm:pb-4">
+      <AnimatedEntry delay={0.05}>
+        <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl mb-2 px-1">נעים מאוד, יהב.</h2>
+        <p className="text-sm leading-relaxed text-white/70 mb-4 px-1 text-center">
+          זה האתר שלי, אז טכנית מותר לי להתחיל בקצת יותר מדי מידע על עצמי.
+        </p>
+      </AnimatedEntry>
       <AnimatedEntry delay={0.1}>
         <Carousel className="-mx-3 sm:-mx-5" stripClassName="ps-3 sm:ps-5 pe-3 sm:pe-5">
-          {CARDS.map(({ icon, size, gradient, text }, i) => (
+          {CARDS.map(({ icon, size, glass, text }, i) => (
             <div
               key={i}
-              className="relative w-56 shrink-0 sm:w-64 min-h-[260px] flex flex-col gap-4 pt-7 pb-7 px-5 rounded-2xl select-none overflow-hidden"
-              style={{ border: CARD_BORDER }}
+              className="glass-strong w-56 shrink-0 sm:w-64 min-h-[260px] flex flex-col gap-4 pt-7 pb-7 px-5 rounded-2xl select-none"
+              style={glass}
             >
-              {/* Semi-transparent gradient background */}
-              <div className="absolute inset-0 rounded-2xl" style={{ background: `${TOP_HIGHLIGHT}, ${SHIMMER}, ${gradient}`, opacity: 0.72 }} />
-              {/* Content */}
-              <div className="relative z-10" style={{ width: "100%", height: 70, display: "flex", alignItems: "center", justifyContent: "center" }} aria-hidden="true">
+              <div style={{ width: "100%", height: 70, display: "flex", alignItems: "center", justifyContent: "center" }} aria-hidden="true">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={icon} alt="" style={{ width: size, height: size, objectFit: "contain", opacity: 0.9, filter: "brightness(0) invert(1)" }} />
               </div>
-              <p className="relative z-10 text-white text-sm leading-[1.75] font-semibold" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.18)" }}>
+              <p className="text-white text-sm leading-[1.75] font-semibold" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.18)" }}>
                 {text}
               </p>
             </div>
@@ -43,9 +73,9 @@ export default function AboutSection() {
       </AnimatedEntry>
 
       <AnimatedEntry delay={0.18}>
-        <div className="flex justify-center mt-5">
+        <div id="about-cta" className="flex justify-center mt-5 mb-[6.4vh]">
           <GlassButton href="/about" size="sm" aria-label="לעמוד עליי המלא" glassColor="rgba(0, 113, 227, 0.80)" className="text-white font-semibold">
-            <span>מי אתה, יהב גואטה?</span>
+            <span>הסיפור שלי</span>
             <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
           </GlassButton>
         </div>

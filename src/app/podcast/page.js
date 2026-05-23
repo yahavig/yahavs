@@ -5,6 +5,11 @@ import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import GlassButton from "@/components/ui/GlassButton";
 import { getSiteConfig } from "@/lib/content";
 
+export const metadata = {
+  title: "פודקאסט | yahavguetta.com",
+  description: "עדכון תוכנה - הפודקאסט של יהב גואטה וירין אזולאי על עולם Apple. לייב ביוטיוב כל שני, פרק חדש בכל שלישי.",
+};
+
 const SHOW_ID = "2bzIcwU1WsEmgOugv7sKnW";
 const SPOTIFY_EMBED = `https://open.spotify.com/embed/show/${SHOW_ID}?utm_source=generator&theme=0`;
 const APPLE_PODCASTS_URL = "https://podcasts.apple.com/il/podcast/%D7%A2%D7%93%D7%9B%D7%95%D7%9F-%D7%AA%D7%95%D7%9B%D7%A0%D7%94/id1820547524?i=1000758151899";
@@ -22,7 +27,7 @@ export default async function PodcastPage() {
 
           {/* Title */}
           <AnimatedEntry>
-            <h1 className="mb-6 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
+            <h1 className="mb-6 text-5xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-6xl">
               עדכון תוכנה, פודקאסט.
             </h1>
           </AnimatedEntry>
@@ -31,13 +36,13 @@ export default async function PodcastPage() {
           <AnimatedEntry delay={0.1}>
             <div className="mb-8 mx-auto max-w-2xl space-y-5 text-sm leading-relaxed text-[var(--color-text-secondary)]">
               <p>
-                עדכון תוכנה הוא הפודקאסט שלי ושל ירין אזואלי, חבר טוב ומנהל לשעבר בקבוצת האפליסטים, שבו אנחנו מדברים על כל מה שקרה השבוע בעולם של אפל - חדשות, שמועות, דעות, דרמות מיותרות ושטויות הכרחיות.
+                עדכון תוכנה הוא הפודקאסט שלי ושל ירין אזואלי, חבר טוב ומנהל לשעבר בקבוצת הAppleיסטים, שבו אנחנו מדברים על כל מה שקרה השבוע בעולם של Apple - חדשות, שמועות, דעות, דרמות מיותרות ושטויות הכרחיות.
               </p>
               <p>
-                זה יוצא כל שבוע, טוב, כמעט, ומרגיש פחות כמו מהדורת חדשות ויותר כמו שיחה מוקלטת של שני אפליסטים שלא קיבלו השגחת מבוגר. אין סקריפט, אין תסריט, ואין שום ניסיון להישמע רציניים יותר ממה שאנחנו. רק שני בנאדם שאוהבים אפל, יושבים ביחד, ומדברים על מה שמעניין אותם - וכנראה גם אתכם.
+                זה יוצא כל שבוע, טוב, כמעט, ומרגיש פחות כמו מהדורת חדשות ויותר כמו שיחה מוקלטת של שני Appleיסטים שלא קיבלו השגחת מבוגר. אין סקריפט, אין תסריט, ואין שום ניסיון להישמע רציניים יותר ממה שאנחנו. רק שני בנאדם שאוהבים Apple, יושבים ביחד, ומדברים על מה שמעניין אותם - וכנראה גם אתכם.
               </p>
               <p>
-                מפוצץ בצחוקים, מלא באהבה לאפל, וכן - חד משמעית ניסיתי לחקות את Genius Bar.
+                מפוצץ בצחוקים, מלא באהבה לApple, וכן - חד משמעית ניסיתי לחקות את Genius Bar.
               </p>
             </div>
           </AnimatedEntry>

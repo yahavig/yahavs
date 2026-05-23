@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Badge from "@/components/ui/Badge";
 
 export default function TikTokCard({ video, index = 0 }) {
   return (

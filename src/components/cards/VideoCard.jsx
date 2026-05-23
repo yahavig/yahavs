@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Badge from "@/components/ui/Badge";
-import { formatRelativeDate, formatDuration } from "@/lib/format";
 
 export default function VideoCard({ video, index = 0 }) {
   return (
@@ -21,7 +19,6 @@ export default function VideoCard({ video, index = 0 }) {
         ease: [0.16, 1, 0.3, 1],
       }}
     >
-      {/* Thumbnail */}
       <div className="relative aspect-video w-full shrink-0 overflow-hidden bg-[var(--color-surface-hover)]">
         {video.thumbnail ? (
           <Image
@@ -38,27 +35,12 @@ export default function VideoCard({ video, index = 0 }) {
             </svg>
           </div>
         )}
-
-        {/* Duration badge */}
-        {video.duration && (
-          <span className="absolute bottom-2 left-2 rounded-md bg-black/75 px-1.5 py-0.5 text-xs font-medium text-white">
-            {formatDuration(video.duration)}
-          </span>
-        )}
-
-        {/* Platform badge hidden in carousel context */}
       </div>
 
-      {/* Info */}
       <div className="flex flex-1 flex-col justify-center gap-2 px-5 py-4">
         <h3 className="text-sm font-semibold leading-snug text-[var(--color-text-primary)] line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
           {video.title}
         </h3>
-        <div className="flex items-center gap-2 text-xs text-[var(--color-text-tertiary)]">
-          {video.publishedAt && (
-            <span>{formatRelativeDate(video.publishedAt)}</span>
-          )}
-        </div>
       </div>
     </motion.a>
   );

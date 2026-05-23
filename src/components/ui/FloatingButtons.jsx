@@ -90,7 +90,7 @@ export default function FloatingButtons() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/icons/accessibility.png"
+          src="/images/icons/accessibility2.png"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
           style={{ opacity: 0.82 }}

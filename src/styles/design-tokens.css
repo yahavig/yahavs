@@ -14,25 +14,19 @@ html.light {
   --color-bg: #F9F9F7;
   --color-surface: #FFFFFF;
   --color-surface-hover: #F4F4F2;
-  --color-warm: #F5EFE6;
 
   /* Text */
-  --color-text-primary: #1D1D1F;
-  --color-text-secondary: #6E6E73;
-  --color-text-tertiary: #98989D;
+  --color-text-primary: #000000;
+  --color-text-secondary: #3a3a3c;
+  --color-text-tertiary: #6e6e73;
 
   /* Accents */
   --color-accent: #0071E3;
   --color-accent-hover: #0077ED;
-  --color-accent-warm: #B07520;
 
   /* Borders */
   --color-border: #D8D8DC;
   --color-border-light: #EBEBF0;
-
-  /* Gradient helpers */
-  --color-gradient-start: #FBFBF9;
-  --color-gradient-end: #F4F4F2;
 
   /* Liquid Glass */
   --glass-bg: rgba(255, 255, 255, 0.55);
@@ -45,25 +39,10 @@ html.light {
 
 /* ── Mode-independent (same in light + dark) ─────────────────────── */
 :root {
-  /* Shadows */
-  --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md:   0 4px 14px rgba(0, 0, 0, 0.06);
   --shadow-lg:   0 10px 32px rgba(0, 0, 0, 0.08);
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.06);
-
-  /* Radii */
   --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-
-  /* Motion */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out:   cubic-bezier(0.45, 0, 0.55, 1);
-  --duration-fast: 150ms;
-  --duration-base: 300ms;
-  --duration-slow: 500ms;
-  --duration-enter: 700ms;
 }
 
 /* ── Dark (system preference + manual .dark override) ────────────── */
@@ -72,7 +51,6 @@ html.light {
     --color-bg: #000000;
     --color-surface: #1C1C1E;
     --color-surface-hover: #2C2C2E;
-    --color-warm: #2C2C2E;
     --color-text-primary: #F5F5F7;
     --color-text-secondary: #98989D;
     --color-text-tertiary: #636366;
@@ -80,11 +58,9 @@ html.light {
     --color-accent-hover: #409CFF;
     --color-border: #38383A;
     --color-border-light: #2C2C2E;
-    --color-gradient-start: #1C1C1E;
-    --color-gradient-end: #2C2C2E;
     --glass-bg: rgba(44, 44, 46, 0.65);
     --glass-bg-strong: rgba(58, 58, 60, 0.82);
-      --glass-border: rgba(255, 255, 255, 0.10);
+    --glass-border: rgba(255, 255, 255, 0.10);
     --glass-border-strong: rgba(255, 255, 255, 0.16);
     --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.08) inset;
     --glass-shadow-lg: 0 16px 48px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.10) inset;
@@ -95,7 +71,6 @@ html.dark {
   --color-bg: #000000;
   --color-surface: #1C1C1E;
   --color-surface-hover: #2C2C2E;
-  --color-warm: #2C2C2E;
   --color-text-primary: #F5F5F7;
   --color-text-secondary: #98989D;
   --color-text-tertiary: #636366;
@@ -103,8 +78,6 @@ html.dark {
   --color-accent-hover: #409CFF;
   --color-border: #38383A;
   --color-border-light: #2C2C2E;
-  --color-gradient-start: #1C1C1E;
-  --color-gradient-end: #2C2C2E;
   --glass-bg: rgba(44, 44, 46, 0.65);
   --glass-bg-strong: rgba(58, 58, 60, 0.82);
   --glass-border: rgba(255, 255, 255, 0.10);

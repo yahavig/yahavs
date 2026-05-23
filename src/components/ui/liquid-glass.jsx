@@ -1,5 +1,3 @@
-"use client";
-
 /**
  * SVG filter used by the liquid-glass effect.
  * Render once near the root (or the first consumer) — referenced via CSS

@@ -25,7 +25,7 @@ export default async function AccessibilityPage() {
         <Container>
           <div className="rounded-3xl overflow-hidden glass-strong p-8 sm:p-12 mx-auto max-w-2xl">
             <AnimatedEntry>
-              <h1 className="text-[clamp(1.8rem,3.5vw,3rem)] font-bold leading-tight tracking-tight text-[var(--color-text-primary)]">
+              <h1 className="text-[clamp(3.6rem,7vw,6rem)] font-bold leading-tight tracking-tight text-[var(--color-text-primary)]">
                 הצהרת נגישות
               </h1>
               <p className="mt-2 text-sm text-[var(--color-text-tertiary)]">

@@ -19,7 +19,6 @@ const DOCK_ITEMS = [
   { id: "youtube",   label: "YouTube",   external: "https://www.youtube.com/@yahavguetta" },
   // { id: "discord",   label: "Discord",   section: "community" }, // hidden — re-enable when Discord is back
   { id: "podcast",   label: "Podcast",   section: "podcast",   mobileHidden: true },
-  { id: "divider" },
   { id: "finder",    label: "עליי",      section: "about"     },
 ];
 
@@ -73,8 +72,8 @@ export default function FloatingDock() {
 
           {/* Icons row - sits above the tray, anchored to its bottom */}
           <motion.div
-            className="relative z-[10] flex items-end gap-2 px-3"
-            style={{ paddingBottom: 6, paddingTop: 6, overflow: "visible" }}
+            className="relative z-[10] flex items-end gap-[10px] px-[10px]"
+            style={{ paddingBottom: 10, paddingTop: 10, overflow: "visible" }}
             onMouseMove={(e) => mouseX.set(e.pageX)}
             onMouseLeave={() => mouseX.set(Infinity)}
           >
@@ -102,7 +101,7 @@ export default function FloatingDock() {
           <div
             className="absolute bottom-0 left-0 right-0 z-0"
             style={{
-              height: BASE_SIZE + 12, // icon size + vertical padding
+              height: BASE_SIZE + 20, // icon size + 10px top + 10px bottom
               borderRadius: 22,
               boxShadow: "0 6px 6px rgba(0,0,0,0.18), 0 0 24px rgba(0,0,0,0.1), inset 2px 2px 1px rgba(255,255,255,0.55), inset -1px -1px 1px 1px rgba(255,255,255,0.45)",
             }}
@@ -192,7 +191,7 @@ function DockItem({ item, mouseX, onClick, baseSize }) {
 
 /* ─── Icon images ────────────────────────────────────────────── */
 const ICON_SRCS = {
-  finder:    "/images/icons/finder.png",
+  finder:    "/images/icons/message2.png",
   instagram: "/images/icons/instegram.png",
   tiktok:    "/images/icons/tiktok.png",
   discord:   "/images/icons/discord.png",
