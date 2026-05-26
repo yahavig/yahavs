@@ -32,12 +32,16 @@ export default function Footer({ socialLinks = [], siteName = "yahavguetta.com" 
           )}
 
           {/* Page links */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/50">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-white/50">
             <Link href="/about" className="hover:text-white transition-colors">עליי</Link>
-            <span>·</span>
+            <span aria-hidden="true">·</span>
             <Link href="/privacy" className="hover:text-white transition-colors">פרטיות</Link>
-            <span>·</span>
+            <span aria-hidden="true">·</span>
             <Link href="/accessibility" className="hover:text-white transition-colors">נגישות</Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/terms" className="hover:text-white transition-colors">תנאי שימוש</Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/disclosure" className="hover:text-white transition-colors">גילוי נאות</Link>
           </div>
 
           <p className="text-xs text-white/35">

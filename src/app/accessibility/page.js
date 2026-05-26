@@ -6,16 +6,12 @@ import { getSiteConfig } from "@/lib/content";
 
 export const metadata = {
   title: "הצהרת נגישות | yahavguetta.com",
-  description: "הצהרת נגישות לאתר yahavguetta.com בהתאם לתקן הישראלי SI 5568 ו-WCAG 2.1 AA.",
+  description: "הצהרת נגישות לאתר yahavguetta.com.",
 };
 
 export default async function AccessibilityPage() {
   const siteConfig = await getSiteConfig();
-  const today = new Date().toLocaleDateString("he-IL", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  const email = siteConfig.legalEmail;
 
   return (
     <>
@@ -29,7 +25,7 @@ export default async function AccessibilityPage() {
                 הצהרת נגישות
               </h1>
               <p className="mt-2 text-sm text-[var(--color-text-tertiary)]">
-                עודכן לאחרונה: {today}
+                עודכן לאחרונה: {siteConfig.lastLegalUpdate}
               </p>
             </AnimatedEntry>
 
@@ -41,10 +37,10 @@ export default async function AccessibilityPage() {
                     כללי
                   </h2>
                   <p>
-                    אתר <strong>yahavguetta.com</strong> (להלן &ldquo;האתר&rdquo;) מחויב להנגיש את שירותיו לאנשים עם מוגבלויות בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ&rdquo;ח-1998, ולתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע&rdquo;ג-2013.
+                    אתר <strong>yahavguetta.com</strong> (להלן &ldquo;האתר&rdquo;) שואף להנגיש את שירותיו ככל הניתן לאנשים עם מוגבלויות, ברוח חוק שוויון זכויות לאנשים עם מוגבלות, התשנ&rdquo;ח-1998, ותקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע&rdquo;ג-2013.
                   </p>
                   <p className="mt-3">
-                    האתר נבנה בהתאם לתקן הישראלי <strong>SI 5568</strong> ברמה AA, המבוסס על הנחיות <strong>WCAG 2.1</strong> של ארגון W3C.
+                    האתר נבנה במטרה לעמוד ככל האפשר בדרישות תקן ישראלי <strong>SI 5568</strong> וברמת <strong>WCAG 2.1 AA</strong>, ונמצא בתהליך בדיקה ושיפור מתמשך.
                   </p>
                 </section>
 
@@ -53,16 +49,15 @@ export default async function AccessibilityPage() {
                     אמצעי הנגישות באתר
                   </h2>
                   <ul className="list-disc space-y-2 ps-6">
-                    <li>תמיכה מלאה בניווט מקלדת ללא עכבר</li>
-                    <li>תגיות ARIA ו-semantic HTML לתאימות עם קוראי מסך</li>
-                    <li>היררכיית כותרות ברורה (H1–H6)</li>
-                    <li>טקסט חלופי לכל התמונות</li>
-                    <li>ניגודיות צבע עומדת בדרישות WCAG 2.1 AA (4.5:1 לפחות)</li>
+                    <li>תמיכה בניווט מקלדת במרבית רכיבי האתר</li>
+                    <li>שימוש בתגיות ARIA ו-semantic HTML לתאימות עם קוראי מסך</li>
+                    <li>היררכיית כותרות (H1–H6) במרבית העמודים</li>
+                    <li>תמונות מהותיות כוללות או יכללו טקסט חלופי; תמונות דקורטיביות עשויות להיות מסומנות בהתאם</li>
+                    <li>שאיפה לעמוד בדרישות ניגודיות WCAG 2.1 AA</li>
                     <li>כפתור דילוג לתוכן הראשי</li>
                     <li>שפת האתר מוגדרת כראוי (lang=&ldquo;he&rdquo; + dir=&ldquo;rtl&rdquo;)</li>
-                    <li>תמיכה בהגדלת טקסט עד 200% ללא אובדן תוכן</li>
-                    <li>אנימציות ניתנות לעצירה</li>
-                    <li>כלי נגישות מובנה (כפתור כחול בפינה השמאלית התחתונה)</li>
+                    <li>תמיכה בהגדלת טקסט באמצעות הדפדפן</li>
+                    <li>כלי נגישות מובנה (כפתור בפינה השמאלית התחתונה)</li>
                   </ul>
                 </section>
 
@@ -71,7 +66,7 @@ export default async function AccessibilityPage() {
                     כלי הנגישות באתר
                   </h2>
                   <p>
-                    בפינה השמאלית התחתונה של האתר מופיע כפתור נגישות כחול. לחיצה עליו תפתח תפריט נגישות הכולל:
+                    בפינה השמאלית התחתונה של האתר מופיע כפתור נגישות. לחיצה עליו תפתח תפריט נגישות הכולל בין היתר:
                   </p>
                   <ul className="mt-2 list-disc space-y-1 ps-6">
                     <li>הגדלה/הקטנה של גודל הטקסט</li>
@@ -91,8 +86,8 @@ export default async function AccessibilityPage() {
                     מגבלות ידועות
                   </h2>
                   <ul className="list-disc space-y-2 ps-6">
-                    <li>תוכן מוטמע מ-YouTube ו-TikTok עשוי שלא להיות נגיש במלואו - ניתן לצפות בו ישירות בפלטפורמות אלה.</li>
-                    <li>חדשות מתורגמות אוטומטית - התרגום עשוי שלא להיות מושלם.</li>
+                    <li>תוכן מוטמע מ-YouTube, TikTok ו-Instagram עשוי שלא להיות נגיש במלואו - ניתן לצפות בו ישירות בפלטפורמות אלה.</li>
+                    <li>ככל שתימצא בעיית נגישות, אנחנו פועלים לתקנה בהקדם.</li>
                   </ul>
                 </section>
 
@@ -101,22 +96,23 @@ export default async function AccessibilityPage() {
                     פנייה בנושאי נגישות
                   </h2>
                   <p>
-                    נתקלתם בבעיית נגישות? אנחנו כאן לעזור. ניתן לפנות דרך אחד מהערוצים הבאים:
+                    נתקלתם בבעיית נגישות? נשמח לעזור. ניתן לפנות בדוא״ל:
                   </p>
-                  <ul className="mt-3 list-disc space-y-2 ps-6">
-                    <li>
-                      <a href="https://www.instagram.com/yahavguetta/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] underline">
-                        Instagram
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://discord.gg/ptgHvwt7" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] underline">
-                        Discord
-                      </a>
-                    </li>
-                  </ul>
+                  <p className="mt-2">
+                    <a href={`mailto:${email}`} className="text-[var(--color-accent)] underline">{email}</a>
+                  </p>
+                  <p className="mt-3 text-sm">
+                    מומלץ לציין בפנייה את כתובת העמוד שבו נתקלתם בבעיה, תיאור הבעיה, סוג הדפדפן והמכשיר שבו נעשה שימוש, וטכנולוגיית עזר אם נעשה בה שימוש.
+                  </p>
                   <p className="mt-3">
-                    אנו מתחייבים לטפל בפנייה תוך 5 ימי עסקים.
+                    ניתן גם לפנות בערוצי משנה -{" "}
+                    <a href="https://www.instagram.com/yahavguetta/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] underline">Instagram</a>
+                    {" "}או{" "}
+                    <a href="https://discord.gg/ptgHvwt7" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] underline">Discord</a>
+                    {" "}- אך פנייה רשמית בנושא נגישות עדיף שתישלח במייל.
+                  </p>
+                  <p className="mt-3">
+                    אנו שואפים לטפל בפנייה תוך 5 ימי עסקים.
                   </p>
                 </section>
 
@@ -125,8 +121,8 @@ export default async function AccessibilityPage() {
                     תקנים ורגולציה
                   </h2>
                   <ul className="list-disc space-y-2 ps-6">
-                    <li>תקן ישראלי <strong>SI 5568</strong> (נגישות אתרי אינטרנט)</li>
-                    <li><strong>WCAG 2.1</strong> ברמה AA</li>
+                    <li>תקן ישראלי <strong>SI 5568</strong> (נגישות אתרי אינטרנט) - האתר שואף לעמוד בו ככל הניתן.</li>
+                    <li><strong>WCAG 2.1</strong> ברמה AA - כקווים מנחים.</li>
                     <li>חוק שוויון זכויות לאנשים עם מוגבלות, התשנ&rdquo;ח-1998</li>
                     <li>תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע&rdquo;ג-2013</li>
                   </ul>

@@ -45,7 +45,8 @@
       "Bash(ls /Users/yahavguetta/.nvm/versions/node/ 2>/dev/null || ls ~/.nvm/ 2>/dev/null)",
       "Bash(export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\")",
       "Bash(/Users/yahavguetta/.local/node/bin/node -e ' *)",
-      "Bash(identify /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/favicon.png)"
+      "Bash(identify /Users/yahavguetta/Desktop/Apps/yahavs.com2/public/favicon.png)",
+      "Bash(npx next *)"
     ]
   }
 }

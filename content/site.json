@@ -3,6 +3,8 @@
   "titleHebrew": "yahavguetta.com",
   "description": "טכנולוגיה, מוצרים וחוויות",
   "fullDescription": "הבית הרשמי של yahavguetta.com - סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
+  "legalEmail": "yahavig2000@gmail.com",
+  "lastLegalUpdate": "2026-05-27",
   "navItems": [
     { "label": "ראשי", "href": "/" },
     { "label": "עליי", "href": "/about" },

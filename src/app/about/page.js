@@ -260,6 +260,15 @@ export default async function AboutPage() {
             </div>
           </AnimatedEntry>
 
+          {/* Disclaimer */}
+          <AnimatedEntry delay={0.05}>
+            <div className={`${card} px-5 py-5 sm:px-8`} style={darkGlass}>
+              <p className="text-xs leading-relaxed text-white/55">
+                <strong className="text-white/70">לידיעה:</strong> תכנים העוסקים באוטיזם, חוויות אישיות או התמודדות נפשית באתר זה מבוססים על ניסיון אישי ותובנות כלליות בלבד. הם אינם מהווים ייעוץ רפואי, פסיכולוגי, טיפולי או אבחוני. בכל מקרה הדורש החלטה רפואית או טיפולית, מומלץ לפנות לאיש מקצוע מוסמך.
+              </p>
+            </div>
+          </AnimatedEntry>
+
         </div>
       </main>
 

@@ -10,5 +10,7 @@ export default function sitemap() {
     { url: `${BASE_URL}/podcast`,          lastModified, changeFrequency: "weekly",  priority: 0.6 },
     { url: `${BASE_URL}/accessibility`,    lastModified, changeFrequency: "yearly",  priority: 0.3 },
     { url: `${BASE_URL}/privacy`,          lastModified, changeFrequency: "yearly",  priority: 0.3 },
+    { url: `${BASE_URL}/terms`,            lastModified, changeFrequency: "yearly",  priority: 0.3 },
+    { url: `${BASE_URL}/disclosure`,       lastModified, changeFrequency: "yearly",  priority: 0.3 },
   ];
 }
