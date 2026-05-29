@@ -12,13 +12,14 @@ const googleSans = Google_Sans({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://yahavguetta.com"),
   title: "yahavguetta.com",
   description:
     "הבית הרשמי של yahavguetta.com - סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favi.png",
+    shortcut: "/favi.png",
+    apple: "/favi.png",
   },
   openGraph: {
     title: "yahavguetta.com",

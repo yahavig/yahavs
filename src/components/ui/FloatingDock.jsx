@@ -18,7 +18,7 @@ const DOCK_ITEMS = [
   { id: "instagram", label: "Instagram", external: "https://www.instagram.com/yahavguetta/" },
   { id: "youtube",   label: "YouTube",   external: "https://www.youtube.com/@yahavguetta" },
   // { id: "discord",   label: "Discord",   section: "community" }, // hidden — re-enable when Discord is back
-  { id: "podcast",   label: "Podcast",   section: "podcast",   mobileHidden: true },
+  // { id: "podcast",   label: "Podcast",   section: "podcast",   mobileHidden: true }, // hidden — re-enable when show is back
   { id: "finder",    label: "עליי",      section: "about"     },
 ];
 
@@ -195,7 +195,6 @@ const ICON_SRCS = {
   instagram: "/images/icons/instegram.png",
   tiktok:    "/images/icons/tiktok.png",
   discord:   "/images/icons/discord.png",
-  podcast:   "/images/icons/podcust.png",
   youtube:   "/images/icons/youtube.png",
 };
 

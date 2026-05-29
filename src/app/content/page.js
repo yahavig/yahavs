@@ -110,7 +110,7 @@ export default async function ContentPage() {
                 <Carousel stripClassName="ps-8 pe-8 sm:ps-10 sm:pe-10">
                   {instagramPosts.map((post, i) => {
                     const sc = post.url.match(/\/(?:reel|p)\/([A-Za-z0-9_-]+)/)?.[1];
-                    const embedUrl = sc ? `https://www.instagram.com/reel/${sc}/embed/` : null;
+                    const embedUrl = sc ? `https://www.instagram.com/reel/${sc}/embed/` : undefined;
                     return (
                       <a key={sc || i} href={post.url} target="_blank" rel="noopener noreferrer"
                         className="w-44 shrink-0 sm:w-52 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
@@ -121,11 +121,9 @@ export default async function ContentPage() {
                               src={embedUrl}
                               width="100%"
                               height="490"
-                              style={{ border: 0, display: "block" }}
-                              scrolling="no"
-                              
+                              style={{ border: 0, display: "block", overflow: "hidden" }}
                               loading="lazy"
-                              title={`Instagram reel ${sc}`}
+                              title={sc ? `Instagram reel ${sc}` : "Instagram post"}
                             />
                           </div>
                         </div>

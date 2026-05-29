@@ -3,13 +3,13 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import SocialSection from "@/components/sections/SocialSection";
-import PodcastSection from "@/components/sections/PodcastSection";
 import AboutSection from "@/components/sections/AboutSection";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import LiquidCard from "@/components/ui/LiquidCard";
 import { getSiteConfig } from "@/lib/content";
 import { getLatestVideos } from "@/lib/youtube";
 import { getLatestTikToks } from "@/lib/tiktok";
+import { getSocialStats, formatCount } from "@/lib/stats";
 import fs from "fs/promises";
 import path from "path";
 
@@ -22,9 +22,28 @@ async function getInstagramPosts() {
 }
 
 async function SocialFeed({ socialLinks }) {
-  const [youtubeVideos, tiktokVideos, instagramPosts] = await Promise.all([
-    getLatestVideos(), getLatestTikToks(), getInstagramPosts(),
+  const [youtubeVideos, tiktokVideos, instagramPosts, rawStats] = await Promise.all([
+    getLatestVideos(), getLatestTikToks(), getInstagramPosts(), getSocialStats(),
   ]);
+
+  // Pre-format all numbers so SocialSection stays a pure "use client" component
+  const platformStats = {
+    youtube: {
+      subscribers: formatCount(rawStats.youtube?.subscribers),
+      views:       formatCount(rawStats.youtube?.views),
+      videos:      formatCount(rawStats.youtube?.videos),
+    },
+    tiktok: {
+      followers: formatCount(rawStats.tiktok?.followers),
+      likes:     formatCount(rawStats.tiktok?.likes),
+      videos:    formatCount(rawStats.tiktok?.videos),
+    },
+    instagram: {
+      followers: formatCount(rawStats.instagram?.followers),
+      posts:     formatCount(rawStats.instagram?.posts),
+    },
+  };
+
   return (
     <AnimatedEntry delay={0.05}>
       <LiquidCard>
@@ -33,17 +52,8 @@ async function SocialFeed({ socialLinks }) {
           tiktokVideos={tiktokVideos}
           instagramPosts={instagramPosts}
           socialLinks={socialLinks}
+          platformStats={platformStats}
         />
-      </LiquidCard>
-    </AnimatedEntry>
-  );
-}
-
-async function RestSections({ spotifyLink }) {
-  return (
-    <AnimatedEntry delay={0.05}>
-      <LiquidCard>
-        <PodcastSection spotifyUrl={spotifyLink} />
       </LiquidCard>
     </AnimatedEntry>
   );
@@ -51,7 +61,6 @@ async function RestSections({ spotifyLink }) {
 
 export default async function Home() {
   const siteConfig = await getSiteConfig();
-  const spotifyLink = siteConfig.socialLinks?.find(l => l.platform === "spotify")?.url;
 
   return (
     <>
@@ -64,9 +73,6 @@ export default async function Home() {
           </AnimatedEntry>
           <Suspense>
             <SocialFeed socialLinks={siteConfig.socialLinks} />
-          </Suspense>
-          <Suspense>
-            <RestSections spotifyLink={spotifyLink} />
           </Suspense>
         </div>
       </main>

@@ -8,6 +8,7 @@ import TikTokCard from "@/components/cards/TikTokCard";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import GlassButton from "@/components/ui/GlassButton";
 import AnimatedTabs from "@/components/ui/AnimatedTabs";
+import ProfileStatsBar from "@/components/ui/ProfileStatsBar";
 import { ChevronLeft } from "lucide-react";
 
 const INSTAGRAM_URL   = "https://www.instagram.com/yahavguetta/";
@@ -54,7 +55,7 @@ function EmptyState() {
   return <p className="text-center text-[var(--color-text-secondary)]">אין סרטונים להצגה כרגע.</p>;
 }
 
-export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], instagramPosts = [], socialLinks = [] }) {
+export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], instagramPosts = [], socialLinks = [], platformStats = {} }) {
   const [active, setActive] = useState("youtube");
 
   useEffect(() => {
@@ -109,6 +110,10 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               {active === "instagram" && (
                 <motion.div key="instagram" className="flex flex-col gap-4" {...TAB_ANIM}>
                   <TabDescription>באינסטגרם תמצאו חדשות וסטורי מעולה, גם עונה להודעות שם.</TabDescription>
+                  <ProfileStatsBar items={[
+                    { label: "עוקבים",  value: platformStats.instagram?.followers },
+                    { label: "פוסטים",  value: platformStats.instagram?.posts },
+                  ]} />
                   {instagramPosts.length > 0 ? (
                     <Carousel>
                       {instagramPosts.map((post, i) => {
@@ -120,8 +125,8 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
                               <div style={{ marginTop: -56 }}>
                                 <iframe src={sc ? `https://www.instagram.com/reel/${sc}/embed/` : undefined}
                                   width="100%" height="560"
-                                  style={{ border: 0, display: "block" }}
-                                  loading="lazy" title={`Instagram reel ${sc}`} />
+                                  style={{ border: 0, display: "block", overflow: "hidden" }}
+                                  loading="lazy" title={sc ? `Instagram reel ${sc}` : "Instagram post"} />
                               </div>
                             </div>
                           </a>
@@ -142,6 +147,11 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               {active === "youtube" && (
                 <motion.div key="youtube" className="flex flex-col gap-4" {...TAB_ANIM}>
                   <TabDescription>ביוטיוב תמצאו מדריכי רכישה ודעות (נכונות) על מוצרי Apple.</TabDescription>
+                  <ProfileStatsBar items={[
+                    { label: "מנויים",  value: platformStats.youtube?.subscribers },
+                    { label: "סרטונים", value: platformStats.youtube?.videos },
+                    { label: "צפיות",   value: platformStats.youtube?.views },
+                  ]} />
                   {youtubeOrdered.length > 0 ? (
                     <Carousel>
                       {youtubeOrdered.map((video, i) => (
@@ -158,6 +168,11 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               {active === "tiktok" && (
                 <motion.div key="tiktok" className="flex flex-col gap-4" {...TAB_ANIM}>
                   <TabDescription>בטיקטוק אין מבוגר אחראי (אני באמת מנסה אוקיי)?</TabDescription>
+                  <ProfileStatsBar items={[
+                    { label: "עוקבים",  value: platformStats.tiktok?.followers },
+                    { label: "סרטונים", value: platformStats.tiktok?.videos },
+                    { label: "לייקים",  value: platformStats.tiktok?.likes },
+                  ]} />
                   {tiktokVideos.length > 0 ? (
                     <Carousel>
                       {tiktokVideos.map((video, i) => (

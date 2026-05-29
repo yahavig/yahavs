@@ -1,0 +1,17 @@
+{
+  "_comment": "Update these manually when stats change. YouTube stats are overridden by the API if YOUTUBE_API_KEY is set.",
+  "youtube": {
+    "subscribers": 0,
+    "views": 0,
+    "videos": 0
+  },
+  "tiktok": {
+    "followers": 0,
+    "likes": 0,
+    "videos": 0
+  },
+  "instagram": {
+    "followers": 0,
+    "posts": 0
+  }
+}

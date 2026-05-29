@@ -3,19 +3,17 @@
   "titleHebrew": "yahavguetta.com",
   "description": "טכנולוגיה, מוצרים וחוויות",
   "fullDescription": "הבית הרשמי של yahavguetta.com - סרטונים, סקירות, מדריכים ופרשנות על עולם הטכנולוגיה והמוצרים של Apple.",
-  "legalEmail": "yahavig2000@gmail.com",
+  "legalEmail": "yahavig@gmail.com",
   "lastLegalUpdate": "2026-05-27",
   "navItems": [
     { "label": "ראשי", "href": "/" },
     { "label": "עליי", "href": "/about" },
-    { "label": "תוכן", "href": "/content" },
-    { "label": "פודקאסט", "href": "/podcast" }
+    { "label": "תוכן", "href": "/content" }
   ],
   "socialLinks": [
     { "platform": "youtube", "url": "https://www.youtube.com/@yahavguetta", "label": "YouTube" },
     { "platform": "tiktok", "url": "https://www.tiktok.com/@yahavguetta", "label": "TikTok" },
     { "platform": "instagram", "url": "https://www.instagram.com/yahavguetta/", "label": "Instagram" },
-    { "platform": "spotify", "url": "https://open.spotify.com/show/2bzIcwU1WsEmgOugv7sKnW?si=nrLkuS63ThysSnqZthYkLw", "label": "Podcast" },
     { "platform": "discord", "url": "https://discord.gg/ptgHvwt7", "label": "Discord" }
   ]
 }
