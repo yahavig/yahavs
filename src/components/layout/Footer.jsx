@@ -37,9 +37,7 @@ export default function Footer({ socialLinks = [], siteName = "yahavguetta.com" 
             <span aria-hidden="true">·</span>
             <Link href="/accessibility" className="hover:text-white transition-colors">נגישות</Link>
             <span aria-hidden="true">·</span>
-            <Link href="/terms" className="hover:text-white transition-colors">תנאי שימוש</Link>
-            <span aria-hidden="true">·</span>
-            <Link href="/disclosure" className="hover:text-white transition-colors">גילוי נאות</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">תנאי שימוש וגילוי נאות</Link>
           </div>
 
           <p className="text-xs text-white/35">

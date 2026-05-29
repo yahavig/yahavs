@@ -4,8 +4,8 @@ import Container from "@/components/ui/Container";
 import { getSiteConfig } from "@/lib/content";
 
 export const metadata = {
-  title: "תנאי שימוש | yahavguetta.com",
-  description: "תנאי השימוש של האתר yahavguetta.com.",
+  title: "תנאי שימוש וגילוי נאות | yahavguetta.com",
+  description: "תנאי השימוש וגילוי הנאות של האתר yahavguetta.com.",
 };
 
 export default async function TermsPage() {
@@ -56,7 +56,16 @@ export default async function TermsPage() {
 
               <h2 className="mt-6 mb-2 text-base font-semibold text-[var(--color-text-primary)]">גילוי נאות</h2>
               <p>
-                חלק מהתוכן באתר עוסק במוצרי Apple ובנושאים הקשורים לעולם שבו מפעיל האתר עובד או עבד מקצועית, לרבות שיתופי פעולה בעבר עם iDigital. ככל שתוכן מסוים יכלול שיתוף פעולה מסחרי, קישור מתוגמל, הטבה או חסות - הדבר יצוין במפורש בסמוך לאותו תוכן.
+                כחלק משקיפות מול הקוראים, להלן פירוט של הקשרים המקצועיים והמסחריים הרלוונטיים לתכנים באתר.
+              </p>
+              <p>
+                בעבר השתתפתי בפרסומת של iDigital ויצרתי איתם תוכן. אני עוסק רבות במוצרי Apple כצרכן וכיוצר תוכן, ומעיר עליהם דעות אישיות. המידע שאני מציג על מוצרי Apple ו-iDigital אינו מהווה דבר פרסומת מטעמם, אלא אם צוין במפורש בסמוך לתוכן הרלוונטי.
+              </p>
+              <p>
+                ככל שיופיע באתר תוכן הכולל שיתוף פעולה מסחרי, קישור מתוגמל (affiliate), הטבה, חסות או תמורה כלשהי - הדבר יצוין במפורש בסמוך לאותו תוכן, באמצעות אחת מהמילים הבאות: &ldquo;ממומן&rdquo;, &ldquo;בשיתוף פעולה עם&rdquo;, &ldquo;חסות&rdquo;, &ldquo;קישור מתוגמל&rdquo; או ניסוח דומה. בהיעדר ציון כזה, יש להניח שאין מאחורי התוכן תמורה כספית או חומרית.
+              </p>
+              <p>
+                שמות חברות, מוצרים, לוגואים וסימני מסחר המופיעים באתר שייכים לבעליהם בהתאמה, ומופיעים לצורכי הקשר, מידע, סקירה וביקורת בלבד. אזכור של חברה או מוצר אינו מעיד על קשר מסחרי איתם, אלא אם צוין במפורש.
               </p>
 
               <h2 className="mt-6 mb-2 text-base font-semibold text-[var(--color-text-primary)]">שינויים באתר ובתנאים</h2>
@@ -71,7 +80,7 @@ export default async function TermsPage() {
 
               <h2 className="mt-6 mb-2 text-base font-semibold text-[var(--color-text-primary)]">יצירת קשר</h2>
               <p>
-                בכל שאלה או פנייה הנוגעת לתנאי שימוש אלה ניתן לפנות בדוא״ל:{" "}
+                בכל שאלה או פנייה הנוגעת לתנאים אלה ניתן לפנות בדוא״ל:{" "}
                 <a href={`mailto:${email}`} className="text-[var(--color-accent)] hover:underline">{email}</a>
               </p>
 
