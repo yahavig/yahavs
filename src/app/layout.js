@@ -2,7 +2,7 @@ import { Google_Sans } from "next/font/google";
 import "./globals.css";
 import FloatingButtons from "@/components/ui/FloatingButtons";
 import FloatingDock from "@/components/ui/FloatingDock";
-import RetroGridClient from "@/components/ui/RetroGridClient";
+import SiriWave from "@/components/ui/siri-wave";
 
 const googleSans = Google_Sans({
   variable: "--font-sans",
@@ -46,12 +46,10 @@ export default function RootLayout({ children }) {
         `}} />
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
-        {/* Retro grid background */}
-        <RetroGridClient
-          darkColor="#09244a"
-          lightColor="#4978ba"
-          showScanlines={false}
-          glowEffect={true}
+        {/* Siri wave shader background */}
+        <SiriWave
+          variant="wave"
+          fill
           className="fixed inset-0 -z-10 w-full h-full"
         />
 

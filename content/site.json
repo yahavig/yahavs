@@ -8,7 +8,8 @@
   "navItems": [
     { "label": "ראשי", "href": "/" },
     { "label": "עליי", "href": "/about" },
-    { "label": "תוכן", "href": "/content" }
+    { "label": "תוכן", "href": "/content" },
+    { "label": "חנות", "href": "/shop" }
   ],
   "socialLinks": [
     { "platform": "youtube", "url": "https://www.youtube.com/@yahavguetta", "label": "YouTube" },

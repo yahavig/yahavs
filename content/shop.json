@@ -1,0 +1,90 @@
+{
+  "_comment": "מוצרי החנות. לכל מוצר: title (חובה), url (חובה, קישור אלי אקספרס/שותפים), image (כתובת תמונה או נתיב מתוך public/), description, price (טקסט חופשי, למשל \"₪49\"), category (id מתוך categories). affiliate=true מציג גילוי נאות על קישורי שותפים. קטגוריה בלי מוצרים לא מוצגת.",
+  "affiliate": true,
+  "categories": [
+    { "id": "iphone", "label": "אייפון" },
+    { "id": "cables", "label": "כבלים" },
+    { "id": "chargers", "label": "מטענים" },
+    { "id": "powerbanks", "label": "סוללות" },
+    { "id": "watch", "label": "שעון" },
+    { "id": "ipad", "label": "אייפד" },
+    { "id": "airpods", "label": "איירפודס" },
+    { "id": "macbook", "label": "מקבוק" },
+    { "id": "misc", "label": "שונות" }
+  ],
+  "products": [
+    {
+      "title": "מדבקות מסך מגה פרימיום",
+      "description": "ל-iPhone 16, 17, 18 פרו ומקס בלבד",
+      "url": "https://s.click.aliexpress.com/e/_c33h0x2R",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/Se1e4e93b28d9415ab38944971c1547dbT.jpg_350x350.jpg",
+      "category": "iphone"
+    },
+    {
+      "title": "מדבקות מסך בהתקנה קלה",
+      "description": "מתאימות לכל המודלים",
+      "url": "https://s.click.aliexpress.com/e/_c3dKkvkx",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/S2cf01c9c979147c9a84057bf9b1c96223.jpg_350x350.jpg",
+      "category": "iphone"
+    },
+    {
+      "title": "מדבקות מסך פרטיות",
+      "url": "https://s.click.aliexpress.com/e/_c3X93gex",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/S7b074c9f65ea43db938c2d1b7070c5a1I.jpg_350x350.jpg",
+      "category": "iphone"
+    },
+    {
+      "title": "כבל טעינה 60W / 100W",
+      "description": "באורך 1 מטר, 2 מטר או 3 מטר",
+      "url": "https://s.click.aliexpress.com/e/_c34ZC07N",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/Se14c9157e9b248c196222ae0f49054b6D.jpg_350x350.jpg",
+      "category": "cables"
+    },
+    {
+      "title": "צמיד כבל USB-C 60W",
+      "url": "https://s.click.aliexpress.com/e/_c3ELIdef",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/S7b97c8a5294e45999136ab63766c853bL.jpg_350x350.jpg",
+      "category": "cables"
+    },
+    {
+      "title": "מטען אוניברסלי 25W",
+      "url": "https://s.click.aliexpress.com/e/_c3nL8APl",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/Sc2a878933af34e4e848cc0b77504ae7fn.jpg_350x350.jpg",
+      "category": "chargers"
+    },
+    {
+      "title": "מטען 65W",
+      "description": "למקבוק ולאייפון 18 ומעלה",
+      "url": "https://s.click.aliexpress.com/e/_c4qn9h71",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/S37fbbdc0722440199911f3e940fe6a3fp.jpg_350x350.jpg",
+      "category": "chargers"
+    },
+    {
+      "title": "מטען 100W",
+      "description": "למקבוק וגם לאייפון",
+      "url": "https://s.click.aliexpress.com/e/_c3AxVteX",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/S338092f9499c4946ab5cdc5b080c4420F.jpg_350x350.jpg",
+      "category": "chargers"
+    },
+    {
+      "title": "סוללת מגסייף דקה",
+      "description": "דקה, קלה ונצמדת לגב הטלפון",
+      "url": "https://s.click.aliexpress.com/e/_c3dofrIP",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/S0c5de21434e24d03966041c6acfaba07R.png_350x350.png",
+      "category": "powerbanks"
+    },
+    {
+      "title": "סוללה ענקית לטיולים",
+      "url": "https://s.click.aliexpress.com/e/_c3aMXfbt",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/Sccba3638cc374512b9dbdd36e1cd2ab1e.png_350x350.png",
+      "category": "powerbanks"
+    },
+    {
+      "title": "מגן מסך בלתי נראה לשעון",
+      "description": "לאפל ווטש 10, 11 ו-12",
+      "url": "https://s.click.aliexpress.com/e/_c4lG0SEx",
+      "image": "https://ae-pic-a1.aliexpress-media.com/kf/S56c3997345304939b46d65c51ce25616S.jpg_350x350.jpg",
+      "category": "watch"
+    }
+  ]
+}

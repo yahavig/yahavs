@@ -1,5 +1,10 @@
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // A stray package-lock.json in the home directory otherwise becomes the inferred workspace root.
+  turbopack: { root: dirname(fileURLToPath(import.meta.url)) },
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
@@ -10,6 +15,8 @@ const nextConfig = {
       { protocol: "https", hostname: "img.youtube.com" },
       { protocol: "https", hostname: "*.tiktokcdn.com" },
       { protocol: "https", hostname: "*.tiktokcdn-us.com" },
+      { protocol: "https", hostname: "*.alicdn.com" },
+      { protocol: "https", hostname: "*.aliexpress-media.com" },
     ],
   },
 
