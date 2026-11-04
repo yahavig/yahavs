@@ -9,7 +9,7 @@ export default function TikTokCard({ video, index = 0 }) {
       href={video.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col overflow-hidden rounded-2xl glass transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+      className="group flex flex-col overflow-hidden rounded-lg glass transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98]"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -27,7 +27,7 @@ export default function TikTokCard({ video, index = 0 }) {
             alt={video.title || "TikTok video"}
             fill
             sizes="(max-width: 640px) 50vw, 25vw"
-            className="object-cover transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-105"
+            className="object-cover transition-transform duration-200 ease-[var(--ease-out-expo)] group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-b from-gray-800 to-gray-900">
@@ -42,7 +42,7 @@ export default function TikTokCard({ video, index = 0 }) {
 
       {/* Info */}
       <div className="flex flex-1 flex-col gap-1 p-4">
-        <h3 className="text-sm font-semibold leading-snug text-[var(--color-text-primary)] line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
+        <h3 className="text-sm font-semibold leading-snug text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-text)] transition-colors">
           {video.title || "סרטון TikTok"}
         </h3>
         {video.authorName && (

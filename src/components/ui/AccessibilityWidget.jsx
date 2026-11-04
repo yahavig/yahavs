@@ -240,7 +240,7 @@ export default function AccessibilityWidget({ isOpen, onClose, isMobile = true }
       role="dialog"
       aria-modal="true"
       aria-label="תפריט נגישות"
-      className={`fixed z-[200] w-72 overflow-hidden rounded-2xl shadow-2xl ${
+      className={`fixed z-[200] w-72 overflow-hidden rounded-lg shadow-2xl ${
         isMobile
           ? "top-[62px] left-4"
           : "bottom-[76px] left-6"
@@ -256,7 +256,7 @@ export default function AccessibilityWidget({ isOpen, onClose, isMobile = true }
       transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* ── Header ─────────────────────────────────────────── */}
-      <div className="flex items-center justify-between bg-[#0057B8] px-4 py-3">
+      <div className="flex items-center justify-between bg-[var(--color-accent)] px-4 py-3">
         <div className="flex items-center gap-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/icons/accessibility.png" alt="" width={20} height={20} className="object-contain" aria-hidden="true" />
@@ -286,10 +286,10 @@ export default function AccessibilityWidget({ isOpen, onClose, isMobile = true }
               key={String(mode)}
               onClick={() => toggleDarkMode(mode)}
               aria-pressed={darkMode === mode}
-              className={`flex flex-1 flex-col items-center gap-0.5 rounded-xl py-2 text-[11px] font-semibold transition-all duration-150 border ${
+              className={`flex flex-1 flex-col items-center gap-0.5 rounded-md py-2 text-[11px] font-semibold transition-all duration-150 border ${
                 darkMode === mode
-                  ? "bg-[#0057B8] text-white border-[#0057B8]"
-                  : "bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] border-[var(--color-border-light)] hover:border-[#0057B8]"
+                  ? "bg-[var(--color-accent)] text-white border-[var(--color-accent-hover)]"
+                  : "bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] border-[var(--color-border-light)] hover:border-[var(--color-accent-hover)]"
               }`}
             >
               <Icon size={16} aria-hidden="true" />
@@ -308,10 +308,10 @@ export default function AccessibilityWidget({ isOpen, onClose, isMobile = true }
             key={feature.id}
             onClick={() => toggle(feature)}
             aria-pressed={!!active[feature.id]}
-            className={`flex flex-col items-center gap-1.5 rounded-xl p-3 text-center text-xs font-medium transition-all duration-150 border ${
+            className={`flex flex-col items-center gap-1.5 rounded-md p-3 text-center text-xs font-semibold transition-all duration-150 border ${
               active[feature.id]
-                ? "bg-[#0057B8] text-white border-[#0057B8]"
-                : "bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] border-[var(--color-border-light)] hover:border-[#0057B8]"
+                ? "bg-[var(--color-accent)] text-white border-[var(--color-accent-hover)]"
+                : "bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] border-[var(--color-border-light)] hover:border-[var(--color-accent-hover)]"
             }`}
           >
             <span className="flex items-center justify-center" aria-hidden="true">
@@ -338,7 +338,7 @@ export default function AccessibilityWidget({ isOpen, onClose, isMobile = true }
         </button>
         <a
           href="/accessibility"
-          className="text-xs text-[#0057B8] underline hover:opacity-80 transition-opacity"
+          className="text-xs text-[var(--color-accent-text)] underline hover:opacity-80 transition-opacity"
         >
           הצהרת נגישות
         </a>

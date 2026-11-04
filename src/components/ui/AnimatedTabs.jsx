@@ -35,7 +35,7 @@ export function AnimatedTabs({ tabs, activeTab, onTabChange }) {
         {/* Colored sliding pill */}
         <div
           ref={containerRef}
-          className="absolute inset-0 [transition:clip-path_0.28s_cubic-bezier(0.16,1,0.3,1)] rounded-full"
+          className="absolute inset-0 [transition:clip-path_0.2s_ease-out] rounded-full"
           style={{
             clipPath:   "inset(0 100% 0 0% round 9999px)",
             background: activeColor,

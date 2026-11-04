@@ -8,15 +8,15 @@ export default function Button({
   ...props
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300";
+    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-normal transition-all duration-200";
 
   const variants = {
     primary:
-      "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] shadow-sm hover:shadow-md",
+      "liquid-btn text-white",
     secondary:
       "bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] hover:border-[var(--color-border)]",
     ghost:
-      "text-[var(--color-accent)] hover:bg-[var(--color-surface-hover)]",
+      "text-[var(--color-accent-text)] hover:bg-[var(--color-surface-hover)]",
   };
 
   const classes = `${base} ${variants[variant]} ${className}`;

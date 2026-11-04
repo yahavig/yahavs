@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <main className="flex flex-1 items-center justify-center py-32">
       <Container>
-        <div className="mx-auto max-w-md text-center rounded-3xl overflow-hidden glass-strong p-10 sm:p-14">
+        <div className="mx-auto max-w-md text-center rounded-xl overflow-hidden glass-strong p-10 sm:p-14">
           <p className="text-6xl font-bold text-[var(--color-text-primary)]">404</p>
           <h1 className="mt-4 text-2xl font-bold text-[var(--color-text-primary)]">
             העמוד לא נמצא

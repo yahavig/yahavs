@@ -1,7 +1,8 @@
 import { readFile } from "fs/promises";
 import { join } from "path";
 
-const EMPTY = { affiliate: true, groups: [] };
+const EMPTY = { affiliate: true, groups: [], featured: [] };
+const EMPTY_WITH = (affiliate) => ({ ...EMPTY, affiliate });
 
 /**
  * Reads content/shop.json and returns products grouped by category,
@@ -15,10 +16,14 @@ export async function getShop() {
 
     // https/http only — never render a link with another scheme.
     const valid = products.filter((p) => p?.title && /^https?:\/\//i.test(p?.url ?? ""));
-    if (!valid.length) return { affiliate, groups: [] };
+    if (!valid.length) return EMPTY_WITH(affiliate);
+
+    const featured = valid
+      .filter((p) => p.featured)
+      .sort((a, b) => Number(a.featured) - Number(b.featured));
 
     if (!categories.length) {
-      return { affiliate, groups: [{ id: "all", label: null, products: valid }] };
+      return { affiliate, featured, groups: [{ id: "all", label: null, products: valid }] };
     }
 
     const known = new Set(categories.map((c) => c.id));
@@ -29,7 +34,7 @@ export async function getShop() {
     const rest = valid.filter((p) => !known.has(p.category));
     if (rest.length) groups.push({ id: "other", label: "עוד", products: rest });
 
-    return { affiliate, groups };
+    return { affiliate, featured, groups };
   } catch {
     return EMPTY;
   }

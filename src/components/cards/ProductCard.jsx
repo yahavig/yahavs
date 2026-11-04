@@ -9,7 +9,7 @@ export default function ProductCard({ product, preload = false }) {
       href={url}
       target="_blank"
       rel="sponsored noopener noreferrer"
-      className="group flex h-full flex-col overflow-hidden rounded-2xl glass transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+      className="group flex h-full flex-col overflow-hidden rounded-lg glass transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98]"
     >
       <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-[var(--color-surface-hover)]">
         {image ? (
@@ -19,7 +19,7 @@ export default function ProductCard({ product, preload = false }) {
             fill
             preload={preload}
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-105"
+            className="object-cover transition-transform duration-200 ease-[var(--ease-out-expo)] group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-[var(--color-text-tertiary)]">
@@ -29,11 +29,11 @@ export default function ProductCard({ product, preload = false }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <h3 className="text-sm font-semibold leading-snug text-[var(--color-text-primary)] line-clamp-2 transition-colors group-hover:text-[var(--color-accent)]">
+        <h3 className="text-sm font-semibold leading-snug text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-accent-text)]">
           {title}
         </h3>
         {description && (
-          <p className="text-xs leading-relaxed text-[var(--color-text-secondary)] line-clamp-2">
+          <p className="text-xs leading-relaxed text-[var(--color-text-secondary)]">
             {description}
           </p>
         )}
@@ -41,8 +41,8 @@ export default function ProductCard({ product, preload = false }) {
           {price && (
             <span className="text-sm font-bold text-[var(--color-text-primary)]">{price}</span>
           )}
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#0071E3] px-3.5 py-1.5 text-xs font-semibold text-white transition-colors group-hover:bg-[#0077ED]">
-            לאלי אקספרס
+          <span className="liquid-btn liquid-btn-orange inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-1.5 text-xs text-white">
+            ל- AliExpress
             <ChevronLeft size={14} strokeWidth={2.5} aria-hidden="true" />
           </span>
         </div>

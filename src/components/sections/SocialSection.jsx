@@ -13,8 +13,6 @@ import { ChevronLeft } from "lucide-react";
 
 const INSTAGRAM_URL   = "https://www.instagram.com/yahavguetta/";
 const APPLE_MUSIC_URL = "https://music.apple.com/profile/yahavguetta";
-const BLUE_GLASS      = "rgba(0,113,227,0.88)";
-const RED_GLASS       = "rgba(252,60,68,0.82)";
 
 const PLATFORMS = [
   { id: "youtube",    label: "YouTube",   color: "rgba(220,0,0,0.85)" },
@@ -33,10 +31,10 @@ const TAB_ANIM = {
 
 const REEL_ID_RE = /\/(?:reel|p)\/([A-Za-z0-9_-]+)/;
 
-function ProfileButton({ href, label, glassColor = BLUE_GLASS }) {
+function ProfileButton({ href, label }) {
   return (
     <div className="flex justify-center">
-      <GlassButton href={href} external size="sm" glassColor={glassColor} className="text-white font-semibold">
+      <GlassButton href={href} external size="sm" className="text-white font-semibold">
         <span>{label}</span><ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
       </GlassButton>
     </div>
@@ -91,19 +89,16 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
 
   return (
     <section id="social" className="py-6 sm:py-9">
-      <Container>
+      <Container className="max-w-none!">
         <AnimatedEntry className="text-center">
           <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">בואו נהיה חברים.</h2>
-          <p className="mt-2 max-w-2xl mx-auto text-sm leading-relaxed text-[var(--color-text-secondary)]">
-            אני יודע, אני יודע, יש יותר מדי פלטפורמות וגם לי זה לא עושה טוב:
-          </p>
         </AnimatedEntry>
 
         <div className="mt-4 mb-3 flex justify-center">
           <AnimatedTabs tabs={PLATFORMS} activeTab={active} onTabChange={setActive} />
         </div>
 
-        <motion.div animate={{ height }} transition={{ duration: 0.3, ease: "linear" }} style={{ overflow: "hidden" }}>
+        <motion.div animate={{ height }} transition={{ duration: 0.3, ease: "linear" }} className="bleed gutter-strip" style={{ overflow: "hidden" }}>
           <div ref={innerRef}>
             <AnimatePresence mode="wait">
 
@@ -115,12 +110,12 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
                     { label: "פוסטים",  value: platformStats.instagram?.posts },
                   ]} />
                   {instagramPosts.length > 0 ? (
-                    <Carousel>
+                    <Carousel className="bleed" stripClassName="gutter-strip">
                       {instagramPosts.map((post, i) => {
                         const sc = post.url.match(REEL_ID_RE)?.[1];
                         return (
                           <a key={sc || i} href={post.url} target="_blank" rel="noopener noreferrer"
-                            className="block w-44 shrink-0 sm:w-52 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                            className="block w-44 shrink-0 sm:w-52 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]">
                             <div style={{ height: 390, overflow: "hidden" }}>
                               <div style={{ marginTop: -56 }}>
                                 <iframe src={sc ? `https://www.instagram.com/reel/${sc}/embed/` : undefined}
@@ -135,9 +130,9 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
                     </Carousel>
                   ) : (
                     <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer"
-                      className="flex items-center justify-between gap-4 rounded-2xl glass px-5 py-4">
+                      className="flex items-center justify-between gap-4 rounded-lg glass px-5 py-4">
                       <p className="font-semibold text-[var(--color-text-primary)]">עקבו ב-Instagram - @yahavguetta</p>
-                      <span className="shrink-0 rounded-xl bg-gradient-to-r from-[#f09433] to-[#bc1888] px-4 py-2 text-sm font-semibold text-white">עקוב</span>
+                      <span className="shrink-0 liquid-btn rounded-full px-4 py-2 text-sm text-white">עקוב</span>
                     </a>
                   )}
                   <ProfileButton href={INSTAGRAM_URL} label="לפרופיל" />
@@ -153,9 +148,9 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
                     { label: "צפיות",   value: platformStats.youtube?.views },
                   ]} />
                   {youtubeOrdered.length > 0 ? (
-                    <Carousel>
+                    <Carousel className="bleed" stripClassName="gutter-strip">
                       {youtubeOrdered.map((video, i) => (
-                        <div key={video.id} className="w-56 shrink-0 sm:w-64 h-[210px]">
+                        <div key={video.id} className="w-56 shrink-0 sm:w-64">
                           <VideoCard video={video} index={i} />
                         </div>
                       ))}
@@ -174,7 +169,7 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
                     { label: "לייקים",  value: platformStats.tiktok?.likes },
                   ]} />
                   {tiktokVideos.length > 0 ? (
-                    <Carousel>
+                    <Carousel className="bleed" stripClassName="gutter-strip">
                       {tiktokVideos.map((video, i) => (
                         <div key={video.url} className="w-44 shrink-0 sm:w-52">
                           <TikTokCard video={video} index={i} />
@@ -189,11 +184,11 @@ export default function SocialSection({ youtubeVideos = [], tiktokVideos = [], i
               {active === "applemusic" && (
                 <motion.div key="applemusic" className="flex flex-col items-center gap-5 py-6 text-center" {...TAB_ANIM}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/icons/music.svg" alt="Music" width={72} height={72} className="rounded-2xl shadow-lg" />
+                  <img src="/images/icons/music.svg" alt="Music" width={72} height={72} className="rounded-lg shadow-lg" />
                   <p className="max-w-sm text-[var(--color-text-secondary)] leading-relaxed">
                     האמת שאני מוזיקאי בעצמי. אשחרר בהמשך שירים. אבל עד אז - תהנו קצת מהטעם הממש טוב ורחב שלי!
                   </p>
-                  <ProfileButton href={APPLE_MUSIC_URL} label="לפרופיל" glassColor={RED_GLASS} />
+                  <ProfileButton href={APPLE_MUSIC_URL} label="לפרופיל" />
                 </motion.div>
               )}
 

@@ -51,7 +51,7 @@ export default async function ContentPage() {
 
           {youtubeVideos.length > 0 && (
             <AnimatedEntry>
-              <div className="mb-4 rounded-3xl py-8 overflow-hidden glass-strong">
+              <div className="mb-4 rounded-xl py-8 overflow-hidden glass-strong">
                 <div className="px-8 sm:px-10">
                   <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">YouTube</h2>
                   <p className="mb-6 max-w-2xl text-sm leading-relaxed text-[var(--color-text-secondary)]">
@@ -63,7 +63,7 @@ export default async function ContentPage() {
                 </Carousel>
                 {linksByPlatform.youtube && (
                   <div className="px-8 sm:px-10 mt-6">
-                    <GlassButton href={linksByPlatform.youtube} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
+                    <GlassButton href={linksByPlatform.youtube} external size="sm" className="text-white font-semibold">
                       <span>לערוץ</span>
                       <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
                     </GlassButton>
@@ -75,7 +75,7 @@ export default async function ContentPage() {
 
           {tiktokVideos.length > 0 && (
             <AnimatedEntry>
-              <div className="mb-4 rounded-3xl py-8 overflow-hidden glass-strong">
+              <div className="mb-4 rounded-xl py-8 overflow-hidden glass-strong">
                 <div className="px-8 sm:px-10">
                   <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">TikTok</h2>
                   <p className="mb-6 max-w-2xl text-sm leading-relaxed text-[var(--color-text-secondary)]">
@@ -87,7 +87,7 @@ export default async function ContentPage() {
                 </Carousel>
                 {linksByPlatform.tiktok && (
                   <div className="px-8 sm:px-10 mt-6">
-                    <GlassButton href={linksByPlatform.tiktok} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
+                    <GlassButton href={linksByPlatform.tiktok} external size="sm" className="text-white font-semibold">
                       <span>לפרופיל</span>
                       <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
                     </GlassButton>
@@ -99,7 +99,7 @@ export default async function ContentPage() {
 
           {instagramPosts.length > 0 && (
             <AnimatedEntry>
-              <div className="rounded-3xl py-8 overflow-hidden glass-strong">
+              <div className="rounded-xl py-8 overflow-hidden glass-strong">
                 <div className="px-8 sm:px-10">
                   <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">Instagram</h2>
                   <p className="mb-6 max-w-2xl text-sm leading-relaxed text-[var(--color-text-secondary)]">
@@ -113,7 +113,7 @@ export default async function ContentPage() {
                     const embedUrl = sc ? `https://www.instagram.com/reel/${sc}/embed/` : undefined;
                     return (
                       <a key={sc || i} href={post.url} target="_blank" rel="noopener noreferrer"
-                        className="w-44 shrink-0 sm:w-52 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                        className="w-44 shrink-0 sm:w-52 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]"
                         style={{ display: "block" }}>
                         <div style={{ height: 305, overflow: "hidden" }}>
                           <div style={{ marginTop: -56 }}>
@@ -133,7 +133,7 @@ export default async function ContentPage() {
                 </Carousel>
                 {linksByPlatform.instagram && (
                   <div className="px-8 sm:px-10 mt-6">
-                    <GlassButton href={linksByPlatform.instagram} external size="sm" glassColor="rgba(0,113,227,0.88)" className="text-white font-semibold">
+                    <GlassButton href={linksByPlatform.instagram} external size="sm" className="text-white font-semibold">
                       <span>לפרופיל</span>
                       <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
                     </GlassButton>

@@ -7,9 +7,9 @@
   "lastLegalUpdate": "2026-05-27",
   "navItems": [
     { "label": "ראשי", "href": "/" },
-    { "label": "עליי", "href": "/about" },
+    { "label": "חנות", "href": "/shop" },
     { "label": "תוכן", "href": "/content" },
-    { "label": "חנות", "href": "/shop" }
+    { "label": "עליי", "href": "/about" }
   ],
   "socialLinks": [
     { "platform": "youtube", "url": "https://www.youtube.com/@yahavguetta", "label": "YouTube" },

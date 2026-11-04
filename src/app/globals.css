@@ -10,12 +10,25 @@
   --color-text-tertiary: var(--color-text-tertiary);
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
+  --color-accent-text: var(--color-accent-text);
   --color-border: var(--color-border);
   --color-border-light: var(--color-border-light);
   --font-sans: var(--font-sans);
 }
 
+/* Radius scale — nothing in between. 2xl/3xl collapse onto xl so stray classes stay on-grammar. */
+@theme {
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 20px;
+  --radius-3xl: 20px;
+}
+
 html {
+  /* No page-level horizontal scroll — only the carousels themselves scroll sideways */
+  overflow-x: clip;
   scroll-behavior: smooth;
   background: #080808;
   font-size: 110%;
@@ -23,6 +36,7 @@ html {
 }
 
 body {
+  overflow-x: clip;
   background: transparent;
   color: var(--color-text-primary);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
@@ -31,6 +45,9 @@ body {
   text-align: center;
 }
 
+/* Large headlines carry slightly tight tracking; small text does not */
+h1, h2 { letter-spacing: -0.02em; }
+
 /* Force center-align on all text elements (overrides Tailwind Preflight + RTL UA defaults) */
 h1, h2, h3, h4, h5, h6, p, figcaption, blockquote, label, li, dt, dd {
   text-align: center;
@@ -38,13 +55,13 @@ h1, h2, h3, h4, h5, h6, p, figcaption, blockquote, label, li, dt, dd {
 
 /* Selection color */
 ::selection {
-  background: rgba(0, 113, 227, 0.15);
+  background: rgba(0, 102, 204, 0.3);
   color: var(--color-text-primary);
 }
 
 /* Smooth focus outlines */
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-accent-hover);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
@@ -71,6 +88,26 @@ h1, h2, h3, h4, h5, h6, p, figcaption, blockquote, label, li, dt, dd {
   border: 1px solid var(--glass-border-strong);
   box-shadow: var(--glass-shadow-lg);
 }
+
+/* Carousels bleed to the edge of their wrapping card; --gutter is the card's side padding */
+:root { --gutter: 1.5rem; }
+@media (min-width: 640px)  { :root { --gutter: 2rem; } }
+@media (min-width: 1024px) { :root { --gutter: 3rem; } }
+.bleed { margin-inline: calc(var(--gutter) * -1); }
+.gutter-strip { padding-inline: var(--gutter); }
+
+/* Flat (2D) button — Apple style: solid Action Blue pill, no shadow, no gloss, no blur.
+   Class name kept as .liquid-btn so existing markup keeps working. */
+.liquid-btn {
+  background-color: var(--btn-bg, #0066cc);
+  color: #fff;
+  box-shadow: none;
+  transition: background-color 200ms ease-out, transform 200ms ease-out, opacity 200ms ease-out;
+}
+a:hover > .liquid-btn, .group:hover .liquid-btn, .liquid-btn:hover { background-color: var(--btn-bg-hover, #0071e3); }
+/* AliExpress buttons: darker orange variant */
+.liquid-btn-orange { --btn-bg: #d9480f; --btn-bg-hover: #c2410c; }
+.liquid-btn:active { transform: scale(0.95); }
 
 /* Dock tint — light/dark aware */
 .dock-tint {

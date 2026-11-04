@@ -1,5 +1,5 @@
 {
-  "_comment": "מוצרי החנות. לכל מוצר: title (חובה), url (חובה, קישור אלי אקספרס/שותפים), image (כתובת תמונה או נתיב מתוך public/), description, price (טקסט חופשי, למשל \"₪49\"), category (id מתוך categories). affiliate=true מציג גילוי נאות על קישורי שותפים. קטגוריה בלי מוצרים לא מוצגת.",
+  "_comment": "מוצרי החנות. לכל מוצר: title (חובה), url (חובה, קישור אלי אקספרס/שותפים), image (כתובת תמונה או נתיב מתוך public/), description, price (טקסט חופשי, למשל \"₪49\"), category (id מתוך categories). affiliate=true מציג גילוי נאות על קישורי שותפים. featured=מספר (1,2,3...) מציג את המוצר גם בסקציית החנות בעמוד הבית, לפי סדר המספרים. קטגוריה בלי מוצרים לא מוצגת.",
   "affiliate": true,
   "categories": [
     { "id": "iphone", "label": "אייפון" },
@@ -24,6 +24,7 @@
       "title": "מדבקות מסך בהתקנה קלה",
       "description": "מתאימות לכל המודלים",
       "url": "https://s.click.aliexpress.com/e/_c3dKkvkx",
+      "featured": 1,
       "image": "https://ae-pic-a1.aliexpress-media.com/kf/S2cf01c9c979147c9a84057bf9b1c96223.jpg_350x350.jpg",
       "category": "iphone"
     },
@@ -37,6 +38,7 @@
       "title": "כבל טעינה 60W / 100W",
       "description": "באורך 1 מטר, 2 מטר או 3 מטר",
       "url": "https://s.click.aliexpress.com/e/_c34ZC07N",
+      "featured": 4,
       "image": "https://ae-pic-a1.aliexpress-media.com/kf/Se14c9157e9b248c196222ae0f49054b6D.jpg_350x350.jpg",
       "category": "cables"
     },
@@ -49,6 +51,7 @@
     {
       "title": "מטען אוניברסלי 25W",
       "url": "https://s.click.aliexpress.com/e/_c3nL8APl",
+      "featured": 3,
       "image": "https://ae-pic-a1.aliexpress-media.com/kf/Sc2a878933af34e4e848cc0b77504ae7fn.jpg_350x350.jpg",
       "category": "chargers"
     },
@@ -83,6 +86,7 @@
       "title": "מגן מסך בלתי נראה לשעון",
       "description": "לאפל ווטש 10, 11 ו-12",
       "url": "https://s.click.aliexpress.com/e/_c4lG0SEx",
+      "featured": 2,
       "image": "https://ae-pic-a1.aliexpress-media.com/kf/S56c3997345304939b46d65c51ce25616S.jpg_350x350.jpg",
       "category": "watch"
     }

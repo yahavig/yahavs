@@ -19,7 +19,7 @@ export default async function AccessibilityPage() {
 
       <main id="main-content" className="flex-1 pt-32 pb-20">
         <Container>
-          <div className="rounded-3xl overflow-hidden glass-strong p-8 sm:p-12 mx-auto max-w-2xl">
+          <div className="rounded-xl overflow-hidden glass-strong p-8 sm:p-12 mx-auto max-w-2xl">
             <AnimatedEntry>
               <h1 className="text-[clamp(3.6rem,7vw,6rem)] font-bold leading-tight tracking-tight text-[var(--color-text-primary)]">
                 הצהרת נגישות
@@ -99,16 +99,16 @@ export default async function AccessibilityPage() {
                     נתקלתם בבעיית נגישות? נשמח לעזור. ניתן לפנות בדוא״ל:
                   </p>
                   <p className="mt-2">
-                    <a href={`mailto:${email}`} className="text-[var(--color-accent)] underline">{email}</a>
+                    <a href={`mailto:${email}`} className="text-[var(--color-accent-text)] underline">{email}</a>
                   </p>
                   <p className="mt-3 text-sm">
                     מומלץ לציין בפנייה את כתובת העמוד שבו נתקלתם בבעיה, תיאור הבעיה, סוג הדפדפן והמכשיר שבו נעשה שימוש, וטכנולוגיית עזר אם נעשה בה שימוש.
                   </p>
                   <p className="mt-3">
                     ניתן גם לפנות בערוצי משנה -{" "}
-                    <a href="https://www.instagram.com/yahavguetta/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] underline">Instagram</a>
+                    <a href="https://www.instagram.com/yahavguetta/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-text)] underline">Instagram</a>
                     {" "}או{" "}
-                    <a href="https://discord.gg/ptgHvwt7" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] underline">Discord</a>
+                    <a href="https://discord.gg/ptgHvwt7" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-text)] underline">Discord</a>
                     {" "}- אך פנייה רשמית בנושא נגישות עדיף שתישלח במייל.
                   </p>
                   <p className="mt-3">

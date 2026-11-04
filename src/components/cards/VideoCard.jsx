@@ -9,7 +9,7 @@ export default function VideoCard({ video, index = 0 }) {
       href={video.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group h-full flex flex-col overflow-hidden rounded-2xl glass transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+      className="group h-full flex flex-col overflow-hidden rounded-lg glass transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98]"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -26,7 +26,7 @@ export default function VideoCard({ video, index = 0 }) {
             alt={video.title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-105"
+            className="object-cover transition-transform duration-200 ease-[var(--ease-out-expo)] group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-[var(--color-text-tertiary)]">
@@ -38,7 +38,7 @@ export default function VideoCard({ video, index = 0 }) {
       </div>
 
       <div className="flex flex-1 flex-col justify-center gap-2 px-5 py-4">
-        <h3 className="text-sm font-semibold leading-snug text-[var(--color-text-primary)] line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
+        <h3 className="text-sm font-semibold leading-snug text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-text)] transition-colors">
           {video.title}
         </h3>
       </div>

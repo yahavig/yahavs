@@ -18,7 +18,7 @@ export default function ProfileStatsBar({ items = [] }) {
       {visible.map(({ label, value }, i) => (
         <span
           key={i}
-          className="flex items-center gap-1.5 text-xs font-medium text-[var(--color-text-secondary)]"
+          className="flex items-center gap-1.5 text-xs font-semibold text-[var(--color-text-secondary)]"
         >
           <span className="font-semibold text-[var(--color-text-primary)]">{value}</span>
           {label}

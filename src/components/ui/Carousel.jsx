@@ -45,7 +45,7 @@ export default function Carousel({ children, className = "", stripClassName = ""
   };
 
   const btnBase =
-    "absolute top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] border border-[var(--color-border-light)] shadow-[var(--shadow-lg)] transition-all duration-200 hover:bg-[var(--color-surface-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]";
+    "absolute top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 shrink-0 items-center justify-center text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.65)] transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 rounded-full";
 
   return (
     <div className={`relative ${className}`}>
@@ -57,7 +57,7 @@ export default function Carousel({ children, className = "", stripClassName = ""
         disabled={!canPrev}
         className={`${btnBase} start-2 ${canPrev ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        <ChevronRight size={18} className="text-[var(--color-text-primary)]" />
+        <ChevronRight size={28} strokeWidth={2.5} />
       </button>
 
       {/* Scrollable strip */}
@@ -77,7 +77,7 @@ export default function Carousel({ children, className = "", stripClassName = ""
         disabled={!canNext}
         className={`${btnBase} end-2 ${canNext ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        <ChevronLeft size={18} className="text-[var(--color-text-primary)]" />
+        <ChevronLeft size={28} strokeWidth={2.5} />
       </button>
     </div>
   );

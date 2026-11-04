@@ -10,7 +10,7 @@ export async function generateMetadata() {
   };
 }
 
-const card  = "rounded-3xl overflow-hidden glass-strong";
+const card  = "rounded-xl overflow-hidden glass-strong";
 const prose = "text-sm leading-relaxed text-white/80";
 const h2cls = "font-bold tracking-tight text-white";
 

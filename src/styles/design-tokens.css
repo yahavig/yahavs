@@ -1,6 +1,8 @@
 /* ══════════════════════════════════════════════════════════════════
-   Design tokens
+   Design tokens — Apple design system (see .claude skill apple-design-system)
    -------------------------------------------------------------------
+   One accent (Action Blue). Liquid-glass surfaces keep their
+   soft shadows and inset highlights. Weights are 400 / 600 / 700 only.
    Strategy: each mode is defined ONCE in a named selector list.
    - Light tokens live on `:root` and `html.light` (manual override).
    - Dark tokens live on `@media (prefers-color-scheme: dark) :root:not(.light)`
@@ -10,24 +12,26 @@
 /* ── Light (default + manual .light override) ────────────────────── */
 :root,
 html.light {
-  /* Core palette */
-  --color-bg: #F9F9F7;
+  /* Surfaces: canvas / canvasParchment / surfacePearl */
+  --color-bg: #FFFFFF;
   --color-surface: #FFFFFF;
-  --color-surface-hover: #F4F4F2;
+  --color-surface-hover: #F5F5F7;
 
-  /* Text */
-  --color-text-primary: #000000;
-  --color-text-secondary: #3a3a3c;
-  --color-text-tertiary: #6e6e73;
+  /* Text: ink / inkMuted80 / inkMuted48 */
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #333333;
+  --color-text-tertiary: #7A7A7A;
 
-  /* Accents */
-  --color-accent: #0071E3;
-  --color-accent-hover: #0077ED;
+  /* Accent: primary (fills) · primaryFocus (hover / focus) · link text */
+  --color-accent: #0066CC;
+  --color-accent-hover: #0071E3;
+  --color-accent-text: #0066CC;
 
-  /* Borders */
-  --color-border: #D8D8DC;
-  --color-border-light: #EBEBF0;
+  /* Hairlines */
+  --color-border: #E0E0E0;
+  --color-border-light: #F0F0F0;
 
+  /* Translucent surfaces */
   /* Liquid Glass */
   --glass-bg: rgba(255, 255, 255, 0.55);
   --glass-bg-strong: rgba(255, 255, 255, 0.78);
@@ -39,25 +43,33 @@ html.light {
 
 /* ── Mode-independent (same in light + dark) ─────────────────────── */
 :root {
-  --shadow-lg:   0 10px 32px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.08);
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.06);
-  --radius-sm: 0.5rem;
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Radius scale: sm inline · md small tiles · lg cards · xl hero · pill actions */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* Motion: 150–240ms ease-out */
+  --ease-out-expo: cubic-bezier(0, 0, 0.2, 1);
 }
 
 /* ── Dark (system preference + manual .dark override) ────────────── */
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
     --color-bg: #000000;
-    --color-surface: #1C1C1E;
-    --color-surface-hover: #2C2C2E;
-    --color-text-primary: #F5F5F7;
-    --color-text-secondary: #98989D;
-    --color-text-tertiary: #636366;
-    --color-accent: #0A84FF;
-    --color-accent-hover: #409CFF;
-    --color-border: #38383A;
-    --color-border-light: #2C2C2E;
+    --color-surface: #272729;
+    --color-surface-hover: #2A2A2C;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #CCCCCC;
+    --color-text-tertiary: #7A7A7A;
+    --color-accent: #0066CC;
+    --color-accent-hover: #0071E3;
+    --color-accent-text: #2997FF;
+    --color-border: rgba(255, 255, 255, 0.16);
+    --color-border-light: rgba(255, 255, 255, 0.1);
     --glass-bg: rgba(44, 44, 46, 0.65);
     --glass-bg-strong: rgba(58, 58, 60, 0.82);
     --glass-border: rgba(255, 255, 255, 0.10);
@@ -69,15 +81,16 @@ html.light {
 
 html.dark {
   --color-bg: #000000;
-  --color-surface: #1C1C1E;
-  --color-surface-hover: #2C2C2E;
-  --color-text-primary: #F5F5F7;
-  --color-text-secondary: #98989D;
-  --color-text-tertiary: #636366;
-  --color-accent: #0A84FF;
-  --color-accent-hover: #409CFF;
-  --color-border: #38383A;
-  --color-border-light: #2C2C2E;
+  --color-surface: #272729;
+  --color-surface-hover: #2A2A2C;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #CCCCCC;
+  --color-text-tertiary: #7A7A7A;
+  --color-accent: #0066CC;
+  --color-accent-hover: #0071E3;
+  --color-accent-text: #2997FF;
+  --color-border: rgba(255, 255, 255, 0.16);
+  --color-border-light: rgba(255, 255, 255, 0.1);
   --glass-bg: rgba(44, 44, 46, 0.65);
   --glass-bg-strong: rgba(58, 58, 60, 0.82);
   --glass-border: rgba(255, 255, 255, 0.10);

@@ -13,7 +13,7 @@ export default function Footer({ socialLinks = [], siteName = "yahavguetta.com" 
   const HIDDEN = new Set(["discord", "youtube", "tiktok", "instagram"]);
   const visibleLinks = socialLinks.filter(l => !HIDDEN.has(l.platform));
   return (
-    <footer className="bg-[#0A0A0A] text-white pb-[96px] md:pb-[120px] rounded-t-3xl">
+    <footer className="bg-black text-white pb-[96px] md:pb-[120px] rounded-t-xl">
       <Container className="py-5">
         <div className="flex flex-col items-center gap-3 text-center">
           <Link href="/" className="text-lg font-bold tracking-tight text-white transition-opacity hover:opacity-70">
@@ -57,7 +57,7 @@ function SocialLink({ link }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={link.label}
-      className="social-link flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 text-xs font-medium text-white/70 transition-colors duration-200"
+      className="social-link flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 text-xs font-semibold text-white/70 transition-colors duration-200"
       style={{ "--hover-color": color }}
     >
       <SocialIcon platform={link.platform} />

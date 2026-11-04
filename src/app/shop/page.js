@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { ShoppingBag } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import ProductCard from "@/components/cards/ProductCard";
 import ProductCarousel from "@/components/ui/ProductCarousel";
+import LiquidCard from "@/components/ui/LiquidCard";
 import { getSiteConfig } from "@/lib/content";
 import { getShop } from "@/lib/shop";
 
@@ -29,10 +31,10 @@ export default async function ShopPage() {
           </p>
 
           {affiliate && (
-            <p className="mx-auto mb-8 max-w-2xl rounded-2xl glass px-5 py-3 text-xs leading-relaxed text-[var(--color-text-secondary)]">
+            <p className="mx-auto mb-8 max-w-2xl rounded-lg glass px-5 py-3 text-xs leading-relaxed text-[var(--color-text-secondary)]">
               <strong className="text-[var(--color-text-primary)]">גילוי נאות:</strong>{" "}
               הקישורים בעמוד הם קישורי שותפים. אם תרכשו דרכם אקבל עמלה קטנה, בלי תוספת מחיר עבורכם.{" "}
-              <Link href="/terms" className="text-[var(--color-accent)] hover:underline">
+              <Link href="/terms" className="text-[var(--color-accent-text)] hover:underline">
                 פרטים נוספים
               </Link>
             </p>
@@ -44,7 +46,7 @@ export default async function ShopPage() {
                 <a
                   key={g.id}
                   href={`#cat-${g.id}`}
-                  className="rounded-full glass px-4 py-1.5 text-xs font-semibold text-[var(--color-text-primary)] transition-colors hover:text-[var(--color-accent)]"
+                  className="rounded-full glass px-4 py-1.5 text-xs font-semibold text-[var(--color-text-primary)] transition-colors hover:text-[var(--color-accent-text)]"
                 >
                   {g.label}
                 </a>
@@ -53,29 +55,32 @@ export default async function ShopPage() {
           )}
 
           {groups.length === 0 ? (
-            <div className="mx-auto max-w-md rounded-3xl glass-strong p-10">
-              <h2 className="text-xl font-bold text-[var(--color-text-primary)]">המדפים עוד ריקים</h2>
-              <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
+            <div className="mx-auto flex max-w-sm flex-col items-center gap-4 px-6 py-16">
+              <ShoppingBag size={44} strokeWidth={1.5} className="text-[var(--color-text-tertiary)]" aria-hidden="true" />
+              <h2 className="text-[28px] font-semibold text-[var(--color-text-primary)]">המדפים עוד ריקים</h2>
+              <p className="text-[var(--color-text-tertiary)]">
                 אני מסדר פה מוצרים. תחזרו עוד קצת.
               </p>
             </div>
           ) : (
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-4">
               {groups.map((g, gi) => (
-                <section key={g.id} id={`cat-${g.id}`} aria-labelledby={g.label ? `h-${g.id}` : undefined} className="scroll-mt-24">
-                  {g.label && (
-                    <h2 id={`h-${g.id}`} className="mb-5 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                      {g.label}
-                    </h2>
-                  )}
-                  <ProductCarousel label={g.label ?? "מוצרים"}>
-                    {g.products.map((p, i) => (
-                      <div key={p.url} className="w-[46%] shrink-0 snap-start sm:w-56 lg:w-60">
-                        <ProductCard product={p} preload={gi === 0 && i < 4} />
-                      </div>
-                    ))}
-                  </ProductCarousel>
-                </section>
+                <LiquidCard key={g.id}>
+                  <section id={`cat-${g.id}`} aria-labelledby={g.label ? `h-${g.id}` : undefined} className="scroll-mt-24 px-[var(--gutter)] py-6 sm:py-9">
+                    {g.label && (
+                      <h2 id={`h-${g.id}`} className="mb-5 text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl">
+                        {g.label}
+                      </h2>
+                    )}
+                    <ProductCarousel label={g.label ?? "מוצרים"}>
+                      {g.products.map((p, i) => (
+                        <div key={p.url} className="w-[46%] shrink-0 snap-start sm:w-56 lg:w-60">
+                          <ProductCard product={p} preload={gi === 0 && i < 4} />
+                        </div>
+                      ))}
+                    </ProductCarousel>
+                  </section>
+                </LiquidCard>
               ))}
             </div>
           )}

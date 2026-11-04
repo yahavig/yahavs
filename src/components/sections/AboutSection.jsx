@@ -1,37 +1,39 @@
 import GlassButton from "@/components/ui/GlassButton";
 import Carousel from "@/components/ui/Carousel";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
+import Container from "@/components/ui/Container";
+import LiquidCard from "@/components/ui/LiquidCard";
 import { ChevronLeft } from "lucide-react";
 
 const darkGlass = {
   "--glass-bg-strong":     "linear-gradient(145deg, rgba(28,28,30,0.90) 0%, rgba(56,56,58,0.90) 100%)",
   "--glass-border-strong": "rgba(255,255,255,0.12)",
-  "--glass-shadow-lg":     "0 20px 60px rgba(0,0,0,0.40), 0 1px 0 rgba(255,255,255,0.10) inset",
+  "--glass-shadow-lg":     "0 1px 0 rgba(255,255,255,0.10) inset",
 };
 const blueGlass = {
   "--glass-bg-strong":     "linear-gradient(145deg, rgba(90,200,250,0.48) 0%, rgba(0,113,227,0.54) 100%)",
   "--glass-border-strong": "rgba(90,200,250,0.32)",
-  "--glass-shadow-lg":     "0 20px 60px rgba(0,113,227,0.30), 0 1px 0 rgba(255,255,255,0.22) inset",
+  "--glass-shadow-lg":     "0 1px 0 rgba(255,255,255,0.22) inset",
 };
 const purpleGlass = {
   "--glass-bg-strong":     "linear-gradient(145deg, rgba(175,82,222,0.54) 0%, rgba(255,45,85,0.50) 100%)",
   "--glass-border-strong": "rgba(175,82,222,0.35)",
-  "--glass-shadow-lg":     "0 20px 60px rgba(175,82,222,0.30), 0 1px 0 rgba(255,255,255,0.22) inset",
+  "--glass-shadow-lg":     "0 1px 0 rgba(255,255,255,0.22) inset",
 };
 const greenGlass = {
   "--glass-bg-strong":     "linear-gradient(145deg, rgba(52,199,89,0.52) 0%, rgba(0,199,190,0.50) 100%)",
   "--glass-border-strong": "rgba(52,199,89,0.32)",
-  "--glass-shadow-lg":     "0 20px 60px rgba(52,199,89,0.26), 0 1px 0 rgba(255,255,255,0.22) inset",
+  "--glass-shadow-lg":     "0 1px 0 rgba(255,255,255,0.22) inset",
 };
 const orangeGlass = {
   "--glass-bg-strong":     "linear-gradient(145deg, rgba(255,149,0,0.54) 0%, rgba(255,204,2,0.50) 100%)",
   "--glass-border-strong": "rgba(255,200,0,0.35)",
-  "--glass-shadow-lg":     "0 20px 60px rgba(255,149,0,0.30), 0 1px 0 rgba(255,255,255,0.22) inset",
+  "--glass-shadow-lg":     "0 1px 0 rgba(255,255,255,0.22) inset",
 };
 const redGlass = {
   "--glass-bg-strong":     "linear-gradient(145deg, rgba(255,107,107,0.54) 0%, rgba(255,149,0,0.50) 100%)",
   "--glass-border-strong": "rgba(255,120,80,0.35)",
-  "--glass-shadow-lg":     "0 20px 60px rgba(255,107,107,0.30), 0 1px 0 rgba(255,255,255,0.22) inset",
+  "--glass-shadow-lg":     "0 1px 0 rgba(255,255,255,0.22) inset",
 };
 
 const CARDS = [
@@ -45,19 +47,21 @@ const CARDS = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="pt-6 pb-3 sm:pt-9 sm:pb-4">
+    <LiquidCard>
+    <section id="about" className="py-6 sm:py-9">
+      <Container className="max-w-none!">
       <AnimatedEntry delay={0.05}>
-        <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl mb-2 px-1">נעים מאוד, יהב.</h2>
-        <p className="text-sm leading-relaxed text-white/70 mb-4 px-1 text-center">
+        <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-3xl mb-2">נעים מאוד, יהב.</h2>
+        <p className="text-sm leading-relaxed text-[var(--color-text-secondary)] mb-4 text-center">
           זה האתר שלי, אז טכנית מותר לי להתחיל בקצת יותר מדי מידע על עצמי.
         </p>
       </AnimatedEntry>
       <AnimatedEntry delay={0.1}>
-        <Carousel className="-mx-3 sm:-mx-5" stripClassName="ps-3 sm:ps-5 pe-3 sm:pe-5">
+        <Carousel className="bleed" stripClassName="gutter-strip">
           {CARDS.map(({ icon, size, glass, text }, i) => (
             <div
               key={i}
-              className="glass-strong w-56 shrink-0 sm:w-64 min-h-[260px] flex flex-col gap-4 pt-7 pb-7 px-5 rounded-2xl select-none"
+              className="glass-strong w-56 shrink-0 sm:w-64 min-h-[260px] flex flex-col gap-4 pt-7 pb-7 px-5 rounded-lg select-none"
               style={glass}
             >
               <div style={{ width: "100%", height: 70, display: "flex", alignItems: "center", justifyContent: "center" }} aria-hidden="true">
@@ -73,13 +77,15 @@ export default function AboutSection() {
       </AnimatedEntry>
 
       <AnimatedEntry delay={0.18}>
-        <div id="about-cta" className="flex justify-center mt-5 mb-[6.4vh]">
-          <GlassButton href="/about" size="sm" aria-label="לעמוד עליי המלא" glassColor="rgba(0, 113, 227, 0.80)" className="text-white font-semibold">
+        <div id="about-cta" className="flex justify-center mt-5">
+          <GlassButton href="/about" size="sm" aria-label="לעמוד עליי המלא" className="text-white font-semibold">
             <span>הסיפור שלי</span>
             <ChevronLeft size={16} strokeWidth={2.5} aria-hidden="true" />
           </GlassButton>
         </div>
       </AnimatedEntry>
+      </Container>
     </section>
+    </LiquidCard>
   );
 }

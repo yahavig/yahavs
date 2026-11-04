@@ -17,7 +17,7 @@ export default async function PrivacyPage() {
       <Header navItems={siteConfig.navItems} />
       <main id="main-content" className="flex-1 pt-24 pb-16">
         <Container>
-          <div className="rounded-3xl overflow-hidden glass-strong p-8 sm:p-12 mx-auto max-w-2xl">
+          <div className="rounded-xl overflow-hidden glass-strong p-8 sm:p-12 mx-auto max-w-2xl">
             <h1 className="mb-8 text-6xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-7xl">פרטיות</h1>
             <div className="prose prose-sm max-w-none text-[var(--color-text-secondary)] leading-relaxed space-y-3">
               <p>
@@ -45,7 +45,7 @@ export default async function PrivacyPage() {
               <h2 className="mt-6 mb-2 text-base font-semibold text-[var(--color-text-primary)]">יצירת קשר</h2>
               <p>
                 לכל שאלה או בקשה בנושא פרטיות, ניתן לפנות בדוא״ל:{" "}
-                <a href={`mailto:${email}`} className="text-[var(--color-accent)] hover:underline">{email}</a>
+                <a href={`mailto:${email}`} className="text-[var(--color-accent-text)] hover:underline">{email}</a>
               </p>
 
               <p className="mt-6 text-xs text-[var(--color-text-tertiary)]">

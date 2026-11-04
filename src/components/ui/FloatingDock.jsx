@@ -8,6 +8,9 @@ import { GlassFilter } from "@/components/ui/liquid-glass";
 /* ─── Constants ──────────────────────────────────────────────── */
 const BASE_SIZE_DESKTOP = 56;
 const BASE_SIZE_MOBILE  = 68;
+const SPACE_RATIO  = 0.23; // iPhone Dock: side/top/bottom padding and icon gap ≈ 0.23 × icon size
+const PAD_SCALE    = 0.7;  // outer tray padding = 0.7 × the icon gap → tray ~10% smaller than the exact iPhone ratio
+const RADIUS_RATIO = 0.40; // tray corner radius ≈ 0.40 × icon size
 const MAX_SIZE     = 100;  // px - peak size under cursor
 const DISTANCE     = 110;  // px - radius of influence
 const SPRING       = { mass: 0.1, stiffness: 150, damping: 12 };
@@ -32,6 +35,9 @@ export default function FloatingDock() {
 
   const [isDesktop, setIsDesktop] = useState(true);
   const BASE_SIZE = isDesktop ? BASE_SIZE_DESKTOP : BASE_SIZE_MOBILE;
+  const SPACE  = Math.round(BASE_SIZE * SPACE_RATIO);
+  const PAD    = Math.round(SPACE * PAD_SCALE);
+  const RADIUS = Math.round(BASE_SIZE * RADIUS_RATIO);
   useEffect(() => {
     const mq = window.matchMedia(`(min-width: ${SM}px)`);
     setIsDesktop(mq.matches);
@@ -72,8 +78,8 @@ export default function FloatingDock() {
 
           {/* Icons row - sits above the tray, anchored to its bottom */}
           <motion.div
-            className="relative z-[10] flex items-end gap-[10px] px-[10px]"
-            style={{ paddingBottom: 10, paddingTop: 10, overflow: "visible" }}
+            className="relative z-[10] flex items-end"
+            style={{ gap: SPACE, paddingInline: PAD, paddingBottom: PAD, paddingTop: PAD, overflow: "visible" }}
             onMouseMove={(e) => mouseX.set(e.pageX)}
             onMouseLeave={() => mouseX.set(Infinity)}
           >
@@ -101,8 +107,8 @@ export default function FloatingDock() {
           <div
             className="absolute bottom-0 left-0 right-0 z-0"
             style={{
-              height: BASE_SIZE + 20, // icon size + 10px top + 10px bottom
-              borderRadius: 22,
+              height: BASE_SIZE + PAD * 2, // icon size + padding top and bottom
+              borderRadius: RADIUS,
               boxShadow: "0 6px 6px rgba(0,0,0,0.18), 0 0 24px rgba(0,0,0,0.1), inset 2px 2px 1px rgba(255,255,255,0.55), inset -1px -1px 1px 1px rgba(255,255,255,0.45)",
             }}
           >
@@ -110,7 +116,7 @@ export default function FloatingDock() {
             <div
               className="absolute inset-0"
               style={{
-                borderRadius: 22,
+                borderRadius: RADIUS,
                 backdropFilter: "blur(3px)",
                 filter: "url(#glass-distortion)",
                 isolation: "isolate",
@@ -118,7 +124,7 @@ export default function FloatingDock() {
               }}
             />
             {/* Tint — light/dark aware */}
-            <div className="dock-tint absolute inset-0" style={{ borderRadius: 22 }} />
+            <div className="dock-tint absolute inset-0" style={{ borderRadius: RADIUS }} />
           </div>
         </div>
       </motion.div>
@@ -151,7 +157,7 @@ function DockItem({ item, mouseX, onClick, baseSize }) {
           style={{ whiteSpace: "nowrap" }}
         >
           <div
-            className="rounded-lg px-3 py-[5px] text-[12px] font-medium text-[#1c1c1e]"
+            className="rounded-lg px-3 py-[5px] text-[12px] font-semibold text-[#1c1c1e]"
             style={{
               background: "rgba(236,236,236,0.92)",
               backdropFilter: "blur(8px)",

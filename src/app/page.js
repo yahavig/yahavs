@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import SocialSection from "@/components/sections/SocialSection";
 import AboutSection from "@/components/sections/AboutSection";
+import ShopSection from "@/components/sections/ShopSection";
 import AnimatedEntry from "@/components/ui/AnimatedEntry";
 import LiquidCard from "@/components/ui/LiquidCard";
 import { getSiteConfig } from "@/lib/content";
@@ -68,12 +69,15 @@ export default async function Home() {
       <main id="main-content" className="flex-1">
         <HeroSection />
         <div className="space-y-4 p-3 sm:space-y-4 sm:p-4">
-          <AnimatedEntry>
-            <AboutSection />
-          </AnimatedEntry>
           <Suspense>
             <SocialFeed socialLinks={siteConfig.socialLinks} />
           </Suspense>
+          <AnimatedEntry>
+            <ShopSection />
+          </AnimatedEntry>
+          <AnimatedEntry>
+            <AboutSection />
+          </AnimatedEntry>
         </div>
       </main>
       <div className="h-2" aria-hidden="true" />

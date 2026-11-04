@@ -106,7 +106,7 @@ export default function MobileNav({ navItems = [], lightMode = false }) {
               exit={{   scale: 0.90,  y: -10 }}
               transition={{ type: "spring", mass: 0.22, stiffness: 280, damping: 22 }}
               style={{ transformOrigin: "top right", overflow: "hidden" }}
-              className="fixed top-[72px] right-4 z-50 w-72 rounded-3xl"
+              className="fixed top-[72px] right-4 z-50 w-72 rounded-xl"
             >
               <GlassFilter />
 
@@ -139,7 +139,7 @@ export default function MobileNav({ navItems = [], lightMode = false }) {
                 />
                 {/* Highlight border */}
                 <div
-                  className="absolute inset-0 rounded-3xl pointer-events-none"
+                  className="absolute inset-0 rounded-xl pointer-events-none"
                   style={{
                     boxShadow:
                       "inset 2px 2px 1px rgba(255,255,255,0.85), inset -1px -1px 1px rgba(255,255,255,0.5), 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.1)",
@@ -160,7 +160,7 @@ export default function MobileNav({ navItems = [], lightMode = false }) {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className={`block rounded-2xl px-5 py-3.5 text-[17px] font-semibold tracking-tight transition-colors text-right ${
+                      className={`block rounded-lg px-5 py-3.5 text-[17px] font-semibold tracking-tight transition-colors text-right ${
                         pathname === item.href
                           ? "bg-black/10 text-[var(--color-text-primary)]"
                           : "text-[var(--color-text-primary)] hover:bg-black/6 hover:text-[var(--color-text-primary)]"

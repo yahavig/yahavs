@@ -31,8 +31,8 @@ export default function Header({ navItems = [] }) {
   }, []);
 
   const linkClass = !scrolled && isHeroPage
-    ? "rounded-full px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
-    : "rounded-full px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-primary)]";
+    ? "rounded-full px-4 py-2 text-sm font-semibold text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+    : "rounded-full px-4 py-2 text-sm font-semibold text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-primary)]";
 
   const bgClass = scrolled
     ? "bg-white/80 dark:bg-[#1c1c1e]/80 backdrop-blur-2xl border-b border-black/5"
@@ -48,7 +48,7 @@ export default function Header({ navItems = [] }) {
           animate={{ opacity: 1, y: 0  }}
           exit={{   opacity: 0, y: -6  }}
           transition={{ duration: 0.22, ease: "easeOut" }}
-          className={`fixed top-0 z-50 w-full transition-all duration-300 ${bgClass}`}
+          className={`fixed top-0 z-50 w-full transition-all duration-200 ${bgClass}`}
         >
           <Container>
             <nav className="flex h-14 items-center justify-center">

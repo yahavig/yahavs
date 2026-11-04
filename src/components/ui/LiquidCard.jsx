@@ -5,7 +5,7 @@
 export default function LiquidCard({ children, className = "" }) {
   return (
     <div
-      className={`relative rounded-3xl overflow-hidden transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.008] ${className}`}
+      className={`relative rounded-xl overflow-hidden transition-transform duration-200 ease-out hover:scale-[1.008] ${className}`}
       style={{
         boxShadow:
           "0 6px 6px rgba(0,0,0,0.18), 0 0 24px rgba(0,0,0,0.1), inset 2px 2px 1px rgba(255,255,255,0.55), inset -1px -1px 1px 1px rgba(255,255,255,0.45)",
